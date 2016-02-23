@@ -331,6 +331,7 @@ md-sidenav {
     vertical-align: text-top;
     font-size: x-large;
     color: white; }
+
 .md-button.md-accent.md-fab.fab-footer {
   float: right;
   right: 25px;
@@ -411,11 +412,13 @@ md-sidenav {
   margin-left: 22px;
   font-size: 22px;
   color: gray; }
+
 .md-list-item-default p {
   font-size: 15px;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis; }
+
 .md-list-item-default span {
   font-size: 15px;
   margin-right: 20px; }
@@ -1345,6 +1348,7 @@ md-sidenav {
     width: 100px;
     height: 100px;
     margin-top: 0; }
+
 #expense-dashboard #expense-dashboard-content {
   margin-top: 256px; }
   #expense-dashboard #expense-dashboard-content md-list-item {
@@ -1446,6 +1450,7 @@ md-sidenav {
   margin-top: 8px; }
   #cloth-shop-content md-toolbar h2 i {
     color: #e3cf7a !important; }
+
 #cloth-shop-content #product-list .col {
   padding: 3px; }
   #cloth-shop-content #product-list .col .cube-item {
