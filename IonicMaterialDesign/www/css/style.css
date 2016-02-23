@@ -1903,3 +1903,7 @@ md-sidenav {
           width: 65px;
           text-align: center;
           margin-top: 15px; }
+
+.custom-icon {
+  font-size: 64px;
+  color: #e91e63; }
