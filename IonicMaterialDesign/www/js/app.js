@@ -595,27 +595,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
-            .state('app.productList', {
-                url: "/productList",
-                views: {
-                    'productContent': {
-                        templateUrl: "templates/share-application-content/social-share/html/product-list.html",
-                        controller: 'productListCtrl'
-                    }
-                }
-            })
-            .state('app.productDetail', {
-                url: "/productDetail",
-                params: {
-                    product: null,
-                },
-                views: {
-                    'productContent': {
-                        templateUrl: "templates/share-application-content/social-share/html/product-detail.html",
-                        controller: 'productDetailCtrl'
-                    }
-                }
-            })
+           
             .state('app.productCheckout', {
                 url: "/productCheckout",
                 views: {
@@ -925,6 +905,27 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 					}
 				}
 			})
+             .state('app.productList', {
+                url: "/productList",
+                views: {
+                    'productContent': {
+                        templateUrl: "templates/gbmono/product/html/productList.html",
+                        controller: 'productListCtrl'
+                    }
+                }
+            })
+            .state('app.productDetail', {
+                url: "/productDetail",
+                params: {
+                    product: null,
+                },
+                views: {
+                    'productContent': {
+                        templateUrl: "templates/gbmono/product/html/productDetail.html",
+                        controller: 'productDetailCtrl'
+                    }
+                }
+            })
 			// gbmono page end
 			;
         //Use $urlRouterProvider.otherwise(Url);
