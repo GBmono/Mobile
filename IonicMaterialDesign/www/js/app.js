@@ -39,7 +39,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngCordova'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngCordova'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
         //Create database table of contracts by using sqlite database.
@@ -177,42 +177,42 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                 "}";
 
             switch (stateName) {
-                case "app.productList" :
+                case "app.productList":
                 case "app.productDetail":
                 case "app.productCheckout":
-                case "app.clothShop" :
-                case "app.catalog" :
+                case "app.clothShop":
+                case "app.catalog":
                     customStyle += getProductStyle();
                     break;
-                case "app.dropboxLogin" :
+                case "app.dropboxLogin":
                 case "app.dropboxProfile":
-                case "app.dropboxFeed" :
+                case "app.dropboxFeed":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.dropboxColor);
                     break;
-                case "app.facebookLogin" :
+                case "app.facebookLogin":
                 case "app.facebookProfile":
-                case "app.facebookFeed" :
+                case "app.facebookFeed":
                 case "app.facebookFriendList":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.facebookColor);
                     break;
-                case "app.foursquareLogin" :
+                case "app.foursquareLogin":
                 case "app.foursquareProfile":
-                case "app.foursquareFeed" :
+                case "app.foursquareFeed":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.foursquareColor);
                     break;
-                case "app.googlePlusLogin" :
+                case "app.googlePlusLogin":
                 case "app.googlePlusProfile":
-                case "app.googlePlusFeed" :
+                case "app.googlePlusFeed":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.googlePlusColor);
                     break;
-                case "app.instagramLogin" :
+                case "app.instagramLogin":
                 case "app.instagramProfile":
-                case "app.instagramFeed" :
+                case "app.instagramFeed":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.instagramColor);
                     break;
-                case "app.wordpressLogin" :
+                case "app.wordpressLogin":
                 case "app.wordpressFeed":
-                case "app.wordpressPost" :
+                case "app.wordpressPost":
                     customStyle += getSocialNetworkStyle(window.globalVariable.color.wordpressColor);
                     break;
                 case "app.contractUs":
@@ -316,16 +316,16 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('app', {
                 url: "/app",
                 abstract: true,
-				//templateUrl: "templates/menu/html/menu.html",
+                //templateUrl: "templates/menu/html/menu.html",
                 //controller: 'menuCtrl'
-                
-				templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
+
+                templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
                 controller: 'gbmonoTabsCtrl'
-            })	
+            })
             .state('app.dashboard', {
                 url: "/dashboard",
-                params:{
-                    isAnimated:false
+                params: {
+                    isAnimated: false
                 },
                 views: {
                     'menuContent': {
@@ -346,8 +346,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('app.contractlist', {
                 url: "/contractlist",
                 cache: false,
-                params:{
-                    isAnimated:true
+                params: {
+                    isAnimated: true
                 },
                 views: {
                     'menuContent': {
@@ -381,8 +381,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             })
             .state('app.notelist', {
                 url: "/notelist",
-                params:{
-                    isAnimated:false
+                params: {
+                    isAnimated: false
                 },
                 cache: false,
                 views: {
@@ -595,27 +595,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
-            .state('app.productList', {
-                url: "/productList",
-                views: {
-                    'productListContent': {
-                        templateUrl: "templates/share-application-content/social-share/html/product-list.html",
-                        controller: 'productListCtrl'
-                    }
-                }
-            })
-            .state('app.productDetail', {
-                url: "/productDetail",
-                params: {
-                    product: null,
-                },
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/share-application-content/social-share/html/product-detail.html",
-                        controller: 'productDetailCtrl'
-                    }
-                }
-            })
+
+
             .state('app.productCheckout', {
                 url: "/productCheckout",
                 views: {
@@ -802,8 +783,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             })
             .state('app.expense', {
                 url: "/expense",
-                params:{
-                    isAnimated:true
+                params: {
+                    isAnimated: true
                 },
                 views: {
                     'menuContent': {
@@ -914,37 +895,60 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })// End $stateProvider
-			
+
 			// gbmono page start
-			.state('app.home',{
-				url: "/home",
-				views:{
-					'homeContent':{
-						templateUrl: "templates/gbmono/home/html/home.html",
-						controller: "homeCtrl"
-					}
-				}
+			.state('app.home', {
+			    url: "/home",
+			    views: {
+			        'homeContent': {
+			            templateUrl: "templates/gbmono/home/html/home.html",
+			            controller: "homeCtrl"
+			        }
+			    }
 			})
-			// gbmono page end
-			;
+             .state('app.productList', {
+                 url: "/productList",
+                 views: {
+                     'productListContent': {
+                         templateUrl: "templates/gbmono/product/html/productList.html",
+                         controller: 'productListCtrl'
+                     }
+                 }
+             })
+                .state('app.productDetail', {
+                    url: "/productDetail",
+                    params: {
+                        product: null,
+                    },
+                    views: {
+                        'productDetailContent': {
+                            templateUrl: "templates/gbmono/product/html/productDetail.html",
+                            controller: 'productDetailCtrl'
+                        }
+                    }
+                })
+
+
+        // gbmono page end
+        ;
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     })
-	
+
 	// 默认导航位置
 	.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-		$ionicConfigProvider.platform.ios.tabs.style('standard');
-		$ionicConfigProvider.platform.ios.tabs.position('bottom');
-		$ionicConfigProvider.platform.android.tabs.style('standard');
-		$ionicConfigProvider.platform.android.tabs.position('bottom');
-		$ionicConfigProvider.platform.ios.navBar.alignTitle('center');
-		$ionicConfigProvider.platform.android.navBar.alignTitle('center');
-		$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-		$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
-		$ionicConfigProvider.platform.ios.views.transition('ios');
-		$ionicConfigProvider.platform.android.views.transition('android');
+	    $ionicConfigProvider.platform.ios.tabs.style('standard');
+	    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+	    $ionicConfigProvider.platform.android.tabs.style('standard');
+	    $ionicConfigProvider.platform.android.tabs.position('bottom');
+	    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+	    $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+	    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+	    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+	    $ionicConfigProvider.platform.ios.views.transition('ios');
+	    $ionicConfigProvider.platform.android.views.transition('android');
 	})
-	
-	
-	;
+
+
+;
