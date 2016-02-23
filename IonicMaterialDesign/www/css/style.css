@@ -331,6 +331,7 @@ md-sidenav {
     vertical-align: text-top;
     font-size: x-large;
     color: white; }
+
 .md-button.md-accent.md-fab.fab-footer {
   float: right;
   right: 25px;
@@ -411,11 +412,13 @@ md-sidenav {
   margin-left: 22px;
   font-size: 22px;
   color: gray; }
+
 .md-list-item-default p {
   font-size: 15px;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis; }
+
 .md-list-item-default span {
   font-size: 15px;
   margin-right: 20px; }
@@ -1345,6 +1348,7 @@ md-sidenav {
     width: 100px;
     height: 100px;
     margin-top: 0; }
+
 #expense-dashboard #expense-dashboard-content {
   margin-top: 256px; }
   #expense-dashboard #expense-dashboard-content md-list-item {
@@ -1446,6 +1450,7 @@ md-sidenav {
   margin-top: 8px; }
   #cloth-shop-content md-toolbar h2 i {
     color: #e3cf7a !important; }
+
 #cloth-shop-content #product-list .col {
   padding: 3px; }
   #cloth-shop-content #product-list .col .cube-item {
@@ -1777,3 +1782,124 @@ md-sidenav {
         color: gray; }
   #map-and-location div.map-input-option div.footer {
     margin-top: 24px; }
+
+#gbmono-home {
+  background-color: #f6f6f6; }
+  #gbmono-home #home-slide-box {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+    height: 180px; }
+    #gbmono-home #home-slide-box .slider {
+      height: 100%; }
+    #gbmono-home #home-slide-box .slider-slide {
+      padding-top: 80px;
+      text-align: center;
+      font-weight: 500; }
+    #gbmono-home #home-slide-box .slider-pager {
+      margin-bottom: -6px !important; }
+    #gbmono-home #home-slide-box .slider-slide {
+      padding-top: 0; }
+    #gbmono-home #home-slide-box .icon.ion-record {
+      color: gray;
+      font-size: 8px; }
+    #gbmono-home #home-slide-box span {
+      margin: 0; }
+      #gbmono-home #home-slide-box span i {
+        color: white !important; }
+    #gbmono-home #home-slide-box ion-slide {
+      padding-top: 50px !important;
+      color: white;
+      font-size: 15px; }
+      #gbmono-home #home-slide-box ion-slide .content {
+        background-color: rgba(4, 2, 2, 0.37); }
+        #gbmono-home #home-slide-box ion-slide .content h1 {
+          font-size: 28px;
+          color: white;
+          padding-top: 5px; }
+        #gbmono-home #home-slide-box ion-slide .content p {
+          font-weight: 500;
+          padding-bottom: 10px; }
+    #gbmono-home #home-slide-box .slide-01 {
+      background: url(../img/demo/slider-cover-2.jpg); }
+    #gbmono-home #home-slide-box .slide-02 {
+      background: url(../img/demo/slider-cover-3.jpg); }
+    #gbmono-home #home-slide-box .slide-03 {
+      background: url(../img/demo/slider-cover-4.jpg); }
+  #gbmono-home #home-content {
+    margin-top: 30px; }
+    #gbmono-home #home-content .promotions-header {
+      margin-top: -20px;
+      padding: 0 10px 8px 8px; }
+      #gbmono-home #home-content .promotions-header h1 {
+        color: gray;
+        margin: 0;
+        font-size: 18px; }
+    #gbmono-home #home-content .menu-header {
+      margin-top: -4px;
+      padding: 0 10px 8px 8px; }
+      #gbmono-home #home-content .menu-header h1 {
+        color: gray;
+        margin: 0;
+        font-size: 18px; }
+    #gbmono-home #home-content .menu-content-detail {
+      padding: 0 10px 8px 10px;
+      color: gray; }
+    #gbmono-home #home-content .product-slide-list {
+      overflow: scroll;
+      white-space: nowrap; }
+      #gbmono-home #home-content .product-slide-list .scroll-bar.scroll-bar-h {
+        display: none !important; }
+      #gbmono-home #home-content .product-slide-list .scroll {
+        min-width: 100%;
+        padding: 0 2px 0 2px; }
+        #gbmono-home #home-content .product-slide-list .scroll .feed-list {
+          height: 122px;
+          padding: 0 10px 0 10px; }
+          #gbmono-home #home-content .product-slide-list .scroll .feed-list .feed-item {
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+            width: 100px;
+            height: 110px;
+            display: inline-block;
+            margin-right: 4px; }
+            #gbmono-home #home-content .product-slide-list .scroll .feed-list .feed-item .img-header {
+              height: 85px;
+              background-size: cover;
+              border-top-right-radius: 4px;
+              border-top-left-radius: 4px; }
+            #gbmono-home #home-content .product-slide-list .scroll .feed-list .feed-item .content {
+              height: 23px;
+              background-color: white;
+              color: gray;
+              padding: 2px;
+              font-weight: 500;
+              text-align: center; }
+    #gbmono-home #home-content .location-list .location-item {
+      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+      margin-bottom: 14px; }
+      #gbmono-home #home-content .location-list .location-item .location-img {
+        height: 110px;
+        background-size: cover;
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px; }
+      #gbmono-home #home-content .location-list .location-item .location-content {
+        padding: 6px 10px 5px 10px;
+        background-color: white;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px; }
+        #gbmono-home #home-content .location-list .location-item .location-content h1 {
+          font-size: 16px;
+          margin: 0;
+          color: gray; }
+        #gbmono-home #home-content .location-list .location-item .location-content p {
+          font-size: 12px;
+          margin: 0;
+          color: gray; }
+        #gbmono-home #home-content .location-list .location-item .location-content .text-add {
+          float: right;
+          background-color: #ff5252;
+          border-radius: 80px;
+          color: white;
+          font-weight: 500;
+          font-size: 11px;
+          width: 65px;
+          text-align: center;
+          margin-top: 15px; }

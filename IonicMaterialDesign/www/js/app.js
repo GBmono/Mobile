@@ -598,7 +598,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('app.productList', {
                 url: "/productList",
                 views: {
-                    'productListContent': {
+                    'productContent': {
                         templateUrl: "templates/share-application-content/social-share/html/product-list.html",
                         controller: 'productListCtrl'
                     }
@@ -610,7 +610,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     product: null,
                 },
                 views: {
-                    'menuContent': {
+                    'productContent': {
                         templateUrl: "templates/share-application-content/social-share/html/product-detail.html",
                         controller: 'productDetailCtrl'
                     }
