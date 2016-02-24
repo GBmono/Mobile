@@ -75,8 +75,8 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         }, 400);
         $timeout(function () {
             jQuery('#product-detail-loading-progress').hide();
-            jQuery('#product-detail-content').fadeIn();
-        }, 3000);// End loading progress.
+            jQuery('#gbmono-product-detail').fadeIn();
+        }, 1000);// End loading progress.
     };// End initialForm.
 
     // addToCart for show Item Added ! toast.

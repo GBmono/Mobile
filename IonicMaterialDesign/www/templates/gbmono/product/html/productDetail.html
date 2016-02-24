@@ -9,14 +9,14 @@
     <!--left button on navigation bar-->
     <!--end left button on navigation bar-->
     <!--product detail section-->
-    <ion-content id="product-detail-content" class="fade-in">
+    <ion-content id="gbmono-product-detail" class="fade-in">
         <md-content>
             <!--product tabs section-->
             <md-tabs md-border-bottom md-selected="0" id="product-detail-tabs" class="no-border">
                 <!--product tab detail section-->
-                <md-tab label="Detail">
+                <md-tab label="商品详情">
                     <md-content id="product-detail-tab-detail">
-                        <div class="toolbar-image-cover product" style="background-image: url('{{product.img}}');">
+                        <div class="toolbar-image-cover product" style="background-image: url('img/demo/product_1.jpg');">
                         </div>
                         <a class="md-button md-accent md-fab fab-toolbar-medium"
                            ng-click="sharedProduct($event,product)"
@@ -26,24 +26,25 @@
 
                         <div class="detail-form">
                             <div class="header">
-                                <h1>{{product.title}}</h1>
+                                <!--<h1>{{product.title}}</h1>-->
+                                <h1>花王</h1>
 
-                                <p>{{product.fullDetail}}</p>
+                                <!--<p>{{product.fullDetail}}</p>-->
+                                <h5>卸妆油</h5>
                             </div>
                             <!--product tab detail price section-->
                             <div class="product-detail-price">
                                 <div class="left">
-                                    $<span class="font-sale">{{product.price | number : 2}}</span>
-                                    <br /><span class="font-hot-sale">${{product.promotionPrice | number : 2}}</span>
+                                    <span class="font-hot-sale">${{product.promotionPrice | number : 2}}</span>
                                 </div>
                                 <div class="right">
                                     <a class="md-raised md-warn md-button md-default-theme" ng-click="addToCart()">
-                                        ADD TO CART
+                                        加入清单
                                     </a>
                                 </div>
                             </div><!--end product tab detail price section-->
                             <!--product tab detail review section-->
-                            <div class="product-detail-review">
+                            <!--<div class="product-detail-review">
                                 <p>
                                     Best Seller :
                                     <span>
@@ -54,35 +55,29 @@
                                         <i class="fa fa-star"></i>
                                     </span>
                                 </p>
-                            </div><!--end product tab detail review section-->
+                            </div>-->
+                            <!--end product tab detail review section-->
                             <!--product tab detail shipping section-->
                             <div class="product-detail-shipping row">
-                                <div class="col-67">
-                                    <p>Item : MT098541A</p>
+                                <div class="col">
+                                    <p>季节 : #春季 #夏季</p>
 
-                                    <p>Coupon : PR34221</p>
+                                    <p>重量 : 300g</p>
 
-                                    <p>Shipping : Free</p>
-
-                                    <p>Money Back : 30 Day</p>
-
+                                    <p>可购入店铺 : #松本清</p>
                                 </div>
-                                <div class="col-33">
-                                    <p>In Stock</p>
-
-                                    <p><i class="fa fa-cube"></i></p>
-                                </div>
+                                
                             </div><!--end product tab detail shipping section-->
                             <!--product tab detail note section-->
                             <div class="product-detail-note">
 
-                                <p>Sharing this get discount on top 20%</p>
+                                <!--<p>Sharing this get discount on top 20%</p>-->
                             </div> <!--end product tab detail note section-->
                         </div>
                     </md-content>
                 </md-tab><!--end product tab detail section-->
                 <!--product tab product section-->
-                <md-tab label="Product">
+                <md-tab label="图片">
                     <md-content class="md-padding">
                         <div id="product-detail-tab-product">
                             <div>

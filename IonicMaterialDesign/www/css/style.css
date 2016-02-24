@@ -702,78 +702,126 @@ md-sidenav {
   min-height: 760px;
   border: none; }
 
-#product-detail-tab-detail div.detail-form {
-  margin: 10px 20px; }
-  #product-detail-tab-detail div.detail-form div.product-detail-header {
-    margin-top: 20px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-header h1 {
-      font-size: 30px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-header p {
-      font-size: 16px;
-      color: gray;
-      line-height: normal; }
-  #product-detail-tab-detail div.detail-form div.product-detail-price {
-    margin-left: 2px;
-    height: 80px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-price div.left {
-      font-size: 26px;
-      float: left;
-      margin-top: 12px;
-      line-height: 28px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-price div.right {
-      font-size: 26px;
-      float: right; }
-      #product-detail-tab-detail div.detail-form div.product-detail-price div.right a {
-        width: 116px;
-        margin-top: 22px;
-        margin-right: 10px; }
-  #product-detail-tab-detail div.detail-form div.product-detail-shipping {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 16px;
-    height: 128px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 {
-      font-size: 26px;
-      margin-top: 12px;
-      line-height: 28px;
-      width: 160px; }
-      #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 p {
-        font-size: 16px;
-        color: gray;
-        margin: 0; }
-    #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 {
-      font-size: 22px;
-      text-align: center;
-      margin-top: 18px;
-      width: 120px; }
-      #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 p {
-        margin-top: 15px;
-        font-weight: 500; }
-  #product-detail-tab-detail div.detail-form div.product-detail-review {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 10px;
-    padding-top: 20px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-review p {
-      font-size: 16px; }
-      #product-detail-tab-detail div.detail-form div.product-detail-review p span {
-        color: #e3cf7a;
-        margin-left: 10px; }
-  #product-detail-tab-detail div.detail-form div.product-detail-note {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 10px;
-    padding-top: 20px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-note h1 {
-      font-size: 24px; }
-    #product-detail-tab-detail div.detail-form div.product-detail-note p {
-      font-size: 16px;
-      color: gray;
-      margin: 0; }
+/*#product-detail-tab-detail {
+    div.detail-form {
+        margin: 10px 20px;
+        //product tab detail header section
+        div.product-detail-header {
+            margin-top: 20px;
 
+            h1 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 16px;
+                color: $color_gray;
+                line-height: normal;
+            }
+        }
+        //end product tab detail header section
+        //product tab detail price section
+        div.product-detail-price {
+            margin-left: 2px;
+            height: 80px;
+
+            div {
+                &.left {
+                    font-size: 26px;
+                    float: left;
+                    margin-top: 12px;
+                    line-height: 28px;
+                }
+
+                &.right {
+                    font-size: 26px;
+                    float: right;
+
+                    a {
+                        width: 116px;
+                        margin-top: 22px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        //end product tab detail price section
+        //product tab detail shipping section
+        div.product-detail-shipping {
+            border-top: $color_alto;
+            border-top-style: solid;
+            border-top-width: 1px;
+            margin-top: 16px;
+            height: 128px;
+
+            div {
+                &.col-67 {
+                    font-size: 26px;
+                    margin-top: 12px;
+                    line-height: 28px;
+                    width: 160px;
+
+                    p {
+                        font-size: 16px;
+                        color: $color_gray;
+                        margin: 0;
+                    }
+                }
+
+                &.col-33 {
+                    font-size: 22px;
+                    text-align: center;
+                    margin-top: 18px;
+                    width: 120px;
+
+                    p {
+                        margin-top: 15px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        //end product tab detail shipping section
+        //product tab detail review section
+        div.product-detail-review {
+            border-top: $color_alto;
+            border-top-style: solid;
+            border-top-width: 1px;
+            margin-top: 10px;
+            padding-top: 20px;
+
+            p {
+                font-size: 16px;
+
+                span {
+                    color: $color_chenin_approx;
+                    margin-left: 10px;
+                }
+            }
+        }
+        //end product tab detail review section
+        //product tab detail note section
+        div.product-detail-note {
+            border-top: $color_alto;
+            border-top-style: solid;
+            border-top-width: 1px;
+            margin-top: 10px;
+            padding-top: 20px;
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+                color: $color_gray;
+                margin: 0;
+            }
+        }
+        //end product tab detail note section
+        //end detail section
+    }
+}*/
 #product-detail-tab-product {
   margin: 10px 20px; }
   #product-detail-tab-product div.pin {
@@ -1924,6 +1972,79 @@ md-sidenav {
   #gbmono-product-list .productName {
     font-size: 8px;
     color: gray; }
+
+#gbmono-product-detail #product-detail-tab-detail div.detail-form {
+  margin: 10px 20px; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header {
+    margin-top: 20px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header h1 {
+      font-size: 30px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header p {
+      font-size: 16px;
+      color: gray;
+      line-height: normal; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price {
+    margin-left: 2px;
+    height: 50px;
+    color: gray; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.left {
+      font-size: 26px;
+      float: left;
+      margin-top: 12px;
+      line-height: 28px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right {
+      font-size: 26px;
+      float: right; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right a {
+        width: 116px;
+        /*margin-top: 22px;*/
+        margin-right: 10px; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping {
+    border-top: #dbdbdb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 16px;
+    height: 100px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 {
+      font-size: 26px;
+      margin-top: 12px;
+      line-height: 28px;
+      width: 160px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 p {
+        font-size: 16px;
+        color: gray;
+        margin: 0; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 {
+      font-size: 22px;
+      text-align: center;
+      margin-top: 18px;
+      width: 120px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 p {
+        margin-top: 15px;
+        font-weight: 500; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review {
+    border-top: #dbdbdb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 10px;
+    padding-top: 20px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p {
+      font-size: 16px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p span {
+        color: #e3cf7a;
+        margin-left: 10px; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note {
+    border-top: #dbdbdb;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 10px;
+    padding-top: 20px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note h1 {
+      font-size: 24px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note p {
+      font-size: 16px;
+      color: gray;
+      margin: 0; }
 
 .custom-icon {
   font-size: 64px;
