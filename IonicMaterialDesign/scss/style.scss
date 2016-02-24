@@ -2992,6 +2992,39 @@ md-sidenav {
   }//end restaurant content section
 }//end restaurant section
 
+#gbmono-product-list {
+  background-color: $color_black_haze_approx;
+
+   md-toolbar {
+    background-image: $url_background_cover_pixels;
+    margin-bottom: -14px;
+    height: 154px !important;
+    margin-top: 18px;
+  }//end toolbar section
+
+
+   .tagIcon{
+       width:50px;
+       height:50px;
+
+   }
+   .col-center-block {  
+    float: none;  
+    display: block;  
+    margin-left: auto;  
+    margin-right: auto;  
+
+   
+} 
+    h5{
+        color:$color_gray;
+    }
+    .productName{
+        font-size:8px;
+        color:$color_gray;
+    }
+}//end restaurant section
+
 
  .custom-icon {
     font-size:64px;

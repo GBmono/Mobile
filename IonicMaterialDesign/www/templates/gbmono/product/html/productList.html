@@ -6,15 +6,26 @@
 <!--URL : #app/productList-->
 
 <ion-view view-title="Material Shop">
+    <ion-header-bar>
+        <div class="row item-input-inset">
+            <button class="button button-clear button-icon icon ion-qr-scanner" ng-click="scanBarcode()"></button>
+            <a href="#/noMenu/search" class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="搜索商品">
+            </a>
+        </div>
+    </ion-header-bar>
+
     <!--product list section-->
-    <ion-content id="product-list-content" class="fade-in">
+    <ion-content id="gbmono-product-list" class="fade-in">
+
 
         <!--toolbar section-->
         <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
             <div>
-                <h1>SALE 90% OFF</h1>
+                <h1>集匠</h1>
 
-                <h2>Order Now !!</h2>
+                <h2>分类</h2>
 
                 <h2>
                     <i class="fa fa-diamond"></i>
@@ -22,37 +33,104 @@
             </div>
         </md-toolbar><!--end toolbar section-->
 
+
+        <div class="row">
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/0.jpg"/>
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">全部</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/2.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">打底妆</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/1.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">局部妆</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/3.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">染发</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/4.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">头发造型</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/5.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">口腔护理</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/7.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">女性用品</h5>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="row">
+                    <img class="tagIcon col-center-block" ng-src="img/demo/6.jpg" />
+                </div>
+                <div class="row">
+                    <h5 class="col-center-block">婴童用品</h5>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col">
                 <!--pin section-->
                 <div class="pin" ng-if="$even" ng-repeat="product in productList"
                      ng-click="navigateTo('app.productDetail',product)">
-                    <h5>{{product.title}}</h5>
+                    <!--<h5>{{product.title}}</h5>-->
+                    <h5>花王</h5>
                     <img ng-src="img/demo/product_1.jpg"/>
-                    <p>{{product.detail}}</p>
-
                     <div class="pin-footer">
-                        $<span class="pin-footer text-left font-sale">{{product.price}}</span>
-                        <!--<span class="pin-footer text-left font-hot-sale">${{product.promotionPrice}}</span>-->
+                        <span class="pin-footer text-left productName">卸妆油</span>                        
                         <span class="pin-footer text-right">+Add</span>
                     </div>
-                </div>  <!--end pin section-->
+                </div> <!--end pin section-->
             </div>
 
             <div class="col">
                 <!--pin section-->
                 <div class="pin" ng-if="$odd" ng-repeat="product in productList"
                      ng-click="navigateTo('app.productDetail',product)">
-                    <h5>{{product.title}}</h5>
-                    <img ng-src="img/demo/product_2.jpg" />
-                    <p>{{product.detail}}</p>
-
+                    <!--<h5>{{product.title}}</h5>-->
+                    <h5>兰蔻</h5>
+                    <img ng-src="img/demo/product_2.jpg"/>
                     <div class="pin-footer">
-                        $<span class="pin-footer text-left font-sale">{{product.price}}</span>
-                        <!--<span class="pin-footer text-left font-hot-sale">${{product.promotionPrice}}</span>-->
+                        <span class="pin-footer text-left productName">雪肌精</span>
                         <span class="pin-footer text-right">+Add</span>
                     </div>
-                </div>  <!--end pin section-->
+                </div> <!--end pin section-->
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $timeout, $state, $http) {
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate,$timeout, $state, $http) {
 
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -12,14 +12,15 @@
                 jQuery('#product-list-loading-progress').show();
             }
             else {
-                jQuery('#product-list-loading-progress').fadeIn(700);
+                jQuery('#gbmono-product-list').fadeIn(700);
             }
         }, 400);
         $timeout(function () {
             jQuery('#product-list-loading-progress').hide();
-            jQuery('#product-list-content').fadeIn();
-        }, 4000);// End loading progress.
+            jQuery('#gbmono-product-list').fadeIn();
+        }, 2000);// End loading progress.
     };// End initialForm.
+
 
     // navigateTo is for navigate to other page.
     // by using targetPage to be the destination page
