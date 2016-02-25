@@ -5,20 +5,20 @@
 <!--State name : app.productList-->
 <!--URL : #app/productList-->
 
+
 <ion-view view-title="Material Shop">
-    <ion-header-bar>
-        <div class="row item-input-inset">
+    <ion-header-bar id="gbmono-product-list-head">
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-ios-search-strong" ng-click="navigateTo('app.productSearch')"></button>
+        </div>
+        <h1 class="title"><b>产品库</b></h1>
+        <div class="buttons">
             <button class="button button-clear button-icon icon ion-qr-scanner" ng-click="scanBarcode()"></button>
-            <a href="#/noMenu/search" class="item-input-wrapper">
-                <i class="icon ion-ios-search placeholder-icon"></i>
-                <input type="search" placeholder="搜索商品">
-            </a>
         </div>
     </ion-header-bar>
 
     <!--product list section-->
     <ion-content id="gbmono-product-list" class="fade-in">
-
 
         <!--toolbar section-->
         <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/0.jpg"/>
+                    <img class="tagIcon col-center-block" ng-src="img/demo/0.jpg" />
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">全部</h5>
@@ -111,21 +111,22 @@
                      ng-click="navigateTo('app.productDetail',product)">
                     <!--<h5>{{product.title}}</h5>-->
                     <h5>花王</h5>
-                    <img ng-src="img/demo/product_1.jpg"/>
+                    <img ng-src="img/demo/product_1.jpg" />
                     <div class="pin-footer">
-                        <span class="pin-footer text-left productName">卸妆油</span>                        
+                        <span class="pin-footer text-left productName">卸妆油</span>
                         <span class="pin-footer text-right">+Add</span>
                     </div>
-                </div> <!--end pin section-->
+                </div>
+                <!--end pin s
+                ection-->
             </div>
-
             <div class="col">
                 <!--pin section-->
                 <div class="pin" ng-if="$odd" ng-repeat="product in productList"
                      ng-click="navigateTo('app.productDetail',product)">
                     <!--<h5>{{product.title}}</h5>-->
                     <h5>兰蔻</h5>
-                    <img ng-src="img/demo/product_2.jpg"/>
+                    <img ng-src="img/demo/product_2.jpg" />
                     <div class="pin-footer">
                         <span class="pin-footer text-left productName">雪肌精</span>
                         <span class="pin-footer text-right">+Add</span>
@@ -133,6 +134,9 @@
                 </div> <!--end pin section-->
             </div>
         </div>
+
+       
+
 
         <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
         </ion-infinite-scroll>

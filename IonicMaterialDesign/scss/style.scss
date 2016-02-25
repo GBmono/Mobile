@@ -3288,8 +3288,8 @@ md-sidenav {
     md-toolbar {
         background-image: $url_background_cover_pixels;
         margin-bottom: -14px;
-        height: 154px !important;
-        margin-top: 18px;
+        height: 128px !important;
+        
     }
     //end toolbar section
     .tagIcon {
@@ -3316,11 +3316,8 @@ md-sidenav {
 //end restaurant section
 
 
+
 #gbmono-product-detail {
-
-
-
-
     #product-detail-tab-detail {
         div.detail-form {
             margin: 10px 20px;
@@ -3344,6 +3341,7 @@ md-sidenav {
                 margin-left: 2px;
                 height: 50px;
                 color: $color_gray;
+
                 div {
                     &.left {
                         font-size: 26px;
@@ -3368,11 +3366,6 @@ md-sidenav {
             //product tab detail shipping section
             div.product-detail-shipping {
                 border-top: $color_alto;
-                border-top-style: solid;
-                border-top-width: 1px;
-                margin-top: 16px;
-                height: 100px;
-                
                 div {
                     &.col-67 {
                         font-size: 26px;
@@ -3439,10 +3432,30 @@ md-sidenav {
             }
             //end product tab detail note section
             //end detail section
+
+            .md-subheader .md-subheader-inner{
+                padding:5px 0px 5px 0px
+            }
+
+            .desc-strart{
+                border-top: $color_alto;
+                border-top-style: solid;
+                border-top-width: 1px;
+                margin-top: 16px;
+                margin-bottom: 16px;
+            }
+
         }
+
+    
     }
     //end product tab detail section
 }
+
+#gbmono-product-search {
+
+}
+
 
 .custom-icon {
     font-size: 64px;
