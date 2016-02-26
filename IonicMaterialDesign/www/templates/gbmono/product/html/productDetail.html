@@ -6,8 +6,13 @@
 <!--URL : #app/productDetail-->
 
 <ion-view view-title="{{product.title}}">
-    <!--left button on navigation bar-->
-    
+    <!--left button on navigation bar-->    
+    <ion-header-bar id="gbmono-product-list-head">
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-android-arrow-back" ng-click="$ionicGoBack()"></button>
+        </div>
+        <h1 class="title"><b>{{product.title}}</b></h1>
+    </ion-header-bar>   
     <!--end left button on navigation bar-->
     <!--product detail section-->
     <ion-content id="gbmono-product-detail" class="fade-in">
