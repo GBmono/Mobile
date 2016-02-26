@@ -1971,6 +1971,11 @@ md-sidenav {
   #gbmono-product-list .productName {
     font-size: 8px;
     color: gray; }
+  #gbmono-product-list .aaaa {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90px; }
 
 #gbmono-product-detail #product-detail-tab-detail div.detail-form {
   margin: 10px 20px; }
