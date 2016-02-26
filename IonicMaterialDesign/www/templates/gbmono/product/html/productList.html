@@ -19,7 +19,6 @@
 
     <!--product list section-->
     <ion-content id="gbmono-product-list" class="fade-in">
-
         <!--toolbar section-->
         <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
             <div>
@@ -116,19 +115,6 @@
             </div>
         </div>
 
-
-        <!--<div class="list">
-            <div class="item item-thumbnail-left" ng-repeat="product in productList"
-                 ng-click="navigateTo('app.productDetail',product)">
-                <img ng-src="img/demo/2_1.jpeg">
-                <div>
-                    <img ng-src="img/demo/2_1.jpeg">
-                </div>
-
-                <h2>{{product.title}}</h2>
-                <p>{{product.detail}}</p>
-            </div>
-        </div>-->
         <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
         </ion-infinite-scroll>
     </ion-content><!--end product list section-->

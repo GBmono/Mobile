@@ -1975,7 +1975,10 @@ md-sidenav {
     padding-top: 5px;
     padding-bottom: 5px;
     border-top: 1px solid;
-    border-color: #ddd; }
+    border-bottom: 1px solid;
+    border-color: #ddd;
+    margin: 5px;
+    margin-top: -6px; }
   #gbmono-product-list .productsArea img {
     max-width: 80px;
     max-height: 80px;
@@ -2065,3 +2068,59 @@ md-sidenav {
     border-top-width: 1px;
     margin-top: 16px;
     margin-bottom: 16px; }
+
+#gbmono-product-search #product-search-tab-category .c-parent h4 {
+  display: inline-block;
+  margin-left: 8px;
+  color: #ff5252; }
+
+#gbmono-product-search #product-search-tab-category .c-children {
+  border-color: #ddd;
+  margin-top: -6px; }
+  #gbmono-product-search #product-search-tab-category .c-children .col-25 {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #ddd; }
+  #gbmono-product-search #product-search-tab-category .c-children .c-children-second {
+    border-left: 1px solid;
+    border-color: #ddd; }
+  #gbmono-product-search #product-search-tab-category .c-children .c-children-third {
+    border-left: 1px solid;
+    border-color: #ddd; }
+  #gbmono-product-search #product-search-tab-category .c-children .c-children-last {
+    border-left: 1px solid;
+    border-color: #ddd; }
+  #gbmono-product-search #product-search-tab-category .c-children p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin: 5px; }
+
+#gbmono-product-search-Result {
+  background-color: #f6f6f6; }
+  #gbmono-product-search-Result h5 {
+    color: gray; }
+  #gbmono-product-search-Result .productName {
+    font-size: 8px;
+    color: gray; }
+  #gbmono-product-search-Result .productsArea {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #ddd;
+    margin: 5px;
+    margin-top: -6px; }
+  #gbmono-product-search-Result .productsArea img {
+    max-width: 80px;
+    max-height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  #gbmono-product-search-Result .productsArea h5 {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  #gbmono-product-search-Result .productsArea p {
+    margin-top: 0px;
+    margin-bottom: 0px; }

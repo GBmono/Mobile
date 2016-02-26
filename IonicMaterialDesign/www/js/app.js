@@ -935,6 +935,15 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
+            .state('app.productSearchResult', {
+                url: "/productSearchResult",
+                views: {
+                    'productContent': {
+                        templateUrl: "templates/gbmono/product/html/productSearchResult.html",
+                        controller: 'productSearchResultCtrl'
+                    }
+                }
+            })
 
 			// gbmono page end
 			;

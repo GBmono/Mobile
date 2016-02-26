@@ -3314,14 +3314,17 @@ md-sidenav {
 
 
 
-    .productsArea{
-        padding-top:5px;
-        padding-bottom:5px;
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
         border-top: 1px solid;
+        border-bottom: 1px solid;
         border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
     }
 
-    .productsArea img{
+    .productsArea img {
         max-width: 80px;
         max-height: 80px;
         display: block;
@@ -3329,14 +3332,15 @@ md-sidenav {
         margin-right: auto;
     }
 
-     .productsArea h5{
-         margin-top:0px;
-         margin-bottom:0px;
-     }
-     .productsArea p{
-         margin-top:0px;
-         margin-bottom:0px;
-     }
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
 //end restaurant section
 
@@ -3475,4 +3479,87 @@ md-sidenav {
 }
 
 #gbmono-product-search {
+    #product-search-tab-category {
+        .c-parent {
+            h4{
+                display:inline-block;
+                margin-left:8px;
+                color:#ff5252;
+            }
+
+        }
+
+        .c-children {
+             border-color: #ddd;
+             margin-top:-6px;
+            .col-25{
+                border-top:1px solid;
+                border-bottom:1px solid;
+                border-color: #ddd;
+            }
+
+            .c-children-second {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-third {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-last {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+
+            p {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align:center;
+                margin:5px;
+            }
+        }
+    }
+}
+
+
+#gbmono-product-search-Result {
+    background-color: $color_black_haze_approx;
+
+      h5 {
+        color: $color_gray;
+    }
+
+    .productName {
+        font-size: 8px;
+        color: $color_gray;
+    }
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
