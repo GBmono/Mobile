@@ -1,10 +1,12 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
+
 appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http) {
 
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
+
         // $scope.productList is the variable that store user product data.
         $scope.productList = [{
             img: 'img/demo/促销.png',
@@ -77,6 +79,5 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
                 });
         }, 2000);
     };// End loadMore.
-
     $scope.initialForm();
 });// End of Notes List Page  Controller.
