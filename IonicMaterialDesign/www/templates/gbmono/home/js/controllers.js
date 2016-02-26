@@ -1,17 +1,12 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-<<<<<<< HEAD
-appControllers.controller('homeCtrl', function ($scope,$stateParams, $timeout, NoteDB, $state) {
-=======
+
 appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http) {
->>>>>>> b8c18587fe8cbb4ba027120d142a68906b44f02d
 
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
-<<<<<<< HEAD
-      
-=======
+
         // $scope.productList is the variable that store user product data.
         $scope.productList = [{
             img: 'img/demo/促销.png',
@@ -44,7 +39,6 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
             jQuery('#home-loading-progress').hide();
             jQuery('#home-product-list').fadeIn();
         }, 4000);// End loading progress.
->>>>>>> b8c18587fe8cbb4ba027120d142a68906b44f02d
 
     };//End initialForm.
 
@@ -61,8 +55,6 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
         });
     };// End navigateTo.
 
-<<<<<<< HEAD
-=======
     // loadMore is for loadMore product list.
     $scope.loadMore = function () {
         $timeout(function () {
@@ -87,7 +79,5 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
                 });
         }, 2000);
     };// End loadMore.
-
->>>>>>> b8c18587fe8cbb4ba027120d142a68906b44f02d
     $scope.initialForm();
 });// End of Notes List Page  Controller.
