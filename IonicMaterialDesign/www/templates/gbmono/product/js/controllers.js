@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $timeout, $state, $http) {
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate,$timeout, $state, $http) {
 
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -12,14 +12,15 @@
                 jQuery('#product-list-loading-progress').show();
             }
             else {
-                jQuery('#product-list-loading-progress').fadeIn(700);
+                jQuery('#gbmono-product-list').fadeIn(700);
             }
         }, 400);
         $timeout(function () {
             jQuery('#product-list-loading-progress').hide();
-            jQuery('#product-list-content').fadeIn();
-        }, 4000);// End loading progress.
+            jQuery('#gbmono-product-list').fadeIn();
+        }, 2000);// End loading progress.
     };// End initialForm.
+
 
     // navigateTo is for navigate to other page.
     // by using targetPage to be the destination page
@@ -74,8 +75,8 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         }, 400);
         $timeout(function () {
             jQuery('#product-detail-loading-progress').hide();
-            jQuery('#product-detail-content').fadeIn();
-        }, 3000);// End loading progress.
+            jQuery('#gbmono-product-detail').fadeIn();
+        }, 1000);// End loading progress.
     };// End initialForm.
 
     // addToCart for show Item Added ! toast.
@@ -107,3 +108,49 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     $scope.initialForm();
 });// End of product list controller.
+
+
+appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory) {
+
+    // This function is the first activity in the controller. 
+    // It will initial all variable data and let the function works when page load.
+    $scope.initialForm = function () {
+        // $scope.productList is the variable that store user product data.
+        $scope.productCategories = [];
+
+        // Loading progress.
+        $timeout(function () {
+            if ($scope.isAndroid) {
+                jQuery('#product-list-loading-progress').show();
+            }
+            else {
+                jQuery('#gbmono-product-search').fadeIn(700);
+            }
+        }, 400);
+        $timeout(function () {
+            jQuery('#product-list-loading-progress').hide();
+            jQuery('#gbmono-product-search').fadeIn();
+        }, 2000);// End loading progress.
+    };// End initialForm.
+
+
+    // navigateTo is for navigate to other page.
+    // by using targetPage to be the destination page
+    // and send object to the destination page.
+    // Parameter :  
+    // targetPage = destination page.
+    // objectData = object data that sent to destination page.
+    $scope.navigateTo = function (targetPage, objectData) {
+        $state.go(targetPage, {
+            product: objectData
+        });
+    };// End navigateTo.
+
+    $scope.goBack = function () {
+        $ionicHistory.goBack();
+    };
+
+    $scope.initialForm();
+
+});// End of product list controller.
+

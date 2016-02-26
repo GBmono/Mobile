@@ -926,6 +926,16 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
+            .state('app.productSearch', {
+                url: "/productSearch",
+                views: {
+                    'productContent': {
+                        templateUrl: "templates/gbmono/product/html/productSearch.html",
+                        controller: 'productSearchCtrl'
+                    }
+                }
+            })
+
 			// gbmono page end
 			;
         //Use $urlRouterProvider.otherwise(Url);
