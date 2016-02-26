@@ -104,36 +104,87 @@
                                 <!--<p>Sharing this get discount on top 20%</p>-->
                             </div> <!--end product tab detail note section-->
                         </div>
+                        <div class="row">
+                            <div class="col promotions-header">
+                                <h1>
+                                    <i class="fa fa-bullhorn"></i> 同类推荐
+                                </h1>
+                            </div>
+                        </div>
+                        <ion-scroll direction="x" class="product-slide-list">
+                            <div class="feed-list">
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_1.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_2.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_3.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_4.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_5.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="img-header" style="background-image: url('img/demo/product_6.jpg')">
+                                    </div>
+                                    <div class="content">
+                                        SALE 50%
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-scroll>
                     </md-content>
                 </md-tab><!--end product tab detail section-->
                 <!--product tab product section-->
                 <md-tab label="购入店铺">
                     <md-content class="md-padding">
-                        <div id="product-detail-tab-product">
-                            <div>
-                                <h1>{{product.title}}</h1>
-
-                                <p>{{product.fullDetail}}</p>
-                            </div>
-                            <!--pin section-->
-                            <div class="pin">
-                                <img ng-src="{{product.img}}" />
-
-                                <p>
-                                    {{product.detail}}
-                                </p>
-
-                                <div class="pin-footer">
-                                    $<span class="pin-footer text-left font-sale">{{product.price}}</span>
-                                    <span class="pin-footer text-left font-hot-sale">${{product.promotionPrice}}</span>
+                        <md-list>
+                            <md-subheader class="md-warn">可购入店铺</md-subheader>
+                            <md-list-item class="md-2-line">
+                                <img ng-src="{{'img/app_icon.png'}}" class="md-avatar" />
+                                <div class="md-list-item-text">
+                                    <h3>松本清</h3>
                                 </div>
-                                <a class="md-raised md-warn md-button md-default-theme"
-                                   ng-click="addToCart()">
-                                    ADD TO CART
-                                </a>
-                            </div>  <!--end pin section-->
-
-                        </div>
+                            </md-list-item>
+                            <md-list-item class="md-2-line">
+                                <img ng-src="{{'img/app_icon.png'}}" class="md-avatar" />
+                                <div class="md-list-item-text">
+                                    <h3>永旺</h3>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+                            <md-subheader class="md-warn">可购入网店</md-subheader>
+                            <md-list-item class="md-2-line">
+                                <img ng-src="{{'img/app_icon.png'}}" class="md-avatar" />
+                                <div class="md-list-item-text">
+                                    <h3>天猫旗舰店</h3>
+                                </div>
+                            </md-list-item>
+                        </md-list>
                     </md-content>
                 </md-tab> <!--product tab product section-->
             </md-tabs><!--end product tabs section-->
@@ -146,7 +197,7 @@
         <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
     </div> <!--end loading progress-->
     <!--canvas for save image to local devise-->
-    <canvas id="imgCanvas" class="display-none"></canvas>
+    <canvas id="imgCanvas" class="display-none"></canvas>    
 
     <!--angular template section-->
     <script type="text/ng-template" id="bottom-sheet-shared.html">
