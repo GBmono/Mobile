@@ -697,11 +697,11 @@ md-sidenav {
   #social-sign-up-content a.social-button {
     width: 100%; }
 
-#product-detail-tabs {
+/*#product-detail-tabs {
   height: 760px;
   min-height: 760px;
-  border: none; }
-
+  border: none;
+}*/
 /*#product-detail-tab-detail {
   div.detail-form {
     margin: 10px 20px;
