@@ -697,11 +697,11 @@ md-sidenav {
   #social-sign-up-content a.social-button {
     width: 100%; }
 
-#product-detail-tabs {
+/*#product-detail-tabs {
   height: 760px;
   min-height: 760px;
-  border: none; }
-
+  border: none;
+}*/
 /*#product-detail-tab-detail {
   div.detail-form {
     margin: 10px 20px;
@@ -1977,79 +1977,127 @@ md-sidenav {
     margin-right: auto;
     max-width: 90px; }
 
-#gbmono-product-detail #product-detail-tab-detail div.detail-form {
-  margin: 10px 20px; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header {
-    margin-top: 20px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header h1 {
-      font-size: 30px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header p {
-      font-size: 16px;
-      color: gray;
-      line-height: normal; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price {
-    margin-left: 2px;
-    height: 50px;
-    color: gray; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.left {
-      font-size: 26px;
-      float: left;
-      margin-top: 12px;
-      line-height: 28px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right {
-      font-size: 26px;
-      float: right; }
-      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right a {
-        width: 116px;
-        /*margin-top: 22px;*/
-        margin-right: 10px; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping {
-    border-top: #dbdbdb; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 {
-      font-size: 26px;
-      margin-top: 12px;
-      line-height: 28px;
-      width: 160px; }
-      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 p {
+#gbmono-product-detail #product-detail-tab-detail {
+  margin-top: 30px; }
+  #gbmono-product-detail #product-detail-tab-detail div.detail-form {
+    margin: 10px 20px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header {
+      margin-top: 20px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header h1 {
+        font-size: 30px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-header p {
+        font-size: 16px;
+        color: gray;
+        line-height: normal; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price {
+      margin-left: 2px;
+      height: 50px;
+      color: gray; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.left {
+        font-size: 26px;
+        float: left;
+        margin-top: 12px;
+        line-height: 28px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right {
+        font-size: 26px;
+        float: right; }
+        #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-price div.right a {
+          width: 116px;
+          /*margin-top: 22px;*/
+          margin-right: 10px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping {
+      border-top: #dbdbdb; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 {
+        font-size: 26px;
+        margin-top: 12px;
+        line-height: 28px;
+        width: 160px; }
+        #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 p {
+          font-size: 16px;
+          color: gray;
+          margin: 0; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 {
+        font-size: 22px;
+        text-align: center;
+        margin-top: 18px;
+        width: 120px; }
+        #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 p {
+          margin-top: 15px;
+          font-weight: 500; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review {
+      border-top: #dbdbdb;
+      border-top-style: solid;
+      border-top-width: 1px;
+      margin-top: 10px;
+      padding-top: 20px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p {
+        font-size: 16px; }
+        #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p span {
+          color: #e3cf7a;
+          margin-left: 10px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note {
+      border-top: #dbdbdb;
+      border-top-style: solid;
+      border-top-width: 1px;
+      margin-top: 10px;
+      padding-top: 20px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note h1 {
+        font-size: 24px; }
+      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note p {
         font-size: 16px;
         color: gray;
         margin: 0; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 {
-      font-size: 22px;
-      text-align: center;
-      margin-top: 18px;
-      width: 120px; }
-      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-33 p {
-        margin-top: 15px;
-        font-weight: 500; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 10px;
-    padding-top: 20px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p {
-      font-size: 16px; }
-      #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-review p span {
-        color: #e3cf7a;
-        margin-left: 10px; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 10px;
-    padding-top: 20px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note h1 {
-      font-size: 24px; }
-    #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-note p {
-      font-size: 16px;
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form .md-subheader .md-subheader-inner {
+      padding: 5px 0px 5px 0px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form .desc-strart {
+      border-top: #dbdbdb;
+      border-top-style: solid;
+      border-top-width: 1px;
+      margin-top: 16px;
+      margin-bottom: 16px; }
+  #gbmono-product-detail #product-detail-tab-detail .promotions-header {
+    margin-top: -20px;
+    padding: 0 10px 8px 8px; }
+    #gbmono-product-detail #product-detail-tab-detail .promotions-header h1 {
       color: gray;
-      margin: 0; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form .md-subheader .md-subheader-inner {
-    padding: 5px 0px 5px 0px; }
-  #gbmono-product-detail #product-detail-tab-detail div.detail-form .desc-strart {
-    border-top: #dbdbdb;
-    border-top-style: solid;
-    border-top-width: 1px;
-    margin-top: 16px;
-    margin-bottom: 16px; }
+      margin: 0;
+      font-size: 18px; }
+  #gbmono-product-detail #product-detail-tab-detail .menu-header {
+    margin-top: -4px;
+    padding: 0 10px 8px 8px; }
+    #gbmono-product-detail #product-detail-tab-detail .menu-header h1 {
+      color: gray;
+      margin: 0;
+      font-size: 18px; }
+  #gbmono-product-detail #product-detail-tab-detail .menu-content-detail {
+    padding: 0 10px 8px 10px;
+    color: gray; }
+  #gbmono-product-detail #product-detail-tab-detail .product-slide-list {
+    overflow: scroll;
+    white-space: nowrap; }
+    #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll-bar.scroll-bar-h {
+      display: none !important; }
+    #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll {
+      min-width: 100%;
+      padding: 0 2px 0 2px; }
+      #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll .feed-list {
+        height: 122px;
+        padding: 0 10px 0 10px; }
+        #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll .feed-list .feed-item {
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+          width: 100px;
+          height: 110px;
+          display: inline-block;
+          margin-right: 4px; }
+          #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll .feed-list .feed-item .img-header {
+            height: 85px;
+            background-size: cover;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px; }
+          #gbmono-product-detail #product-detail-tab-detail .product-slide-list .scroll .feed-list .feed-item .content {
+            height: 23px;
+            background-color: white;
+            color: gray;
+            padding: 2px;
+            font-weight: 500;
+            text-align: center; }

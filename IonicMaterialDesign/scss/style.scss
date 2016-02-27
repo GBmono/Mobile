@@ -1182,11 +1182,11 @@ md-sidenav {
 
 //product detail section
 //product tabs section
-#product-detail-tabs {
+/*#product-detail-tabs {
   height: 760px;
   min-height: 760px;
   border: none;
-}
+}*/
 //end product tabs section
 //product tab detail section
 /*#product-detail-tab-detail {
@@ -3326,7 +3326,10 @@ md-sidenav {
 
 
 #gbmono-product-detail {
+
     #product-detail-tab-detail {
+        margin-top: 30px;
+
         div.detail-form {
             margin: 10px 20px;
             //product tab detail header section
@@ -3455,11 +3458,80 @@ md-sidenav {
 
         }
 
+        .promotions-header {
+            margin-top: -20px;
+            padding: 0 10px 8px 8px;
+
+            h1 {
+            color: $color_gray;
+            margin: 0;
+            font-size: 18px;
+            }
+        }
+
+        .menu-header {
+            margin-top: -4px;
+            padding: 0 10px 8px 8px;
+
+            h1 {
+            color: $color_gray;
+            margin: 0;
+            font-size: 18px;
+            }
+        }
+
+        .menu-content-detail {
+            padding: 0 10px 8px 10px;
+            color: $color_gray;
+        }
     
+        .product-slide-list {
+            overflow: scroll;
+            white-space: nowrap;
+
+            .scroll-bar.scroll-bar-h {
+                display: none !important;
+            }
+
+            .scroll {
+                min-width: 100%;
+                padding: 0 2px 0 2px;
+
+                .feed-list {
+                    height: 122px;
+                    padding: 0 10px 0 10px;
+
+                    .feed-item {
+                        box-shadow: 0px 3px 1px -2px $color_black_14, 0px 2px 2px 0px $color_black_098, 0px 1px 5px 0px $color_black_084;
+                        width: 100px;
+                        height: 110px;
+                        display: inline-block;
+                        margin-right: 4px;
+
+                        .img-header {
+                            height: 85px;
+                            background-size: cover;
+                            border-top-right-radius: 4px;
+                            border-top-left-radius: 4px;
+                        }
+
+                        .content {
+                            height: 23px;
+                            background-color: $color_white;
+                            color: $color_gray;
+                            padding: 2px;
+                            font-weight: 500;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
     //end product tab detail section
-                }
+}
 
 #gbmono-product-search {
 
             }
+
