@@ -1,0 +1,42 @@
+﻿<!--View Information-->
+<!--View name : Product List-->
+<!--Controller name : productListCtrl-->
+<!--Controller path : www/templates/share-application-content/social-share/js/controllers.js-->
+<!--State name : app.productList-->
+<!--URL : #app/productList-->
+
+<ion-view view-title="Material Shop">
+    <ion-header-bar id="gbmono-product-list-head">
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </div>
+    </ion-header-bar>
+
+    <!--product list section-->
+    <ion-content id="gbmono-product-search-Result">
+
+        <div class="row productsArea" ng-repeat="product in productList"
+             ng-click="navigateTo('app.productDetail',product.productId)">
+            <div class="col-25">
+                <img ng-src="{{imgRoot + product.imgUrl}}">
+            </div>
+            <div class="col">
+                <h5>{{product.productId}}</h5>
+                <h5>{{product.brandName}}</h5>
+                <p>{{product.primaryName}} {{product.secondaryName}}</p>
+                <p>¥{{product.price  | number : 2}}</p>
+            </div>
+        </div>
+
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
+
+
+
+    <div id="product-list-loading-progress" class="loading-progress fade-in">
+        <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
+        <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
+    </div><!--end loading progress-->
+
+</ion-view>

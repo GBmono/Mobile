@@ -5,10 +5,6 @@
 <!--State name : app.productList-->
 <!--URL : #app/productList-->
 
-
-
-
-
 <ion-view view-title="Material Shop">
     <ion-header-bar id="gbmono-product-list-head">
         <div class="buttons">
@@ -21,8 +17,38 @@
     </ion-header-bar>
 
     <!--product list section-->
-    <ion-content id="gbmono-product-search" class="fade-in">
-
+    <ion-content id="gbmono-product-search">
+        <md-content>
+            <!--product tabs section-->
+            <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height class="no-border">
+                <!--product tab detail section-->
+                <md-tab label="分类">
+                    <md-content id="product-search-tab-category">
+                        <div class="row" ng-repeat="category in categories">
+                            <div class="col">
+                                <div class="row c-parent">
+                                    <div class="col">
+                                        <i class="ion-pricetags"></i><h4 ng-click="navigateTo('app.productSearchResult','c',category.CategoryId)">{{category.Name}}</h4>
+                                    </div>
+                                </div>
+                                <div class="row c-children">
+                                    <div class="col-25" ng-repeat="subCategory in category.SubCategories">
+                                        <p ng-click="navigateTo('app.productSearchResult','c',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab><!--end product tab detail section-->
+                <!--product tab product section-->
+                <md-tab label="热词">
+                    <md-content id="product-search-tab-key" class="md-padding">
+                      
+                    </md-content>
+                </md-tab> <!--product tab product section-->
+            </md-tabs><!--end product tabs section-->
+        </md-content>
 
 
     </ion-content>

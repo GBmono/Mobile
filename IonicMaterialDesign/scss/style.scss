@@ -3289,7 +3289,6 @@ md-sidenav {
         background-image: $url_background_cover_pixels;
         margin-bottom: -14px;
         height: 128px !important;
-        
     }
     //end toolbar section
     .tagIcon {
@@ -3314,11 +3313,33 @@ md-sidenav {
     }
 
 
-    .aaaa{
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width:90px
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+}
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
 //end restaurant section
@@ -3377,6 +3398,7 @@ md-sidenav {
             //product tab detail shipping section
             div.product-detail-shipping {
                 border-top: $color_alto;
+
                 div {
                     &.col-67 {
                         font-size: 26px;
@@ -3443,12 +3465,11 @@ md-sidenav {
             }
             //end product tab detail note section
             //end detail section
-
-            .md-subheader .md-subheader-inner{
-                padding:5px 0px 5px 0px
+            .md-subheader .md-subheader-inner {
+                padding: 5px 0px 5px 0px;
             }
 
-            .desc-strart{
+            .desc-strart {
                 border-top: $color_alto;
                 border-top-style: solid;
                 border-top-width: 1px;
@@ -3491,7 +3512,7 @@ md-sidenav {
 
             .scroll-bar.scroll-bar-h {
                 display: none !important;
-            }
+        }
 
             .scroll {
                 min-width: 100%;
@@ -3514,7 +3535,7 @@ md-sidenav {
                             border-top-right-radius: 4px;
                             border-top-left-radius: 4px;
                         }
-
+    
                         .content {
                             height: 23px;
                             background-color: $color_white;
@@ -3529,9 +3550,94 @@ md-sidenav {
         }
     }
     //end product tab detail section
-}
+                }
+
 
 #gbmono-product-search {
-
+    #product-search-tab-category {
+        .c-parent {
+            h4{
+                display:inline-block;
+                margin-left:8px;
+                color:#ff5252;
             }
+
+        }
+
+        .c-children {
+             border-color: #ddd;
+             margin-top:-6px;
+             flex-flow:row wrap;
+
+            .col-25{
+                margin-top:-1px;
+                margin-left: -1px;
+                border: 1px solid #ddd;
+            }
+
+            .c-children-second {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-third {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-last {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+
+            p {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align:center;
+                margin:5px;
+            }
+        }
+    }
+}
+
+
+#gbmono-product-search-Result {
+    background-color: $color_black_haze_approx;
+
+      h5 {
+        color: $color_gray;
+    }
+
+    .productName {
+        font-size: 8px;
+        color: $color_gray;
+    }
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
 
