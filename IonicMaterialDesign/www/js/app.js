@@ -917,7 +917,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('app.productDetail', {
                 url: "/productDetail",
                 params: {
-                    product: null,
+                    productId: null
                 },
                 views: {
                     'productContent': {
@@ -937,6 +937,10 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             })
             .state('app.productSearchResult', {
                 url: "/productSearchResult",
+                params: {
+                    way: null,
+                    key: null
+                },
                 views: {
                     'productContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",

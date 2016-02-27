@@ -2076,11 +2076,12 @@ md-sidenav {
 
 #gbmono-product-search #product-search-tab-category .c-children {
   border-color: #ddd;
-  margin-top: -6px; }
+  margin-top: -6px;
+  flex-flow: row wrap; }
   #gbmono-product-search #product-search-tab-category .c-children .col-25 {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-color: #ddd; }
+    margin-top: -1px;
+    margin-left: -1px;
+    border: 1px solid #ddd; }
   #gbmono-product-search #product-search-tab-category .c-children .c-children-second {
     border-left: 1px solid;
     border-color: #ddd; }

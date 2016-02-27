@@ -17,7 +17,7 @@
                 <!--product tab detail section-->
                 <md-tab label="商品详情">
                     <md-content id="product-detail-tab-detail">
-                        <div class="toolbar-image-cover product" style="background-image: url('img/demo/product_1.jpg');">
+                        <div class="toolbar-image-cover product" style="background-image: url('{{imgRoot + product.images[0].fileName}}');">
                         </div>
                         <a class="md-button md-accent md-fab fab-toolbar-medium"
                            ng-click="sharedProduct($event,product)"
@@ -27,16 +27,16 @@
 
                         <div class="detail-form">
                             <div class="header">
-                                <!--<h1>{{product.title}}</h1>-->
-                                <h1>花王</h1>
+                                <h1>{{product.primaryName}}</h1>
+                              
 
-                                <!--<p>{{product.fullDetail}}</p>-->
-                                <h5>卸妆油</h5>
+                                <p>{{product.secondaryName}}</p>
+                                
                             </div>
                             <!--product tab detail price section-->
                             <div class="product-detail-price">
                                 <div class="left">
-                                    <span class="font-hot-sale">${{product.promotionPrice | number : 2}}</span>
+                                    <span class="font-hot-sale">${{product.price | number : 2}}</span>
                                 </div>
                                 <div class="right">
                                     <a class="md-raised md-warn md-button md-default-theme" ng-click="addToCart()">
@@ -44,50 +44,35 @@
                                     </a>
                                 </div>
                             </div>
-                            <!--end product tab detail price section-->
-                            <!--product tab detail review section-->
-                            <!--<div class="product-detail-review">
-                                <p>
-                                    Best Seller :
-                                    <span>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                </p>
-                            </div>-->
+                          
                             <!--end product tab detail review section-->
                             <!--product tab detail shipping section-->
                             <div class="desc-strart" ></div>
                             <md-subheader class="md-warn">商品详细</md-subheader>
                             <div class="product-detail-shipping row">
                                 <div class="col">
-                                    <p>功能(用途) : 眼药</p>
+                                    <p>功能(用途) : {{ product.category.name }}</p>
 
-                                    <p>重量 : 300g</p>
+                                    <p>重量 : {{ product.weight }}</p>
 
-                                    <p>质地 : </p>
+                                    <p>容量 : {{ product.capacity }}</p>
 
-                                    <p>气味 : -</p>
+                                    <p>质地 :{{ }}</p>
+
+                                    <p>气味 : {{ product.flavor}}</p>
                                 </div>
                             </div>
 
                             <md-subheader class="md-warn">商品介绍</md-subheader>
                             <div class="product-detail-shipping row">
                                 <div class="col">
-                                    「ロートリセコンタクトb」は、角膜保護成分「コンドロイチン硫酸エステルナトリウム」を最大濃度配合。角膜をしっかりケアし、瞳にうるおいを与えます。またレンズうるおい成分「ヒブロメロース」と栄養成分である「ブドウ糖」を配合。
-                                    レンズ装用中の瞳にうるおいや栄養を与えることで、乾きや不快感をケアします。
-                                    カラーコンタクトレンズを含む、すべてのコンタクトレンズに対応。もちろん裸眼でもお使いいただけます。
-                                    しみないさし心地。
-                                    【第３類医薬品】カクマクホゴセイブンリュウサンサイダイノウドハイゴウカクマクヒトミアタセイブンエイヨウセイブントウハイゴウソウヨウナカヒトミエイヨウアタカワフカイカンフクタイオウラガンツカゴコチダイルイイヤクヒン
+                                    <pre>{{ product.description }}</pre>
                                 </div>
                             </div>
                             <md-subheader class="md-warn">使用说明</md-subheader>
                             <div class="product-detail-shipping row">
                                 <div class="col">
-                                    1回1～3滴、1日5～6回点眼してください。カイテキニチカイテンガン
+                                    <pre>{{ product.instruction }}</pre>
                                 </div>
                             </div>
 

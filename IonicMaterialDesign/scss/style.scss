@@ -3492,10 +3492,12 @@ md-sidenav {
         .c-children {
              border-color: #ddd;
              margin-top:-6px;
+             flex-flow:row wrap;
+
             .col-25{
-                border-top:1px solid;
-                border-bottom:1px solid;
-                border-color: #ddd;
+                margin-top:-1px;
+                margin-left: -1px;
+                border: 1px solid #ddd;
             }
 
             .c-children-second {
