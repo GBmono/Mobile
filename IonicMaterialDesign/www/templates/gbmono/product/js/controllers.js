@@ -57,7 +57,7 @@
 
 // Controller of product Detail Page.
 appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
-    $scope.imgRoot = "http://localhost:2232/Files/Products/";
+    $scope.imgRoot = "http://104.238.193.131:8033/Files/Products/";
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
@@ -84,7 +84,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     $scope.getProduct = function (id) {
         $http({
-            url: 'http://localhost:28975/api/Products/' + id,
+            url: 'http://104.238.193.131:8033/api/Products/' + id,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -182,7 +182,7 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
 
 appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, $stateParams) {
 
-    $scope.imgRoot = "http://localhost:2232/Files/Products/";
+    $scope.imgRoot = "http://104.238.193.131:8033/Files/Products/";
 
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -233,7 +233,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
     // loadMore is for loadMore product list.
     $scope.loadProductBySearch = function (w, k) {
         $http({
-            url: 'http://localhost:28975/api/Products/Categories/' + k,
+            url: 'http://104.238.193.131:8033/api/Products/Categories/' + k,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
