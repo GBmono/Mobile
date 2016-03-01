@@ -1,0 +1,23 @@
+<ion-tabs class="tabs-icon-top color_md_tabs_border" enable-menu-with-back-views="false">
+
+    <ion-tab title="首页" icon="ion-home" ng-click="navigateTo('app.home')">		
+        <ion-nav-view name="homeContent"></ion-nav-view>
+    </ion-tab>
+	
+    <ion-tab title="产品" icon="ion-film-marker" ng-click="navigateTo('app.productList')">	
+        <ion-nav-view name="productContent"></ion-nav-view>
+    </ion-tab>
+	
+    <ion-tab title="扫一扫" icon="ion-qr-scanner" ng-click="navigateTo('app.productList')">
+		<ion-nav-view name="menuContent"></ion-nav-view>
+	</ion-tab>
+	
+	<ion-tab title="促销" icon="ion-bag" ng-click="navigateTo('app.productList')">
+		<ion-nav-view name="menuContent1"></ion-nav-view>
+	</ion-tab>
+	
+    <ion-tab title="用户" icon="ion-person" ng-click="navigateTo('app.locationFeed')">
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-tab>
+
+</ion-tabs>
