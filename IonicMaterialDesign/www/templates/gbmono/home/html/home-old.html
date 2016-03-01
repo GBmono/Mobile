@@ -1,0 +1,56 @@
+<ion-view view-title="Dashboard" ng-controller="homeCtrl">
+    <ion-header-bar>
+        <div class="row item-input-inset">
+            <button class="button button-clear button-icon icon ion-qr-scanner" ng-click="scanBarcode()"></button>
+            <a href="#/noMenu/search" class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="搜索商品">
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider">
+                今日推荐
+            </div>
+            <div class="item item-image">
+                <img src="img/demo/slider-cover-2.jpg">
+            </div>
+            <div class="item item-image">
+                <img src="img/demo/slider-cover-3.jpg">
+            </div>
+            <div class="item item-image">
+                <img src="img/demo/slider-cover-4.jpg">
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-divider">
+                产品推荐
+            </div>
+            <div class="row item">
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_1.jpg">
+                </div>
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_2.jpg">
+                </div>
+            </div>
+            <div class="row item">
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_3.jpg">
+                </div>
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_4.jpg">
+                </div>
+            </div>
+            <div class="row item">
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_5.jpg">
+                </div>
+                <div class="item item-image col col-50">
+                    <img src="img/demo/product_6.jpg">
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

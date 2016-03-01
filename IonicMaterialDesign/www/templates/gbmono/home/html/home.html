@@ -1,4 +1,4 @@
-<ion-view view-title="Dashboard" ng-controller="homeCtrl">
+<ion-view title="Home" ng-controller="homeCtrl">
     <ion-header-bar>
         <div class="row item-input-inset">
             <button class="button button-clear button-icon icon ion-qr-scanner" ng-click="scanBarcode()"></button>
@@ -8,49 +8,172 @@
             </a>
         </div>
     </ion-header-bar>
-    <ion-content>
-        <div class="list">
-            <div class="item item-divider">
-                今日推荐
+    <ion-content id="gbmono-home">
+        <!-- slider section -->
+        <ion-slide-box id="home-slide-box" show-pager="false" active-slide="0">
+			<ion-slide class="slide-01">
+                <div class="content">
+                    <h1>
+                        Bakery Day
+                    </h1>
+                    <p>
+                        40% Off Now!!
+                    </p>
+                </div>
+            </ion-slide>
+			<ion-slide class="slide-02">
+                <div class="content">
+                    <h1>
+                        Bread Hour
+                    </h1>
+                    <p>
+                        90% Off Now!!
+                    </p>
+                </div>
+            </ion-slide>
+			<ion-slide class="slide-03">
+                <div class="content">
+                    <h1>
+                        CupCake Festival
+                    </h1>
+                    <p>
+                        50% Off Friday
+                    </p>
+                </div>
+            </ion-slide>
+		</ion-slide-box>        
+        <!-- slider section -->
+
+        <!-- home content section -->
+        <div id="home-content">
+            <div class="row">
+                <div class="col promotions-header">
+                    <h1>
+                        <i class="fa fa-bullhorn"></i> 推广
+                    </h1>
+                </div>
             </div>
-            <div class="item item-image">
-                <img src="img/demo/slider-cover-2.jpg">
+
+            <!-- product slide section -->
+            <ion-scroll direction="x" class="product-slide-list">
+                <div class="feed-list">
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_1.jpg')">                            
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_2.jpg')">
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_3.jpg')">
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_4.jpg')">
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_5.jpg')">
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="img-header" style="background-image: url('img/demo/product_6.jpg')">
+                        </div>
+                        <div class="content">
+                            SALE 50%
+                        </div>
+                    </div>
+                </div>
+            </ion-scroll>                     
+            <!-- product slide section -->
+            <div class="location-list">
+                <div class="location-item">
+                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
+                    </div>
+                    <div class="location-content row">
+                        <div class="col-90">
+                            <h1>
+                                Stone Garden
+                            </h1>
+                            <p>
+                                <i class="fa fa-flag"></i> Bangkok Thailand
+                            </p>
+                        </div>
+                        <div class="col-10">
+                            <span class="text-add">+Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
+                    </div>
+                    <div class="location-content row">
+                        <div class="col-90">
+                            <h1>
+                                Stone Garden
+                            </h1>
+                            <p>
+                                <i class="fa fa-flag"></i> Bangkok Thailand
+                            </p>
+                        </div>
+                        <div class="col-10">
+                            <span class="text-add">+Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
+                    </div>
+                    <div class="location-content row">
+                        <div class="col-90">
+                            <h1>
+                                Stone Garden
+                            </h1>
+                            <p>
+                                <i class="fa fa-flag"></i> Bangkok Thailand
+                            </p>
+                        </div>
+                        <div class="col-10">
+                            <span class="text-add">+Wishlist</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
+                    </div>
+                    <div class="location-content row">
+                        <div class="col-90">
+                            <h1>
+                                Stone Garden
+                            </h1>
+                            <p>
+                                <i class="fa fa-flag"></i> Bangkok Thailand
+                            </p>
+                        </div>
+                        <div class="col-10">
+                            <span class="text-add">+Wishlist</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="item item-image">
-                <img src="img/demo/slider-cover-3.jpg">
-            </div>
-            <div class="item item-image">
-                <img src="img/demo/slider-cover-4.jpg">
-            </div>
+            
         </div>
-        <div class="list">
-            <div class="item item-divider">
-                产品推荐
-            </div>
-            <div class="row item">
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_1.jpg">
-                </div>
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_2.jpg">
-                </div>
-            </div>
-            <div class="row item">
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_3.jpg">
-                </div>
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_4.jpg">
-                </div>
-            </div>
-            <div class="row item">
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_5.jpg">
-                </div>
-                <div class="item item-image col col-50">
-                    <img src="img/demo/product_6.jpg">
-                </div>
-            </div>
-        </div>
+        <!-- home content section -->
     </ion-content>
 </ion-view>
