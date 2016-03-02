@@ -35,7 +35,28 @@ window.globalVariable = {
         instagram: "your_api_key",//Use for Instagram API clientID.
         googlePlus: "your_api_key",//Use for Google API clientID.
     },
-    adMob: "your_api_key" //Use for AdMob API clientID.
+    adMob: "your_api_key", //Use for AdMob API clientID.
+
+    gbmono_domain: "http://119.9.104.196/", //gbmono domain
+    gbmono_web_api_app_name: gbmono_domain + 'gbmonoapi/api', //gbmono web api app name
+
+    // web api url routes
+    gbmono_api_site_prefix: {
+        // account api url
+        account_api_url: gbmono.web_api_app_name + '/Accounts',
+        // category api url 
+        category_api_url: gbmono.web_api_app_name + '/Categories',
+        // product detail url
+        product_api_url: gbmono.web_api_app_name + '/Products',
+        // brand url
+        brand_api_url: gbmono.web_api_app_name + '/Brands',
+        // profile url
+        profile_api_url: gbmono.web_api_app_name + '/Profiles',
+        // banner url
+        banner_api_url: gbmono.web_api_app_name + '/Banners',
+        // retail url
+        retail_api_url: gbmono.web_api_app_name + '/Retailers'
+    }
 };// End Global variable
 
 
