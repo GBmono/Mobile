@@ -35,7 +35,11 @@ window.globalVariable = {
         instagram: "your_api_key",//Use for Instagram API clientID.
         googlePlus: "your_api_key",//Use for Google API clientID.
     },
-    adMob: "your_api_key" //Use for AdMob API clientID.
+    adMob: "your_api_key", //Use for AdMob API clientID.
+    api: "http://119.9.104.196/GbmonoApi/",
+    imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
+
+
 };// End Global variable
 
 

@@ -20,7 +20,7 @@
     <!--product list section-->
     <ion-content id="gbmono-product-list" class="fade-in">
         <!--toolbar section-->
-        <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
+        <!--<md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
             <div>
                 <h1>集匠</h1>
 
@@ -30,7 +30,8 @@
                     <i class="fa fa-diamond"></i>
                 </h2>
             </div>
-        </md-toolbar><!--end toolbar section-->
+        </md-toolbar>-->
+        <!--end toolbar section-->
 
 
         <div class="row">
@@ -70,7 +71,7 @@
         <div class="row">
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/4.jpg"/>
+                    <img class="tagIcon col-center-block" ng-src="img/demo/4.jpg" />
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">头发造型</h5>
@@ -78,7 +79,7 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/5.jpg"/>
+                    <img class="tagIcon col-center-block" ng-src="img/demo/5.jpg" />
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">口腔护理</h5>
@@ -86,7 +87,7 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/7.jpg"/>
+                    <img class="tagIcon col-center-block" ng-src="img/demo/7.jpg" />
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">女性用品</h5>
@@ -94,17 +95,17 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/6.jpg"/>
+                    <img class="tagIcon col-center-block" ng-src="img/demo/6.jpg" />
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">婴童用品</h5>
                 </div>
             </div>
         </div>
-      
+
 
         <div class="row productsArea" ng-if="$even" ng-repeat="product in productList"
-                 ng-click="navigateTo('app.productDetail',product)">
+             ng-click="navigateTo('app.productDetail',product)">
             <div class="col-25">
                 <img ng-src="img/demo/2_1.jpeg">
             </div>
