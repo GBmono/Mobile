@@ -10,7 +10,7 @@ node_modules/
 .vs/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-
+IonicMaterialDesign/.vs
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -213,8 +213,5 @@ _Pvt_Extensions
 .fake/
 
 
-<<<<<<< HEAD
-=======
 
 Gbmono/Gbmono.WebAPI/App_Data/Log4Net.Logs/
->>>>>>> b8c18587fe8cbb4ba027120d142a68906b44f02d
