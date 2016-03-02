@@ -19,7 +19,6 @@
 
     <!--product list section-->
     <ion-content id="gbmono-product-list" class="fade-in">
-
         <!--toolbar section-->
         <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium toolbar-in-content">
             <div>
@@ -71,7 +70,7 @@
         <div class="row">
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/4.jpg" />
+                    <img class="tagIcon col-center-block" ng-src="img/demo/4.jpg"/>
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">头发造型</h5>
@@ -79,7 +78,7 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/5.jpg" />
+                    <img class="tagIcon col-center-block" ng-src="img/demo/5.jpg"/>
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">口腔护理</h5>
@@ -87,7 +86,7 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/7.jpg" />
+                    <img class="tagIcon col-center-block" ng-src="img/demo/7.jpg"/>
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">女性用品</h5>
@@ -95,36 +94,26 @@
             </div>
             <div class="col-25">
                 <div class="row">
-                    <img class="tagIcon col-center-block" ng-src="img/demo/6.jpg" />
+                    <img class="tagIcon col-center-block" ng-src="img/demo/6.jpg"/>
                 </div>
                 <div class="row">
                     <h5 class="col-center-block">婴童用品</h5>
                 </div>
             </div>
         </div>
+      
 
-
-        <div class="row">
-            <div class="col">
-                <!--pin section-->
-                <div class="pin" ng-if="$even" ng-repeat="product in productList"
-                     ng-click="navigateTo('app.productDetail',product)">
-                    <!--<h5>{{product.title}}</h5>-->
-                    <h5>花王</h5>
-                    <img class="aaaa" ng-src="img/demo/2_1.jpeg" />
-                    <div class="pin-footer">
-                        <span class="pin-footer text-left productName">卸妆油</span>
-                        <span class="pin-footer text-right">+Add</span>
-                    </div>
-                </div>
-                <!--end pin s
-                ection-->
+        <div class="row productsArea" ng-if="$even" ng-repeat="product in productList"
+                 ng-click="navigateTo('app.productDetail',product)">
+            <div class="col-25">
+                <img ng-src="img/demo/2_1.jpeg">
             </div>
-         
+            <div class="col">
+                <h5>{{product.title}}</h5>
+                <p>{{product.detail}}</p>
+                <p>$111</p>
+            </div>
         </div>
-
-       
-
 
         <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
         </ion-infinite-scroll>

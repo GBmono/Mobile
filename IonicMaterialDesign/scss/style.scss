@@ -3081,8 +3081,7 @@ md-sidenav {
 
 
 
- //gbmono section
- //restaurant section
+//gbmono section
 #gbmono-home {
   background-color: $color_black_haze_approx;
   //slider section
@@ -3280,7 +3279,6 @@ md-sidenav {
     }
     //end restaurant content section
 }
-//end restaurant section
 
 #gbmono-product-list {
     background-color: $color_black_haze_approx;
@@ -3289,7 +3287,6 @@ md-sidenav {
         background-image: $url_background_cover_pixels;
         margin-bottom: -14px;
         height: 128px !important;
-        
     }
     //end toolbar section
     .tagIcon {
@@ -3314,11 +3311,33 @@ md-sidenav {
     }
 
 
-    .aaaa{
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width:90px
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+}
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 }
 //end restaurant section
@@ -3377,6 +3396,7 @@ md-sidenav {
             //product tab detail shipping section
             div.product-detail-shipping {
                 border-top: $color_alto;
+
                 div {
                     &.col-67 {
                         font-size: 26px;
@@ -3443,12 +3463,11 @@ md-sidenav {
             }
             //end product tab detail note section
             //end detail section
-
-            .md-subheader .md-subheader-inner{
-                padding:5px 0px 5px 0px
+            .md-subheader .md-subheader-inner {
+                padding: 5px 0px 5px 0px;
             }
 
-            .desc-strart{
+            .desc-strart {
                 border-top: $color_alto;
                 border-top-style: solid;
                 border-top-width: 1px;
@@ -3491,7 +3510,7 @@ md-sidenav {
 
             .scroll-bar.scroll-bar-h {
                 display: none !important;
-            }
+        }
 
             .scroll {
                 min-width: 100%;
@@ -3514,7 +3533,7 @@ md-sidenav {
                             border-top-right-radius: 4px;
                             border-top-left-radius: 4px;
                         }
-
+    
                         .content {
                             height: 23px;
                             background-color: $color_white;
@@ -3529,9 +3548,225 @@ md-sidenav {
         }
     }
     //end product tab detail section
-}
+                }
+
 
 #gbmono-product-search {
-
+    #product-search-tab-category {
+        .c-parent {
+            h4{
+                display:inline-block;
+                margin-left:8px;
+                color:#ff5252;
             }
 
+        }
+
+        .c-children {
+             border-color: #ddd;
+             margin-top:-6px;
+             flex-flow:row wrap;
+
+            .col-25{
+                margin-top:-1px;
+                margin-left: -1px;
+                border: 1px solid #ddd;
+            }
+
+            .c-children-second {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-third {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+            .c-children-last {
+                border-left: 1px solid;
+                border-color: #ddd;
+            }
+
+            p {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align:center;
+                margin:5px;
+            }
+        }
+    }
+}
+
+
+#gbmono-product-search-Result {
+    background-color: $color_black_haze_approx;
+
+      h5 {
+        color: $color_gray;
+    }
+
+    .productName {
+        font-size: 8px;
+        color: $color_gray;
+    }
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin:5px;
+        margin-top:-6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+//login content section
+#gbmono-login {
+  text-align: center;
+  background-color: $color_black_haze_approx;
+
+  &.bg-white {
+    background-color: $color_white;
+  }
+  //fake login form section
+  form {
+    margin-top: 33%;
+
+    &.gbmonoLogin-form {
+      margin-top: 22%;
+    }
+
+    div i {
+      font-size: 90px;
+      margin-bottom: 16px;
+    }
+
+    div img {
+      width: 86px;
+      margin-bottom: 10px;
+    }
+
+    #gbmonoLogin {
+      hr {
+        margin: 10px 16% 0 16%;
+        border-width: 1px;
+      }
+
+      md-input-container {
+        margin: 10px 16% 0 16%;
+
+        input {
+          width: 100%;
+          height: 30px;
+          background: transparent;
+          border: none;
+
+          &.user-name {
+            margin-top: 10px;
+            margin-bottom: -20px;
+          }
+
+          &.user-password {
+          }
+        }
+      }
+    }
+
+    div.sub-header {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    div div.footer {
+      margin-top: 40px;
+
+      a {
+        color: $color_gray;
+      }
+    }
+    }
+    //end fake login form section
+  div.wordpress-login {
+    md-input-container {
+      margin: auto;
+      width: 246px;
+
+      input {
+        color: $color_wordoress;
+        font-weight: 500;
+        border-bottom-color: $color_wordoress;
+      }
+    }
+}
+    //end login content section
+}
+
+//social sign up section
+#gbmono-sign-up-content {
+  padding: 0 31px 0 31px;
+
+  .app-icon {
+    margin: 20px;
+    text-align: center;
+  }
+
+  img {
+    width: 92px;
+  }
+  //input section
+  md-input-container {
+    margin-left: 10px;
+
+    div {
+      border-bottom-style: solid;
+      border-color: $color_border_under_line;
+      border-width: 1px;
+
+      input {
+        border-bottom-style: none;
+        height: 30px;
+      }
+    }
+  }
+
+  md-checkbox {
+    width: 100%;
+    font-size: 13px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 13px;
+      color: $color_gray;
+    }
+
+    div.md-label {
+      width: 100%;
+    }
+  }
+  //end input section
+  a.social-button {
+        width: 100%;
+  }
+}
+//end social sign up section
