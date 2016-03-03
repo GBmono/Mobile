@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) { 
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
@@ -57,7 +57,7 @@
 // Controller of product Detail Page.
 appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
     $scope.imgRoot = window.globalVariable.imagePath;
-   
+
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
@@ -65,7 +65,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         // $stateParams.product is the object that pass from product list page.
         $scope.product = null;
         $scope.productId = $stateParams.productId;
-        
+
         $scope.getProduct($scope.productId);
         // Loading progress.
         $timeout(function () {
@@ -84,7 +84,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     $scope.getProduct = function (id) {
         $http({
-            url:  window.globalVariable.api+'api/Products/' + id,
+            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + "/" + id,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -189,7 +189,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
     $scope.enanbleScroll = true;
 
     $scope.initialForm = function () {
-       
+
     };// End initialForm.
 
 
@@ -207,7 +207,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
     //loadMore product list.
     $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
         $http({
-            url: window.globalVariable.api + 'api/Products/Categories/' + k + "/" + pageIndex + "/" + pageZize,
+            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
