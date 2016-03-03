@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) { 
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
@@ -57,15 +57,15 @@
 // Controller of product Detail Page.
 appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
     $scope.imgRoot = window.globalVariable.imagePath;
-   
+
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
         // $scope.product is product detail
         // $stateParams.product is the object that pass from product list page.
-        $scope.product=null;
+        $scope.product = null;
         $scope.productId = $stateParams.productId;
-        
+
         $scope.getProduct($scope.productId);
         // Loading progress.
         $timeout(function () {
@@ -84,7 +84,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     $scope.getProduct = function (id) {
         $http({
-            url:  window.globalVariable.api+'api/Products/' + id,
+            url: window.globalVariable.api + 'api/Products/' + id,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -179,20 +179,17 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
 });// End of product search controller.
 
 
-
 appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, $stateParams) {
-
     $scope.imgRoot = window.globalVariable.imagePath;
-
-    // This function is the first activity in the controller. 
-    // It will initial all variable data and let the function works when page load.
+    $scope.searchWay = $stateParams.way;
+    $scope.searchKey = $stateParams.key;
+    $scope.pageSize = 10;
+    $scope.pageIndex = 1;
+    $scope.productList = [];
+    $scope.enanbleScroll = true;
+   
     $scope.initialForm = function () {
-        var w = $stateParams.way;
-        var k = $stateParams.key;
-        // $scope.productList is the variable that store user product data.
-        $scope.productList = [];
-        $scope.allProductList = [];
-        $scope.loadProductBySearch(w, k);
+       
     };// End initialForm.
 
 
@@ -202,44 +199,31 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
         });
     };// End navigateTo.
 
-    //$scope.loadMore = function () {
-    //    debugger;
-
-    //    $timeout(function () {
-    //        //get product list from json  at paht: www/app-data/product-list.json
-    //        $http.get('app-data/product-list.json')
-    //            .success(function (productList) {
-    //                // Success retrieve data.
-    //                // Store user data to $scope.productList.
-    //                for (var product = 0; product < productList.length; product++) {
-    //                    $scope.productList.push(productList[product]);
-    //                }
-    //                // To stop loading progress.
-    //                $scope.$broadcast('scroll.infiniteScrollComplete');
-    //            });
-    //    }, 2000);
-    //};
 
     $scope.loadMore = function () {
-        $timeout(function () {
-            var pushProduct = $scope.allProductList.slice($scope.productList.length, $scope.productList.length +7);
-            for (var product = 0; product < pushProduct.length; product++) {
-                $scope.productList.push(pushProduct[product]);
-            }            
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-        }, 2000);
+        $scope.loadProductBySearch($scope.searchWay, $scope.searchKey, $scope.pageIndex, $scope.pageSize);
     };
 
-    // loadMore is for loadMore product list.
-    $scope.loadProductBySearch = function (w, k) {
+    //loadMore product list.
+    $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
         $http({
-            url: window.globalVariable.api + 'api/Products/Categories/' + k,
+            async: false,
+            url: window.globalVariable.api + 'api/Products/Categories/' + k + "/" + pageIndex + "/" + pageZize,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         }).success(function (data) {
-            $scope.allProductList = data;
+            for (var product = 0; product < data.length; product++) {
+                $scope.productList.push(data[product]);
+            }
+            if (data.length > 0) {
+                $scope.pageIndex = pageIndex + 1;
+            } else {
+                $scope.enanbleScroll = false;
+            }
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        }).error(function (data) {
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
     };

@@ -36,9 +36,10 @@ window.globalVariable = {
         googlePlus: "your_api_key",//Use for Google API clientID.
     },
     adMob: "your_api_key", //Use for AdMob API clientID.
-    api: "http://119.9.104.196/GbmonoApi/",
+    //api: "http://119.9.104.196/GbmonoApi/",
+    //imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
+    api: "http://localhost:28975/",
     imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
-
 
 };// End Global variable
 
