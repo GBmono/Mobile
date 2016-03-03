@@ -7,7 +7,8 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $time
 		}else{
 			$cordovaBarcodeScanner.scan().then(function(imageData) {
 				$scope.currentScanning = false;
-				alert(imageData.text);
+				//alert(imageData.text);
+				$scope.navigateTo('app.productDetail', imageData);
 				console.log("Barcode Format -> " + imageData.format);
 				console.log("Cancelled -> " + imageData.cancelled);
 			}, function(error) {
