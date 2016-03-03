@@ -10,8 +10,11 @@
 //
 //Global variable use for setting color, start page, message, oAuth key.
 var db = null; //Use for SQLite database.
-var gbmono_domain = "http://119.9.104.196/"; //gbmono domain
-var gbmono_api_url = gbmono_domain + 'gbmonoapi/api/'; //gbmono web api app name
+var gbmono_domain = "http://localhost:28975/"; //gbmono domain
+
+var gbmono_api_url = gbmono_domain + '/api/'; //gbmono web api app name
+//var gbmono_api_url = gbmono_domain + 'gbmonoapi/api/'; //gbmono web api app name
+
 window.globalVariable = {
     t:this,
     //custom color style variable
