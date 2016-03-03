@@ -10,7 +10,10 @@
 //
 //Global variable use for setting color, start page, message, oAuth key.
 var db = null; //Use for SQLite database.
+var gbmono_domain = "http://119.9.104.196/"; //gbmono domain
+var gbmono_api_url = gbmono_domain + 'gbmonoapi/api/'; //gbmono web api app name
 window.globalVariable = {
+    t:this,
     //custom color style variable
     color: {
         appPrimaryColor: "",
@@ -36,11 +39,26 @@ window.globalVariable = {
         googlePlus: "your_api_key",//Use for Google API clientID.
     },
     adMob: "your_api_key", //Use for AdMob API clientID.
-    //api: "http://119.9.104.196/GbmonoApi/",
-    //imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
-    api: "http://localhost:28975/",
-    imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
 
+    imagePath: gbmono_domain + "AdminApi/Files/Products/",
+
+    // web api url routes
+    gbmono_api_site_prefix: {
+        // account api url
+        account_api_url: gbmono_api_url + 'Accounts',
+        // category api url 
+        category_api_url: gbmono_api_url + 'Categories',
+        // product detail url
+        product_api_url: gbmono_api_url + 'Products',
+        // brand url
+        brand_api_url: gbmono_api_url + 'Brands',
+        // profile url
+        profile_api_url: gbmono_api_url + 'Profiles',
+        // banner url
+        banner_api_url: gbmono_api_url + 'Banners',
+        // retail url
+        retail_api_url: gbmono_api_url + 'Retailers'
+    }
 };// End Global variable
 
 
