@@ -67,4 +67,9 @@
   </platform>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
   <plugin name="phonegap-plugin-barcodescanner" version="4.1.0" />
+  <access origin="119.9.104.196" />
+  <preference name="KeepRunning" value="True" />
+  <preference name="ShowTitle" value="True" />
+  <preference name="InAppBrowserStorageEnabled" value="True" />
+  <preference name="SuppressesIncrementalRendering" value="True" />
 </widget>

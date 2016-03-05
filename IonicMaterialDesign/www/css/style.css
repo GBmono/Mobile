@@ -2246,3 +2246,32 @@ md-sidenav {
       width: 100%; }
   #gbmono-sign-up-content a.social-button {
     width: 100%; }
+
+#gbmono-profile-content {
+  background-color: #f6f6f6;
+  padding-top: 170px; }
+  #gbmono-profile-content h5 {
+    color: gray; }
+  #gbmono-profile-content .productName {
+    font-size: 8px;
+    color: gray; }
+  #gbmono-profile-content .productsArea {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #ddd;
+    margin: 5px;
+    margin-top: -6px; }
+  #gbmono-profile-content .productsArea img {
+    max-width: 80px;
+    max-height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  #gbmono-profile-content .productsArea h5 {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  #gbmono-profile-content .productsArea p {
+    margin-top: 0px;
+    margin-bottom: 0px; }

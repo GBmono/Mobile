@@ -10,6 +10,9 @@
 //
 //Global variable use for setting color, start page, message, oAuth key.
 var db = null; //Use for SQLite database.
+var gbmono_host = "http://119.9.104.196/"; //gbmono host
+var gbmono_domain = gbmono_host + "gbmonoapi/"; //gbmono domain
+var gbmono_api_url = gbmono_domain + 'api/'; //gbmono web api app name
 window.globalVariable = {
     //custom color style variable
     color: {
@@ -36,10 +39,30 @@ window.globalVariable = {
         googlePlus: "your_api_key",//Use for Google API clientID.
     },
     adMob: "your_api_key", //Use for AdMob API clientID.
-    api: "http://119.9.104.196/GbmonoApi/",
-    imagePath: "http://119.9.104.196/AdminApi/Files/Products/"
 
+    imagePath: gbmono_host + "AdminApi/Files/Products/",
 
+    gbmono_api_token_url: gbmono_domain + 'token',
+    BEARER_TOKEN_KEY : 'gbmono_BEARER_TOKEN',
+    // web api url routes
+    gbmono_api_site_prefix: {
+        // account api url
+        account_api_url: gbmono_api_url + 'Accounts',
+        // category api url 
+        category_api_url: gbmono_api_url + 'Categories',
+        // product detail url
+        product_api_url: gbmono_api_url + 'Products',
+        // user favorite url
+        userfavorite_api_url: gbmono_api_url + '/UserFavorites',
+        // brand url
+        brand_api_url: gbmono_api_url + 'Brands',
+        // profile url
+        profile_api_url: gbmono_api_url + 'Profiles'
+        // banner url
+        //banner_api_url: gbmono_api_url + 'Banners',
+        // retail url
+        //retail_api_url: gbmono_api_url + 'Retailers'
+    }
 };// End Global variable
 
 
@@ -383,41 +406,41 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
-            .state('app.notelist', {
-                url: "/notelist",
-                params:{
-                    isAnimated:false
-                },
-                cache: false,
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/application-storage/local-application-db/html/note-list.html",
-                        controller: 'noteListCtrl'
-                    }
-                }
-            })
-            .state('app.notedetail', {
-                url: "/notedetail",
-                params: {
-                    noteDetail: null,
-                    actionDelete: false
-                },
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/application-storage/local-application-db/html/note-detail.html",
-                        controller: 'noteDetailCtrl'
-                    }
-                }
-            })
-            .state('app.notesetting', {
-                url: "/notesetting",
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/application-storage/local-application-db/html/note-setting.html",
-                        controller: 'noteSettingCtrl'
-                    }
-                }
-            })
+            //.state('app.notelist', {
+            //    url: "/notelist",
+            //    params:{
+            //        isAnimated:false
+            //    },
+            //    cache: false,
+            //    views: {
+            //        'menuContent': {
+            //            templateUrl: "templates/application-storage/local-application-db/html/note-list.html",
+            //            controller: 'noteListCtrl'
+            //        }
+            //    }
+            //})
+            //.state('app.notedetail', {
+            //    url: "/notedetail",
+            //    params: {
+            //        noteDetail: null,
+            //        actionDelete: false
+            //    },
+            //    views: {
+            //        'menuContent': {
+            //            templateUrl: "templates/application-storage/local-application-db/html/note-detail.html",
+            //            controller: 'noteDetailCtrl'
+            //        }
+            //    }
+            //})
+            //.state('app.notesetting', {
+            //    url: "/notesetting",
+            //    views: {
+            //        'menuContent': {
+            //            templateUrl: "templates/application-storage/local-application-db/html/note-setting.html",
+            //            controller: 'noteSettingCtrl'
+            //        }
+            //    }
+            //})
             .state('app.facebookLogin', {
                 url: "/facebookLogin",
                 cache: false,
@@ -949,6 +972,40 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     'productContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",
                         controller: 'productSearchResultCtrl'
+                    }
+                }
+            })
+
+            // gbmono login page
+            .state('app.login', {
+                url: "/login",
+                cache: false,
+                views: {
+                    'authentication': {
+                        templateUrl: "templates/gbmono/authentication/html/login.html",
+                    }
+                }
+            })
+
+            // gbmono sign up page
+            .state('app.signUp', {
+                url: "/signup",
+                cache: false,
+                views: {
+                    'authentication': {
+                        templateUrl: "templates/gbmono/authentication/html/sign-up.html"
+                    }
+                }
+            })
+
+            // gbmono profile page
+            .state('app.profile', {
+                url: "/profile",
+                cache: false,
+                views: {
+                    'authentication': {
+                        templateUrl: "templates/gbmono/profile/html/profile.html",
+                        controller: 'gbmonoProfileCtrl'
                     }
                 }
             })

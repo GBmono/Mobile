@@ -19,24 +19,18 @@
              ng-click="navigateTo('app.productDetail',product.productId)">
             <div class="col-25">
                 <img ng-src="{{imgRoot + product.imgUrl}}">
-            </div>
-            <div class="col">
-                <h5>{{product.productId}}</h5>
+            </div>e
+            <div class="col">   
                 <h5>{{product.brandName}}</h5>
                 <p>{{product.primaryName}} {{product.secondaryName}}</p>
                 <p>¥{{product.price  | number : 2}}</p>
             </div>
         </div>
 
-        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="enanbleScroll">
         </ion-infinite-scroll>
     </ion-content>
 
 
-
-    <div id="product-list-loading-progress" class="loading-progress fade-in">
-        <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
-        <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
-    </div><!--end loading progress-->
 
 </ion-view>
