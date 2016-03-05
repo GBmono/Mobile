@@ -972,6 +972,28 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                 }
             })
 
+            // gbmono login page
+            .state('app.login', {
+                url: "/login",
+                cache: false,
+                views: {
+                    'authentication': {
+                        templateUrl: "templates/gbmono/authentication/html/login.html",
+                    }
+                }
+            })
+
+            // gbmono sign up page
+            .state('app.signUp', {
+                url: "/signup",
+                cache: false,
+                views: {
+                    'authentication': {
+                        templateUrl: "templates/gbmono/authentication/html/sign-up.html"
+                    }
+                }
+            })
+
 			// gbmono page end
 			;
         //Use $urlRouterProvider.otherwise(Url);
