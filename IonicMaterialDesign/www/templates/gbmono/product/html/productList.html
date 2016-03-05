@@ -104,19 +104,19 @@
         </div>
 
 
-        <div class="row productsArea" ng-if="$even" ng-repeat="product in productList"
-             ng-click="navigateTo('app.productDetail',product)">
+        <div class="row productsArea" ng-repeat="product in productList"
+             ng-click="navigateTo('app.productDetail',product.productId)">
             <div class="col-25">
-                <img ng-src="img/demo/2_1.jpeg">
-            </div>
+                <img ng-src="{{imgRoot + product.imgUrl}}">
+            </div>e
             <div class="col">
-                <h5>{{product.title}}</h5>
-                <p>{{product.detail}}</p>
-                <p>$111</p>
+                <h5>{{product.brandName}}</h5>
+                <p>{{product.primaryName}} {{product.secondaryName}}</p>
+                <p>¥{{product.price  | number : 2}}</p>
             </div>
         </div>
 
-        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="enanbleScroll">
         </ion-infinite-scroll>
     </ion-content><!--end product list section-->
     <!--button section-->

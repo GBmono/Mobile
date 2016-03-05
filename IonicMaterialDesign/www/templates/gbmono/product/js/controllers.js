@@ -1,6 +1,9 @@
 ﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
+    $scope.imgRoot = window.globalVariable.imagePath;
+    $scope.enanbleScroll = true;
+
     $scope.initialForm = function () {
         // $scope.productList is the variable that store user product data.
         $scope.productList = [];
@@ -21,6 +24,9 @@
     };// End initialForm.
 
 
+
+
+
     // navigateTo is for navigate to other page.
     // by using targetPage to be the destination page
     // and send object to the destination page.
@@ -33,22 +39,52 @@
         });
     };// End navigateTo.
 
-    // loadMore is for loadMore product list.
+    //// loadMore is for loadMore product list.
+    //$scope.loadMore = function () {
+    //    $timeout(function () {
+    //        //get product list from json  at paht: www/app-data/product-list.json
+    //        $http.get('app-data/product-list.json')
+    //            .success(function (productList) {
+    //                // Success retrieve data.
+    //                // Store user data to $scope.productList.
+    //                for (var product = 0; product < productList.length; product++) {
+    //                    $scope.productList.push(productList[product]);
+    //                }
+    //                // To stop loading progress.
+    //                $scope.$broadcast('scroll.infiniteScrollComplete');
+    //            });
+    //    }, 2000);
+    //};// End loadMore.
+    $scope.pageSize = 10;
+    $scope.pageIndex = 1;
     $scope.loadMore = function () {
-        $timeout(function () {
-            //get product list from json  at paht: www/app-data/product-list.json
-            $http.get('app-data/product-list.json')
-                .success(function (productList) {
-                    // Success retrieve data.
-                    // Store user data to $scope.productList.
-                    for (var product = 0; product < productList.length; product++) {
-                        $scope.productList.push(productList[product]);
-                    }
-                    // To stop loading progress.
-                    $scope.$broadcast('scroll.infiniteScrollComplete');
-                });
-        }, 2000);
-    };// End loadMore.
+        $scope.loadProductBySearch("c", "17", $scope.pageIndex, $scope.pageSize);
+    };
+
+    //loadMore product list.
+    $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
+        $http({
+            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize,
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).success(function (data) {
+            for (var product = 0; product < data.length; product++) {
+                $scope.productList.push(data[product]);
+            }
+            if (data.length < $scope.pageSize) {
+               $scope.enanbleScroll = false;
+            } else {
+                $scope.pageIndex = pageIndex + 1;
+            }
+        }).error(function (data) {
+
+        }).finally(function () {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });;
+    };
+
 
     $scope.initialForm();
 
@@ -221,10 +257,10 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
             for (var product = 0; product < data.length; product++) {
                 $scope.productList.push(data[product]);
             }
-            if (data.length > 0) {
-                $scope.pageIndex = pageIndex + 1;
-            } else {
+            if (data.length < $scope.pageSize) {
                 $scope.enanbleScroll = false;
+            } else {
+                $scope.pageIndex = pageIndex + 1;
             }
         }).error(function (data) {
 
