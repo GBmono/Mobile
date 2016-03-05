@@ -57,32 +57,16 @@
 // Controller of product Detail Page.
 appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
     $scope.imgRoot = window.globalVariable.imagePath;
+    $scope.product = null;
+    $scope.productId = $stateParams.productId;
 
-    // This function is the first activity in the controller. 
-    // It will initial all variable data and let the function works when page load.
+
     $scope.initialForm = function () {
-        // $scope.product is product detail
-        // $stateParams.product is the object that pass from product list page.
-        $scope.product = null;
-        $scope.productId = $stateParams.productId;
-
         $scope.getProduct($scope.productId);
-        // Loading progress.
-        $timeout(function () {
-            if ($scope.isAndroid) {
-                jQuery('#product-detail-loading-progress').show();
-            }
-            else {
-                jQuery('#product-detail-loading-progress').fadeIn(700);
-            }
-        }, 400);
-        $timeout(function () {
-            jQuery('#product-detail-loading-progress').hide();
-            jQuery('#gbmono-product-detail').fadeIn();
-        }, 1000);// End loading progress.
-    };// End initialForm.
+    };
 
     $scope.getProduct = function (id) {
+        $scope.hidePage();
         $http({
             url: window.globalVariable.gbmono_api_site_prefix.product_api_url + "/" + id,
             method: 'GET',
@@ -91,9 +75,30 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             }
         }).success(function (data) {
             $scope.product = data;
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-        });
+
+        })
+        .error(function () {
+
+        })
+        .finally(function () {
+            $scope.showPage();
+        });;
     };
+
+    $scope.hidePage = function () {
+        if ($scope.isAndroid) {
+            jQuery('#product-detail-loading-progress').show();
+        }
+        else {
+            jQuery('#product-detail-loading-progress').fadeIn(700);
+        }
+    }
+
+    $scope.showPage = function () {
+        jQuery('#product-detail-loading-progress').hide();
+        jQuery('#gbmono-product-detail').fadeIn();
+    }
+
 
     // addToCart for show Item Added ! toast.
     $scope.addToCart = function () {
@@ -221,10 +226,11 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
             } else {
                 $scope.enanbleScroll = false;
             }
-            $scope.$broadcast('scroll.infiniteScrollComplete');
         }).error(function (data) {
+
+        }).finally(function () {
             $scope.$broadcast('scroll.infiniteScrollComplete');
-        });
+        });;
     };
 
 
