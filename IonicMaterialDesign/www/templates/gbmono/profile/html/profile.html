@@ -1,0 +1,30 @@
+﻿<ion-view title="个人中心" ng-controller="gbmonoProfileCtrl">
+    <ion-header-bar>
+        <h1 class="title"><b>个人中心</b></h1>
+    </ion-header-bar>
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium">
+        <div>
+            <h1>个人收藏夹</h1>
+
+            <h2>更多精彩内容，敬请期待</h2>
+        </div>
+        <a class="md-button md-accent md-fab fab-toolbar-medium" aria-label="Add">
+            <i class="icon ion-log-out" ng-click="Logout()"></i>
+        </a>
+    </md-toolbar>
+    <ion-content id="gbmono-profile-content">                
+        <!--<a href="" class="md-raised md-button md-default-theme material-background" ng-click="Logout()">登出</a>-->
+        <div class="row productsArea" ng-repeat="product in vm.products"
+             ng-click="navigateTo('app.productDetail',product.productId)">
+            <div class="col-25">
+                <img ng-src="{{vm.imgRoot + product.imgUrl}}">
+            </div>e
+            <div class="col">
+                <h5>{{product.productId}}</h5>
+                <h5>{{product.brandName}}</h5>
+                <p>{{product.primaryName}} {{product.secondaryName}}</p>
+                <p>¥{{product.price  | number : 2}}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

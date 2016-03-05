@@ -1,5 +1,5 @@
 <ion-view title="注册">
-    <ion-content id="gbmono-sign-up-content">
+    <ion-content id="gbmono-sign-up-content" ng-controller="gbmonoSignUpCtrl">
         <div class="app-icon">
             <img src="img/app_icon.png" class="md-card-image">
         </div>
@@ -11,17 +11,17 @@
         </md-input-container>-->
         <md-input-container md-no-float="">
             <div>
-                <input class="user-name" placeholder="邮箱">
+                <input class="user-name" ng-model="user.email" placeholder="邮箱">
             </div>
         </md-input-container>
         <md-input-container md-no-float="">
             <div>
-                <input type="password" class="user-name" placeholder="密码">
+                <input type="password" ng-model="user.password" class="user-name" placeholder="密码">
             </div>
         </md-input-container>
         <md-input-container md-no-float="">
             <div>
-                <input type="password" class="user-name" placeholder="确认密码">
+                <input type="password" class="user-name" ng-model="user.confirmPassword" placeholder="确认密码">
             </div>
         </md-input-container>
         <!--<md-input-container md-no-float="">
@@ -33,7 +33,7 @@
             我接受条件
         </md-checkbox>-->
         <!--end input section-->
-        <a class="md-raised social-button md-button md-default-theme material-background">
+        <a class="md-raised social-button md-button md-default-theme material-background" ng-click="register(user)">
             注册
         </a>
         <button class="button button-clear button-icon icon ion-android-arrow-back" ng-click="$ionicGoBack()"> 登录</button>
