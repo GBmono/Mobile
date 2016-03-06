@@ -45,8 +45,10 @@
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
     $scope.navigateTo = function (targetPage, productId) {
+        var way = window.globalVariable.gbmono_product_detail_way.id;
         $state.go(targetPage, {
-            productId: productId
+            way: way,
+            key: productId
         });
     };// End navigateTo.
 

@@ -4,31 +4,36 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $time
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
-		}else{
+		} else {
+		    $scope.currentScanning = true;
 		    $cordovaBarcodeScanner.scan().then(function (imageData) {
-		        var isJson = isNaN(parseInt(imageData));
+		        alert(imageData.text);
+		        $scope.currentScanning = false;
+		        var isJson = isNaN(parseInt(imageData.text));
 		        if (isJson) {
-		            var json = JSON.parse(imageData);
-		            alert(json);
+		            var json = JSON.parse(imageData.text);
 		            switch (json.type) {
 		                case 1:
-		                    $scope.navigateTo('app.productSearchResult', imageData);
+		                    $scope.navigateTo('app.productSearchResult', imageData.text);
 		                    break;
 		                case 2:
 		                    break;
 		            }
 		        } else {
 		            //$scope.navigateTo('app.productDetail', imageData);
+		            var way = window.globalVariable.gbmono_product_detail_way.barcode;
 		            $state.go('app.productDetail', {
-		                productId: objectData
+		                way: way,
+		                key: imageData.text
 		            });
+		            return;
 		        }
 				//$scope.currentScanning = false;
 				//alert(imageData.text);				
 				console.log("Barcode Format -> " + imageData.format);
 				console.log("Cancelled -> " + imageData.cancelled);
 			}, function(error) {
-				//$scope.currentScanning = false;
+				$scope.currentScanning = false;
 				console.log("An error happened -> " + error);
 			});
 		}
