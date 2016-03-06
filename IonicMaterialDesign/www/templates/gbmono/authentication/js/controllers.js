@@ -71,12 +71,24 @@ appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $t
                 'content-type': 'application/x-www-form-urlencoded'
             }
         }).success(function (data, status, headers, config) {
-            localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
-            $scope.navigateTo('app.profile');
+            $http({
+                url: window.globalVariable.gbmono_api_token_url,
+                method: 'POST',
+                data: "userName=" + model.email + "&password=" + model.password + "&grant_type=password",
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                }
+            }).success(function (data, status, headers, config) {
+                localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
+                $scope.navigateTo('app.profile');
+            }).error(function (data, status, headers, config) {
+                console.log('请求错误')
+            });            
         }).error(function (data, status, headers, config) {
             console.log('请求错误')
         });
     };
+
 
     // navigateTo is for navigate to other page 
     // by using targetPage to be the destination page 
