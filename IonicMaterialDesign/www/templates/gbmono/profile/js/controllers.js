@@ -44,10 +44,9 @@
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
+    $scope.navigateTo = function (targetPage, productId) {
         $state.go(targetPage, {
-            noteDetail: objectData,
-            actionDelete: (objectData == null ? false : true)
+            productId: productId
         });
     };// End navigateTo.
 
@@ -56,9 +55,11 @@
     $scope.initialForm = function () {
         if (!$scope.token || $scope.token === '') {
             $scope.navigateTo('app.login');
+        } else {
+            $scope.getFavoriteProducts($scope.vm.paging.pageIndex, $scope.vm.paging.pageSize);
         }
-        $scope.getFavoriteProducts($scope.vm.paging.pageIndex, $scope.vm.paging.pageSize);
+        
     };//End initialForm.
     
-    $scope.initialForm();
+    //$scope.initialForm();
 });

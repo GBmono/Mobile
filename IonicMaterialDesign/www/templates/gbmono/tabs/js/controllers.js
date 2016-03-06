@@ -1,18 +1,34 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $timeout, NoteDB, $state, $cordovaBarcodeScanner) {
+appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $timeout, $state, $cordovaBarcodeScanner) {
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
 		}else{
-			$cordovaBarcodeScanner.scan().then(function(imageData) {
-				$scope.currentScanning = false;
-				//alert(imageData.text);
-				$scope.navigateTo('app.productDetail', imageData);
+		    $cordovaBarcodeScanner.scan().then(function (imageData) {
+		        var isJson = isNaN(parseInt(imageData));
+		        if (isJson) {
+		            var json = JSON.parse(imageData);
+		            alert(json);
+		            switch (json.type) {
+		                case 1:
+		                    $scope.navigateTo('app.productSearchResult', imageData);
+		                    break;
+		                case 2:
+		                    break;
+		            }
+		        } else {
+		            //$scope.navigateTo('app.productDetail', imageData);
+		            $state.go('app.productDetail', {
+		                productId: objectData
+		            });
+		        }
+				//$scope.currentScanning = false;
+				//alert(imageData.text);				
 				console.log("Barcode Format -> " + imageData.format);
 				console.log("Cancelled -> " + imageData.cancelled);
 			}, function(error) {
-				$scope.currentScanning = false;
+				//$scope.currentScanning = false;
 				console.log("An error happened -> " + error);
 			});
 		}

@@ -2219,6 +2219,7 @@ md-sidenav {
       border-bottom-color: #0087BE; }
 
 #gbmono-sign-up-content {
+  margin-top: 16%;
   padding: 0 31px 0 31px; }
   #gbmono-sign-up-content .app-icon {
     margin: 20px;
