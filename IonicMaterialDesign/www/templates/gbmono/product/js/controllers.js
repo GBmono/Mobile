@@ -265,7 +265,6 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
 
     //loadMore product list.
     $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
-        debugger;
         var url;
         switch (w) {
             case window.globalVariable.gbmono_product_search_way.category:
