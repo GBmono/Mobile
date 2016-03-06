@@ -23,27 +23,27 @@ window.globalVariable = {
         googlePlusColor: "#D73D32",
         instagramColor: "#517FA4",
         wordpressColor: "#0087BE"
-    },// End custom color style variable
+    }, // End custom color style variable
     startPage: {
-        url: "/app/home",//Url of start page.
-        state: "app.home"//State name of start page.
+        url: "/app/home", //Url of start page.
+        state: "app.home" //State name of start page.
     },
     message: {
         errorMessage: "Technical error please try again later." //Default error message.
     },
     oAuth: {
-        dropbox: "your_api_key",//Use for Dropbox API clientID.
-        facebook: "your_api_key",//Use for Facebook API appID.
+        dropbox: "your_api_key", //Use for Dropbox API clientID.
+        facebook: "your_api_key", //Use for Facebook API appID.
         foursquare: "your_api_key", //Use for Foursquare API clientID.
-        instagram: "your_api_key",//Use for Instagram API clientID.
-        googlePlus: "your_api_key",//Use for Google API clientID.
+        instagram: "your_api_key", //Use for Instagram API clientID.
+        googlePlus: "your_api_key", //Use for Google API clientID.
     },
     adMob: "your_api_key", //Use for AdMob API clientID.
 
     imagePath: gbmono_host + "AdminApi/Files/Products/",
 
     gbmono_api_token_url: gbmono_domain + 'token',
-    BEARER_TOKEN_KEY : 'gbmono_BEARER_TOKEN',
+    BEARER_TOKEN_KEY: 'gbmono_BEARER_TOKEN',
     // web api url routes
     gbmono_api_site_prefix: {
         // account api url
@@ -57,11 +57,22 @@ window.globalVariable = {
         // brand url
         brand_api_url: gbmono_api_url + 'Brands',
         // profile url
-        profile_api_url: gbmono_api_url + 'Profiles'
+        profile_api_url: gbmono_api_url + 'Profiles',
         // banner url
         //banner_api_url: gbmono_api_url + 'Banners',
         // retail url
         //retail_api_url: gbmono_api_url + 'Retailers'
+
+        //temp url
+        temp_api_url: gbmono_api_url + 'temp'
+    },
+    gbmono_product_search_way: {
+        category: "c",
+        shelf:"s"
+    },
+    gbmono_product_detail_way: {
+        id: "i",
+        barcode:"b"
     }
 };// End Global variable
 
@@ -944,7 +955,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('app.productDetail', {
                 url: "/productDetail",
                 params: {
-                    productId: null
+                    way:null,
+                    key: null
                 },
                 views: {
                     'productContent': {

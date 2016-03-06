@@ -33,9 +33,11 @@
     // Parameter :  
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
+    $scope.navigateTo = function (targetPage, productId) {
+        var way = window.globalVariable.gbmono_product_detail_way.id;
         $state.go(targetPage, {
-            product: objectData
+            way: way,
+            key: productId
         });
     };// End navigateTo.
 
@@ -74,7 +76,7 @@
                 $scope.productList.push(data[product]);
             }
             if (data.length < $scope.pageSize) {
-               $scope.enanbleScroll = false;
+                $scope.enanbleScroll = false;
             } else {
                 $scope.pageIndex = pageIndex + 1;
             }
@@ -94,6 +96,19 @@
 appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
+    var w = $stateParams.way;
+    var k = $stateParams.key;
+    var url;
+
+    switch (w) {
+        case window.globalVariable.gbmono_product_detail_way.id:
+            url = window.globalVariable.gbmono_api_site_prefix.product_api_url + "/" + k;
+            break;
+        case window.globalVariable.gbmono_product_detail_way.barcode:
+            url = window.globalVariable.gbmono_api_site_prefix.product_api_url + "/BarCodes/" + k;
+            break;
+    }
+
     $scope.productId = $stateParams.productId;
 
 
@@ -104,7 +119,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
     $scope.getProduct = function (id) {
         $scope.hidePage();
         $http({
-            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + "/" + id,
+            url: url,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -196,7 +211,8 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
     // Parameter :  
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
-    $scope.navigateTo = function (targetPage, way, key) {
+    $scope.navigateTo = function (targetPage, key) {
+        var way = window.globalVariable.gbmono_product_search_way.category;
         $state.go(targetPage, {
             way: way,
             key: key
@@ -235,8 +251,10 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
 
 
     $scope.navigateTo = function (targetPage, productId) {
+        var way = window.globalVariable.gbmono_product_detail_way.id;
         $state.go(targetPage, {
-            productId: productId
+            way:way,
+            key: productId
         });
     };// End navigateTo.
 
@@ -247,8 +265,19 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
 
     //loadMore product list.
     $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
+        debugger;
+        var url;
+        switch (w) {
+            case window.globalVariable.gbmono_product_search_way.category:
+                url = window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize;
+                break;
+            case window.globalVariable.gbmono_product_search_way.shelf:
+                url = window.globalVariable.gbmono_api_site_prefix.temp_api_url + '/Shelf/' + k + "/" + pageIndex + "/" + pageZize;
+                break;
+        }
+
         $http({
-            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize,
+            url: url,
             method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': '*'
