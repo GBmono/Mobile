@@ -1042,6 +1042,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 		$ionicConfigProvider.platform.ios.views.transition('ios');
 		$ionicConfigProvider.platform.android.views.transition('android');
 	})
-	
+	.config(function ($mdGestureProvider) {
+	    $mdGestureProvider.skipClickHijack();
+	});
 	
 	;
