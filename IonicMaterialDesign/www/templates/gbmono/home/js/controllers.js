@@ -1,7 +1,7 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
 
-appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http) {
+appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate) {
 
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -9,19 +9,19 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
 
         // $scope.productList is the variable that store user product data.
         $scope.productList = [{
-            img: 'img/demo/促销.png',
+            img: 'img/demo/info1.jpg',
             title: '资深堂',
             p: '红研肌活精华露'
         }, {
-            img: 'img/demo/促销.png',
+            img: 'img/demo/info2.png',
             title: '资深堂',
             p: '红研肌活精华露'
         }, {
-            img: 'img/demo/促销.png',
+            img: 'img/demo/info4.jpg',
             title: '资深堂',
             p: '红研肌活精华露'
         }, {
-            img: 'img/demo/促销.png',
+            img: 'img/demo/info2.png',
             title: '资深堂',
             p: '红研肌活精华露'
         }];
@@ -79,5 +79,10 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http)
                 });
         }, 2000);
     };// End loadMore.
+
+    $scope.nextSlide = function () {
+        $ionicSlideBoxDelegate.next();
+    };
+    $scope.nextSlide();
     $scope.initialForm();
 });// End of Notes List Page  Controller.
