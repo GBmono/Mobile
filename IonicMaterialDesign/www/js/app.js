@@ -951,7 +951,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 			})
              .state('app.productList', {
                  url: "/productList",
-                 cache: false,
                  views: {
                      'productContent': {
                          templateUrl: "templates/gbmono/product/html/productList.html",
@@ -975,7 +974,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             })
             .state('app.productSearch', {
                 url: "/productSearch",
-                cache: false,
                 views: {
                     'productContent': {
                         templateUrl: "templates/gbmono/product/html/productSearch.html",
@@ -1001,7 +999,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             // gbmono login page
             .state('app.login', {
                 url: "/login",
-                cache: false,
                 views: {
                     'authentication': {
                         templateUrl: "templates/gbmono/authentication/html/login.html",
@@ -1012,7 +1009,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             // gbmono sign up page
             .state('app.signUp', {
                 url: "/signup",
-                cache: false,
                 views: {
                     'authentication': {
                         templateUrl: "templates/gbmono/authentication/html/sign-up.html"
