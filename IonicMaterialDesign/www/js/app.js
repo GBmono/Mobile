@@ -987,7 +987,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     way: null,
                     key: null
                 },
-                cache: false,
+               
                 views: {
                     'productContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",
