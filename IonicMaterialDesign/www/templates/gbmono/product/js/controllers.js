@@ -130,7 +130,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         })
         .finally(function () {
             $scope.showPage();
-        });;
+        });
     };
 
     $scope.hidePage = function () {

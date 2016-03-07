@@ -33,15 +33,13 @@
                         <div class="detail-form">
                             <div class="header">
                                 <h1>{{product.primaryName}}</h1>
-                              
-
                                 <p>{{product.secondaryName}}</p>
-                                
                             </div>
                             <!--product tab detail price section-->
                             <div class="product-detail-price">
                                 <div class="left">
-                                    <span class="font-hot-sale">${{product.price | number : 2}}</span>
+                                    
+                                    <!--<span class="font-hot-sale">${{product.price | number : 2}}</span>-->
                                 </div>
                                 <div class="right">
                                     <a class="md-raised md-warn md-button md-default-theme" ng-click="addToCart()">
@@ -56,6 +54,8 @@
                             <md-subheader class="md-warn">商品详细</md-subheader>
                             <div class="product-detail-shipping row">
                                 <div class="col">
+                                    <p>市场参考价 : ${{product.price | number : 2}}</p>
+
                                     <p>功能(用途) : {{ product.category.name }}</p>
 
                                     <p>重量 : {{ product.weight }}</p>
