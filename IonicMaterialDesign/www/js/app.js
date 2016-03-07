@@ -216,7 +216,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 
             switch (stateName) {
                 case "app.productList" :
-                case "app.productDetail":
+                case "noTabs.productDetail":
                 case "app.productCheckout":
                 case "app.clothShop" :
                 case "app.catalog" :
@@ -360,6 +360,12 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 				templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
                 controller: 'gbmonoTabsCtrl'
             })	
+            .state('noTabs', {
+                url: '/noTabs',
+                abstract: true,
+                templateUrl: 'templates/gbmono/tabs/html/gbmono-no-tabs.html'
+            })
+
             .state('app.dashboard', {
                 url: "/dashboard",
                 params:{
@@ -952,14 +958,15 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
-            .state('app.productDetail', {
+            .state('noTabs.productDetail', {
                 url: "/productDetail",
                 params: {
                     way:null,
                     key: null
                 },
+                cache:false,
                 views: {
-                    'productContent': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productDetail.html",
                         controller: 'productDetailCtrl'
                     }

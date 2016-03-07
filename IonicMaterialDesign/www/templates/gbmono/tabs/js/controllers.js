@@ -22,7 +22,7 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $time
 		        } else {
 		            //$scope.navigateTo('app.productDetail', imageData);
 		            var way = window.globalVariable.gbmono_product_detail_way.barcode;
-		            $state.go('app.productDetail', {
+		            $state.go('noTabs.productDetail', {
 		                way: way,
 		                key: imageData.text
 		            });

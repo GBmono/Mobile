@@ -109,14 +109,12 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             break;
     }
 
-    $scope.productId = $stateParams.productId;
-
 
     $scope.initialForm = function () {
-        $scope.getProduct($scope.productId);
+        $scope.getProduct();
     };
 
-    $scope.getProduct = function (id) {
+    $scope.getProduct = function () {
         $scope.hidePage();
         $http({
             url: url,
@@ -126,7 +124,6 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             }
         }).success(function (data) {
             $scope.product = data;
-
         })
         .error(function () {
 
@@ -141,12 +138,12 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             jQuery('#product-detail-loading-progress').show();
         }
         else {
-            jQuery('#product-detail-loading-progress').fadeIn(700);
+            jQuery('#product-detail-loading-progress').fadeIn();
         }
     }
 
     $scope.showPage = function () {
-        jQuery('#product-detail-loading-progress').hide();
+        jQuery('#product-detail-loading-progress').hide();        
         jQuery('#gbmono-product-detail').fadeIn();
     }
 

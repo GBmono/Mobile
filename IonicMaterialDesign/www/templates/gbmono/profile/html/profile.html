@@ -15,7 +15,7 @@
     <ion-content id="gbmono-profile-content">                
         <!--<a href="" class="md-raised md-button md-default-theme material-background" ng-click="Logout()">登出</a>-->
         <div class="row productsArea" ng-repeat="product in vm.products"
-             ng-click="navigateTo('app.productDetail',product.productId)">
+             ng-click="navigateTo('noTabs.productDetail',product.productId)">
             <div class="col-25">
                 <img ng-src="{{vm.imgRoot + product.imgUrl}}">
             </div>e
