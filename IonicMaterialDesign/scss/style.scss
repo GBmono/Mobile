@@ -3120,27 +3120,6 @@ md-sidenav {
       }
     }
 
-    ion-slide {
-      padding-top: 50px !important;
-      color: $color_white;
-      font-size: 15px;
-
-      .content {
-                background-color: rgba(4, 2, 2, 0.37);
-
-        h1 {
-          font-size: 28px;
-          color: $color_white;
-          padding-top: 5px;
-        }
-
-        p {
-          font-weight: 500;
-          padding-bottom: 10px;
-        }
-      }
-    }
-
     .slide-01 {
       background: $url_background_cover_home_01;
     }
@@ -3236,7 +3215,7 @@ md-sidenav {
             margin-bottom: 14px;
 
             .location-img {
-                height: 110px;
+                height: 180px;
                 background-size: cover;
                 border-top-right-radius: 2px;
                 border-top-left-radius: 2px;

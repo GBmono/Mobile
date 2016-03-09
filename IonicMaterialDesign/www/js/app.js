@@ -292,7 +292,6 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
     .config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, $mdColorPalette, $mdIconProvider) {
 
-
         // Use for change ionic spinner to android pattern.
         $ionicConfigProvider.spinner.icon("android");
         $ionicConfigProvider.views.swipeBackEnabled(false);
@@ -354,15 +353,16 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             .state('app', {
                 url: "/app",
                 abstract: true,
-                //templateUrl: "templates/menu/html/menu.html",
+				//templateUrl: "templates/menu/html/menu.html",
                 //controller: 'menuCtrl'
-
-                templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
+                
+				templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
                 controller: 'gbmonoTabsCtrl'
-            })
+            })	
             .state('noTabs', {
                 url: '/noTabs',
                 abstract: true,
+                cache: false,
                 templateUrl: 'templates/gbmono/tabs/html/gbmono-no-tabs.html'
             })
 
@@ -639,7 +639,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-
+           
             .state('app.productCheckout', {
                 url: "/productCheckout",
                 views: {
@@ -938,26 +938,26 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })// End $stateProvider
-
+			
 			// gbmono page start
 			.state('app.home', {
-			    url: "/home",
+				url: "/home",
 			    views: {
 			        'homeContent': {
-			            templateUrl: "templates/gbmono/home/html/home.html",
-			            controller: "homeCtrl"
-			        }
-			    }
+						templateUrl: "templates/gbmono/home/html/home.html",
+						controller: "homeCtrl"
+					}
+				}
 			})
              .state('app.productList', {
-                 url: "/productList",
-                 views: {
-                     'productContent': {
-                         templateUrl: "templates/gbmono/product/html/productList.html",
-                         controller: 'productListCtrl'
-                     }
-                 }
-             })
+                url: "/productList",
+                views: {
+                    'productContent': {
+                        templateUrl: "templates/gbmono/product/html/productList.html",
+                        controller: 'productListCtrl'
+                    }
+                }
+            })
             .state('noTabs.productDetail', {
                 url: "/productDetail",
                 params: {
@@ -972,16 +972,16 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-            .state('app.productSearch', {
+            .state('noTabs.productSearch', {
                 url: "/productSearch",
                 views: {
-                    'productContent': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productSearch.html",
                         controller: 'productSearchCtrl'
                     }
                 }
             })
-            .state('app.productSearchResult', {
+            .state('noTabs.productSearchResult', {
                 url: "/productSearchResult",
                 params: {
                     way: null,
@@ -989,7 +989,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 },
                
                 views: {
-                    'productContent': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",
                         controller: 'productSearchResultCtrl'
                     }
@@ -1028,28 +1028,28 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 }
             })
 
-        // gbmono page end
-        ;
+			// gbmono page end
+			;
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     })
-
+	
 	// 默认导航位置
 	.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-	    $ionicConfigProvider.platform.ios.tabs.style('standard');
-	    $ionicConfigProvider.platform.ios.tabs.position('bottom');
-	    $ionicConfigProvider.platform.android.tabs.style('standard');
-	    $ionicConfigProvider.platform.android.tabs.position('bottom');
-	    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
-	    $ionicConfigProvider.platform.android.navBar.alignTitle('center');
-	    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-	    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
-	    $ionicConfigProvider.platform.ios.views.transition('ios');
-	    $ionicConfigProvider.platform.android.views.transition('android');
+		$ionicConfigProvider.platform.ios.tabs.style('standard');
+		$ionicConfigProvider.platform.ios.tabs.position('bottom');
+		$ionicConfigProvider.platform.android.tabs.style('standard');
+		$ionicConfigProvider.platform.android.tabs.position('bottom');
+		$ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+		$ionicConfigProvider.platform.android.navBar.alignTitle('center');
+		$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+		$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+		$ionicConfigProvider.platform.ios.views.transition('ios');
+		$ionicConfigProvider.platform.android.views.transition('android');
 	})
 	.config(function ($mdGestureProvider) {
 	    $mdGestureProvider.skipClickHijack();
-	});
-
-;
+	})
+	
+	;

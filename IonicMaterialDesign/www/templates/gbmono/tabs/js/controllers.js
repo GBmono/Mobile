@@ -14,7 +14,7 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $time
 		            var json = JSON.parse(imageData.text);
 		            switch (json.type) {
 		                case 1:
-		                    $scope.navigateTo('app.productSearchResult', imageData.text);
+		                    $scope.navigateTo('noTabs.productSearchResult', imageData.text);
 		                    break;
 		                case 2:
 		                    break;
