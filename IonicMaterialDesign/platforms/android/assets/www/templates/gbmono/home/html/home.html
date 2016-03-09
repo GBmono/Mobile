@@ -10,40 +10,40 @@
     </ion-header-bar>
     <ion-content id="gbmono-home">
         <!-- slider section -->
-        <ion-slide-box id="home-slide-box" show-pager="false" active-slide="0">
-			<ion-slide class="slide-01">
-                <div class="content">
-                    <h1>
-                        Bakery Day
-                    </h1>
-                    <p>
-                        40% Off Now!!
-                    </p>
+        <ion-slide-box id="home-slide-box" on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true" auto-play="true" slide-interval="2000" active-slide="0">
+            <ion-slide>     
+                <div>
+                    <img src="img/demo/450_1.jpg" style="height:100%;width:100%"/>
+                </div>           
+            </ion-slide>
+            <ion-slide>
+                <div>
+                    <img src="img/demo/450_2.jpg" style="height:100%;width:100%" />
                 </div>
             </ion-slide>
-			<ion-slide class="slide-02">
-                <div class="content">
-                    <h1>
-                        Bread Hour
-                    </h1>
-                    <p>
-                        90% Off Now!!
-                    </p>
+            <ion-slide>
+                <div>
+                    <img src="img/demo/450_3.jpg" style="height:100%;width:100%" />
                 </div>
             </ion-slide>
-			<ion-slide class="slide-03">
-                <div class="content">
-                    <h1>
-                        CupCake Festival
-                    </h1>
-                    <p>
-                        50% Off Friday
-                    </p>
+            <ion-slide>
+                <div>
+                    <img src="img/demo/450_4.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div>
+                    <img src="img/demo/450_5.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div>
+                    <img src="img/demo/450_6.jpg" style="height:100%;width:100%" />
                 </div>
             </ion-slide>
 		</ion-slide-box>        
         <!-- slider section -->
-
+        
         <!-- home content section -->
         <div id="home-content">
             <div class="row">
@@ -58,122 +58,81 @@
             <ion-scroll direction="x" class="product-slide-list">
                 <div class="feed-list">
                     <div class="feed-item">
-                        <div class="img-header" style="background-image: url('img/demo/product_1.jpg')">                            
+                        <div class="img-header" style="background-image: url('img/demo/product_1.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                     <div class="feed-item">
                         <div class="img-header" style="background-image: url('img/demo/product_2.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                     <div class="feed-item">
                         <div class="img-header" style="background-image: url('img/demo/product_3.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                     <div class="feed-item">
                         <div class="img-header" style="background-image: url('img/demo/product_4.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                     <div class="feed-item">
                         <div class="img-header" style="background-image: url('img/demo/product_5.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                     <div class="feed-item">
                         <div class="img-header" style="background-image: url('img/demo/product_6.jpg')">
                         </div>
                         <div class="content">
-                            SALE 50%
+                            资生堂
                         </div>
                     </div>
                 </div>
-            </ion-scroll>                     
-            <!-- product slide section -->
-            <div class="location-list">
+            </ion-scroll>
+            <!-- product slide section -->         
+            <div id="home-product-list" class="location-list" ng-repeat="product in productList">                
                 <div class="location-item">
-                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
+                    <div class="location-img" style="background-image:url('{{product.img}}')">
                     </div>
                     <div class="location-content row">
                         <div class="col-90">
                             <h1>
-                                Stone Garden
+                                {{product.title}}
                             </h1>
                             <p>
-                                <i class="fa fa-flag"></i> Bangkok Thailand
+                                <!--<i class="fa fa-flag"></i>--><i class="ion-pricetag"></i> {{product.p}}
                             </p>
                         </div>
-                        <div class="col-10">
+                        <!--<div class="col-10">
                             <span class="text-add">+Wishlist</span>
-                        </div>
+                        </div>-->
                     </div>
-                </div>
-                <div class="location-item">
-                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
-                    </div>
-                    <div class="location-content row">
-                        <div class="col-90">
-                            <h1>
-                                Stone Garden
-                            </h1>
-                            <p>
-                                <i class="fa fa-flag"></i> Bangkok Thailand
-                            </p>
-                        </div>
-                        <div class="col-10">
-                            <span class="text-add">+Wishlist</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="location-item">
-                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
-                    </div>
-                    <div class="location-content row">
-                        <div class="col-90">
-                            <h1>
-                                Stone Garden
-                            </h1>
-                            <p>
-                                <i class="fa fa-flag"></i> Bangkok Thailand
-                            </p>
-                        </div>
-                        <div class="col-10">
-                            <span class="text-add">+Wishlist</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="location-item">
-                    <div class="location-img" style="background-image:url('img/location_feed_01.png')">
-                    </div>
-                    <div class="location-content row">
-                        <div class="col-90">
-                            <h1>
-                                Stone Garden
-                            </h1>
-                            <p>
-                                <i class="fa fa-flag"></i> Bangkok Thailand
-                            </p>
-                        </div>
-                        <div class="col-10">
-                            <span class="text-add">+Wishlist</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div>                
+            </div>            
             
         </div>
+        <!-- load more -->
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
+        <!-- load more -->
         <!-- home content section -->
     </ion-content>
+
+    <!--loading progress-->
+    <div id="home-loading-progress" class="loading-progress fade-in">
+        <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
+        <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
+    </div><!--end loading progress-->
 </ion-view>

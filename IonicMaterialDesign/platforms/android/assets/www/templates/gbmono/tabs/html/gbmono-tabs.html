@@ -1,23 +1,23 @@
-<ion-tabs class="tabs-icon-top" enable-menu-with-back-views="false">
+<ion-tabs class="tabs-icon-top tabs-assertive">
 
-    <ion-tab title="首页" icon="ion-home" class="custom-icon" ng-click="navigateTo('app.home')">		
+    <ion-tab title="首页" icon="ion-home" ng-click="navigateTo('app.home')">		
         <ion-nav-view name="homeContent"></ion-nav-view>
     </ion-tab>
 	
-    <ion-tab title="产品" icon="ion-film-marker" class="custom-icon" ng-click="navigateTo('app.productList')">	
+    <ion-tab title="产品" icon="ion-film-marker" ng-click="navigateTo('app.productList')">	
         <ion-nav-view name="productContent"></ion-nav-view>
     </ion-tab>
 	
-    <ion-tab title="扫一扫" icon="ion-qr-scanner" class="custom-icon" ng-click="navigateTo('app.productList')">
+    <ion-tab title="扫一扫" icon="ion-qr-scanner" ng-click="scanBarcode()">
 		<ion-nav-view name="menuContent"></ion-nav-view>
 	</ion-tab>
 	
-	<ion-tab title="促销" icon="ion-bag" class="custom-icon" ng-click="navigateTo('app.productList')">
+	<ion-tab title="促销" icon="ion-bag" ng-click="navigateTo('app.dashboard')">
 		<ion-nav-view name="menuContent1"></ion-nav-view>
 	</ion-tab>
 	
-    <ion-tab title="用户" icon="ion-person" class="custom-icon" ng-click="navigateTo('app.locationFeed')">
-        <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-tab title="用户" icon="ion-person" ng-click="navigateTo('app.profile')">
+        <ion-nav-view name="authentication"></ion-nav-view>
     </ion-tab>
 
 </ion-tabs>

@@ -8,7 +8,7 @@
     },
     "installed_plugins": {
         "phonegap-plugin-barcodescanner": {
-            "PACKAGE_NAME": "com.ionicframework.ionicmaterialdesign506749"
+            "PACKAGE_NAME": "com.raphael.gbmono.com"
         }
     },
     "dependent_plugins": {}
