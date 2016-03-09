@@ -3,7 +3,7 @@
     // It will initial all variable data and let the function works when page load.
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.enanbleScroll = true;
-
+    alert("")
     $scope.initialForm = function () {
         // $scope.productList is the variable that store user product data.
         $scope.productList = [];
@@ -93,7 +93,7 @@
 });// End of product list controller.
 
 // Controller of product Detail Page.
-appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
+appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, $ionicHistory) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
     var w = $stateParams.way;
@@ -174,6 +174,10 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             }
         });
     };// End sharedProduct.
+
+    $scope.goBack = function () {
+        $ionicHistory.goBack();
+    };
 
     $scope.initialForm();
 });// End of product detail controller.

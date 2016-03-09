@@ -292,7 +292,6 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 
     .config(function ($ionicConfigProvider, $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider, $mdColorPalette, $mdIconProvider) {
 
-
         // Use for change ionic spinner to android pattern.
         $ionicConfigProvider.spinner.icon("android");
         $ionicConfigProvider.views.swipeBackEnabled(false);
@@ -363,6 +362,7 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             .state('noTabs', {
                 url: '/noTabs',
                 abstract: true,
+                cache: false,
                 templateUrl: 'templates/gbmono/tabs/html/gbmono-no-tabs.html'
             })
 
@@ -972,23 +972,23 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                     }
                 }
             })
-            .state('app.productSearch', {
+            .state('noTabs.productSearch', {
                 url: "/productSearch",
                 views: {
-                    'productContent': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productSearch.html",
                         controller: 'productSearchCtrl'
                     }
                 }
             })
-            .state('app.productSearchResult', {
+            .state('noTabs.productSearchResult', {
                 url: "/productSearchResult",
                 params: {
                     way: null,
                     key: null
                 },
                 views: {
-                    'productContent': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",
                         controller: 'productSearchResultCtrl'
                     }
@@ -1051,6 +1051,6 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 	})
 	.config(function ($mdGestureProvider) {
 	    $mdGestureProvider.skipClickHijack();
-	});
+	})
 	
 	;
