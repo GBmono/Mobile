@@ -6,13 +6,13 @@
 <!--URL : #app/productDetail-->
 
 <ion-view view-title="{{product.title}}">
-    <!--left button on navigation bar-->    
+    <!--left button on navigation bar-->
     <ion-header-bar id="gbmono-product-list-head">
         <div class="buttons">
             <button class="button button-clear button-icon icon ion-android-arrow-back" ng-click="$ionicGoBack()"></button>
         </div>
         <h1 class="title"><b>{{product.title}}</b></h1>
-    </ion-header-bar>   
+    </ion-header-bar>
     <!--end left button on navigation bar-->
     <!--product detail section-->
     <ion-content id="gbmono-product-detail" class="fade-in">
@@ -31,26 +31,20 @@
                         </a>
 
                         <div class="detail-form">
-                            <div class="header">
-                                <h1>{{product.primaryName}}</h1>
-                                <p>{{product.secondaryName}}</p>
-                            </div>
-                            <!--product tab detail price section-->
-                            <div class="product-detail-price">
-                                <div class="left">
-                                    
-                                    <!--<span class="font-hot-sale">${{product.price | number : 2}}</span>-->
+                            <div class="row header">
+                                <div class="col">
+                                    <h3>{{product.primaryName}}</h3>
+                                    <h4>{{product.secondaryName}}</h4>
                                 </div>
-                                <div class="right">
-                                    <a class="md-raised md-warn md-button md-default-theme" ng-click="addToCart()">
-                                        加入清单
-                                    </a>
+                                <div class="col-25">
+                                    <i ng-class="(isFavourite) ? 'ion-android-star' : 'ion-android-star-outline'" ng-click="toggleFavorite()"></i>
                                 </div>
                             </div>
-                          
+
+
                             <!--end product tab detail review section-->
                             <!--product tab detail shipping section-->
-                            <div class="desc-strart" ></div>
+                            <div class="desc-strart"></div>
                             <md-subheader class="md-warn">商品详细</md-subheader>
                             <div class="product-detail-shipping row">
                                 <div class="col">
@@ -182,7 +176,7 @@
         <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
     </div> <!--end loading progress-->
     <!--canvas for save image to local devise-->
-    <canvas id="imgCanvas" class="display-none"></canvas>    
+    <canvas id="imgCanvas" class="display-none"></canvas>
 
     <!--angular template section-->
     <script type="text/ng-template" id="bottom-sheet-shared.html">

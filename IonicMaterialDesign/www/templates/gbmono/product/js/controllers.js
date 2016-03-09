@@ -93,9 +93,13 @@
 });// End of product list controller.
 
 // Controller of product Detail Page.
-appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams) {
+appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
+    $scope.token = localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
+    $scope.isFavourite = false;
+
+
     var w = $stateParams.way;
     var k = $stateParams.key;
     var url;
@@ -114,6 +118,23 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         $scope.getProduct();
     };
 
+    var getIsFavorite = function () {
+        if ($scope.token) {
+            var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + '/IsFavorited/' + $scope.product.productId;
+            $http.get(url, {
+                headers: {
+                    "Authorization": 'Bearer ' + $scope.token
+                }
+            }).success(function (status) {
+                if (status) {
+                    $scope.isFavourite = true;
+                }
+            }).error(function (error) {
+                // ignore the 401 error
+            });;
+        }
+    }
+
     $scope.getProduct = function () {
         $scope.hidePage();
         $http({
@@ -124,6 +145,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             }
         }).success(function (data) {
             $scope.product = data;
+            getIsFavorite();
         })
         .error(function () {
 
@@ -132,6 +154,8 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             $scope.showPage();
         });
     };
+
+
 
     $scope.hidePage = function () {
         if ($scope.isAndroid) {
@@ -143,25 +167,81 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
     }
 
     $scope.showPage = function () {
-        jQuery('#product-detail-loading-progress').hide();        
+        jQuery('#product-detail-loading-progress').hide();
         jQuery('#gbmono-product-detail').fadeIn();
     }
 
 
-    // addToCart for show Item Added ! toast.
-    $scope.addToCart = function () {
-        $mdToast.show({
-            controller: 'toastController',
-            templateUrl: 'toast.html',
-            hideDelay: 800,
-            position: 'top',
-            locals: {
-                displayOption: {
-                    title: "Item Added !"
-                }
+
+
+    // addToCart 
+    var addFavorite = function () {
+        var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url;
+        var favorite = { productId: $scope.product.productId };
+        $http.post(url, favorite, {
+            headers: {
+                "Authorization": 'Bearer ' + $scope.token
             }
+        }).success(function (data) {
+            $scope.isFavourite = true;
+            $mdToast.show({
+                controller: 'toastController',
+                templateUrl: 'toast.html',
+                hideDelay: 800,
+                position: 'top',
+                locals: {
+                    displayOption: {
+                        title: "成功加入收藏夹"
+                    }
+                }
+            });
+        }).error(function (data) {
+
+        }).finally(function () {
+
         });
-    }; // End addToCart.
+
+    };
+
+    // removeToCart
+    var removeFavorite = function () {
+        var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + "/" + $scope.product.productId;
+        $http.delete(url, {
+            headers: {
+                "Authorization": 'Bearer ' + $scope.token
+            }
+        }).success(function (data) {
+            $scope.isFavourite = false;
+            $mdToast.show({
+                controller: 'toastController',
+                templateUrl: 'toast.html',
+                hideDelay: 800,
+                position: 'top',
+                locals: {
+                    displayOption: {
+                        title: "商品从收藏夹移除"
+                    }
+                }
+            });
+        }).error(function (data) {
+
+        }).finally(function () {
+
+        });
+
+    };
+
+    $scope.toggleFavorite = function () {
+        if ($scope.isFavourite) {
+            // remove
+            removeFavorite();
+        }
+        else {
+            // add
+            addFavorite();
+        }
+    }
+
 
     // sharedProduct fro show shared social bottom sheet by calling sharedSocialBottomSheetCtrl controller.
     $scope.sharedProduct = function ($event, product) {
@@ -250,7 +330,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
     $scope.navigateTo = function (targetPage, productId) {
         var way = window.globalVariable.gbmono_product_detail_way.id;
         $state.go(targetPage, {
-            way:way,
+            way: way,
             key: productId
         });
     };// End navigateTo.

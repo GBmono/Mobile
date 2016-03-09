@@ -2007,6 +2007,12 @@ md-sidenav {
           width: 116px;
           /*margin-top: 22px;*/
           margin-right: 10px; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form i.ion-android-star-outline {
+      color: gray;
+      font-size: 300%; }
+    #gbmono-product-detail #product-detail-tab-detail div.detail-form i.ion-android-star {
+      color: #ff892a !important;
+      font-size: 300%; }
     #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping {
       border-top: #dbdbdb; }
       #gbmono-product-detail #product-detail-tab-detail div.detail-form div.product-detail-shipping div.col-67 {
@@ -2055,7 +2061,7 @@ md-sidenav {
       border-top: #dbdbdb;
       border-top-style: solid;
       border-top-width: 1px;
-      margin-top: 16px;
+      /*margin-top: 16px;*/
       margin-bottom: 16px; }
   #gbmono-product-detail #product-detail-tab-detail .promotions-header {
     margin-top: -20px;
