@@ -93,7 +93,7 @@
 });// End of product list controller.
 
 // Controller of product Detail Page.
-appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage) {
+appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage, $state) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
     $scope.token = localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
@@ -162,13 +162,13 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                 getIsFavorite();
                 $scope.showPage();
             }
-            
+
         })
         .error(function () {
             jQuery('#product-detail-loading-progress').hide();
         })
         //.finally(function () {
-            
+
         //});
     };
 
@@ -212,8 +212,10 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                     }
                 }
             });
-        }).error(function (data) {
-
+        }).error(function (XMLHttpRequest, textStatus, errorThrown) {
+            if (textStatus == 401) {
+                $state.go('app.login');
+            }
         }).finally(function () {
 
         });
@@ -240,8 +242,10 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                     }
                 }
             });
-        }).error(function (data) {
-
+        }).error(function (XMLHttpRequest, textStatus, errorThrown) {
+            if (textStatus == 401) {
+                $state.go('app.login');
+            }
         }).finally(function () {
 
         });
