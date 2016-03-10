@@ -1,13 +1,13 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $timeout, $state, $cordovaBarcodeScanner) {
+appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast) {
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
 		} else {
 		    $scope.currentScanning = true;
 		    $cordovaBarcodeScanner.scan().then(function (imageData) {
-		        alert(imageData.text);
+		        //alert(imageData.text);
 		        $scope.currentScanning = false;
 		        var isJson = isNaN(parseInt(imageData.text));
 		        if (isJson) {
@@ -35,6 +35,17 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope,$stateParams, $time
 			}, function(error) {
 				$scope.currentScanning = false;
 				console.log("An error happened -> " + error);
+				$mdToast.show({
+				    controller: 'toastController',
+				    templateUrl: 'toast.html',
+				    hideDelay: 1500,
+				    position: 'top',
+				    locals: {
+				        displayOption: {
+				            title: "没有搜寻结果"
+				        }
+				    }
+				});
 			});
 		}
 		
