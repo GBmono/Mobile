@@ -144,15 +144,32 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                 'Access-Control-Allow-Origin': '*'
             }
         }).success(function (data) {
-            $scope.product = data;
-            getIsFavorite();
+            if (data == null) {
+                $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 1500,
+                    position: 'top',
+                    locals: {
+                        displayOption: {
+                            title: "没有搜索结果"
+                        }
+                    }
+                });
+                jQuery('#product-detail-loading-progress').hide();
+            } else {
+                $scope.product = data;
+                getIsFavorite();
+                $scope.showPage();
+            }
+            
         })
         .error(function () {
-
+            jQuery('#product-detail-loading-progress').hide();
         })
-        .finally(function () {
-            $scope.showPage();
-        });
+        //.finally(function () {
+            
+        //});
     };
 
 
