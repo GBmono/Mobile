@@ -1,6 +1,6 @@
 ﻿// Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $timeout, NoteDB, $state, $http, localStorage) {
+appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast) {
     
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -26,7 +26,18 @@ appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $ti
             localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
             $scope.navigateTo('app.profile');
         }).error(function (data, status, headers, config) {
-            console.log('请求错误')
+            console.log('请求错误');
+			$mdToast.show({
+                controller: 'toastController',
+                templateUrl: 'toast.html',
+                hideDelay: 1500,
+                position: 'top',
+                locals: {
+                    displayOption: {
+                        title: data.error_description
+                    }
+                }
+            });
         });
     };
 
@@ -48,7 +59,7 @@ appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $ti
 
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $timeout, NoteDB, $state, $http, localStorage) {
+appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast) {
 
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -85,7 +96,18 @@ appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $t
                 console.log('请求错误')
             });            
         }).error(function (data, status, headers, config) {
-            console.log('请求错误')
+            console.log('请求错误');
+			$mdToast.show({
+                controller: 'toastController',
+                templateUrl: 'toast.html',
+                hideDelay: 1500,
+                position: 'top',
+                locals: {
+                    displayOption: {
+                        title: data.modelState.message.toString()
+                    }
+                }
+            });
         });
     };
 

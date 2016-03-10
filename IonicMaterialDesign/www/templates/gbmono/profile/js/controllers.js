@@ -31,6 +31,10 @@
             if (data.length < $scope.vm.paging.pageSize) {
                 $scope.vm.isAllDataLoaded = true;
             }
+        })
+		.error(function (data, status, headers, config) {
+			$scope.navigateTo('app.login');
+            console.log('请求错误')
         });
     };
 
