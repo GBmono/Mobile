@@ -1,8 +1,19 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
 
-appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate) {
+appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate, $mdUtil, $mdSidenav) {
 
+    $scope.toggleLeft = buildToggler('left');
+
+    // buildToggler is for create menu toggle.
+    // Parameter :  
+    // navID = id of navigation bar.
+    function buildToggler(navID) {
+        var debounceFn = $mdUtil.debounce(function () {
+            $mdSidenav(navID).toggle();
+        }, 0);
+        return debounceFn;
+    };// End buildToggler.
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {

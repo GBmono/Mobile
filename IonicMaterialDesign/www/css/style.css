@@ -120,8 +120,8 @@ ion-header-bar {
   overflow-y: hidden !important; }
 
 md-sidenav {
-  min-width: 78% !important;
-  max-width: 78% !important;
+  min-width: 50% !important;
+  max-width: 50% !important;
   box-shadow: 1 2px 4px -1px rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.098), 0 1px 10px 0 rgba(0, 0, 0, 0.084); }
 
 .md-progress-social-profile {
@@ -456,7 +456,7 @@ md-sidenav {
         font-size: 12px; }
 
 #toggle-menu-left-content {
-  margin-top: 154px; }
+  margin-top: 120px; }
   #toggle-menu-left-content md-list h2 {
     background-color: transparent !important; }
     #toggle-menu-left-content md-list h2 div.md-subheader-inner {

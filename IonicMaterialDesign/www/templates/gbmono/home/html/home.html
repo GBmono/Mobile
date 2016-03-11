@@ -1,7 +1,7 @@
 <ion-view title="Home" ng-controller="homeCtrl">
     <ion-header-bar>
         <div class="row item-input-inset">
-            <button class="button button-clear button-icon icon ion-qr-scanner" ng-click="scanBarcode()"></button>
+            <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
             <a href="#/noMenu/search" class="item-input-wrapper">
                 <i class="icon ion-ios-search placeholder-icon"></i>
                 <input type="search" placeholder="搜索商品">
@@ -135,4 +135,69 @@
         <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
         <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
     </div><!--end loading progress-->
+
+    <md-sidenav md-component-id="left">
+        <!--menu section-->
+        <div class="material-background" id="toggle-menu-left-header">
+            <!--menu header section-->
+            <div class="menu-left-header">
+                <img class="user-img" src="img/profileAvatar.jpg">
+                <p>
+                    <span class="title">集匠网</span>
+                    <br />
+                    <span class="sub-title">介绍</span>
+                </p>
+            </div><!--end menu header section-->
+        </div> <!--menu content section-->
+        <ion-content id="toggle-menu-left-content">
+            <!--If device is android application will present below code.-->
+            <!--It will disable animation to better performance on android.-->
+            <!--list section-->
+            <div ng-if="isAndroid" class="menu-list">
+                <div class="row menu-item" ng-click="">
+                    <div class="col-33">
+                        <i class="fa fa-cube"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>品牌</span>
+                    </div>
+                </div>
+                <div class="row menu-item" ng-click="">
+                    <div class="col-33">
+                        <i class="fa ion-mic-c"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>市场动态</span>
+                    </div>
+                </div>  
+                <div class="row menu-item" ng-click="">
+                    <div class="col-33">
+                        <i class="fa fa-bage"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>药妆店</span>
+                    </div>
+                </div>                  
+            </div>
+
+            <!--If device is not Android application will present below code.-->
+            <!--It will show animation when selecting row.-->
+            <md-list ng-if="!isAndroid">
+                <md-list-item class="menu-list-item" ng-click="">
+                    <i class="fa fa-cube"></i>
+                    <span>品牌</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="">
+                    <i class="fa ion-mic-c"></i>
+                    <span>市场动态</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="">
+                    <i class="fa ion-bag"></i>
+                    <span>药妆店</span>
+                </md-list-item>                
+            </md-list>
+            <!--end list section-->
+        </ion-content><!--end menu content section-->
+        <!--end menu section-->
+    </md-sidenav>
 </ion-view>

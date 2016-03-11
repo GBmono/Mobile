@@ -73,6 +73,8 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
 		}
 		
 	};
+
+
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
