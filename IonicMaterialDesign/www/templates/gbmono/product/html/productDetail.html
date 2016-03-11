@@ -22,7 +22,8 @@
                 <!--product tab detail section-->
                 <md-tab label="商品详情">
                     <md-content id="product-detail-tab-detail">
-                        <div class="toolbar-image-cover product" style="background-image: url('{{imgRoot + product.images[0].fileName}}');">
+                        <div class="" style="text-align:center;height:190px">
+                            <img src="{{imgRoot + product.images[0].fileName}}" style="vertical-align:middle;height:100%"/>
                         </div>
                         <a class="md-button md-accent md-fab fab-toolbar-medium"
                            ng-click="sharedProduct($event,product)"

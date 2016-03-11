@@ -212,8 +212,32 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                     }
                 }
             });
-        }).error(function (data) {
-
+        }).error(function (data,state) {
+            if (state == 401) {
+                $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 1500,
+                    position: 'top',
+                    locals: {
+                        displayOption: {
+                            title: "添加收藏失败，清先登录"
+                        }
+                    }
+                });
+            } else {
+                $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 800,
+                    position: 'top',
+                    locals: {
+                        displayOption: {
+                            title: data.message
+                        }
+                    }
+                });
+            }
         }).finally(function () {
 
         });
