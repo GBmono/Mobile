@@ -165,6 +165,17 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             
         })
         .error(function () {
+            $mdToast.show({
+                controller: 'toastController',
+                templateUrl: 'toast.html',
+                hideDelay: 1500,
+                position: 'top',
+                locals: {
+                    displayOption: {
+                        title: "没有搜索结果"
+                    }
+                }
+            });
             jQuery('#product-detail-loading-progress').hide();
         })
         //.finally(function () {

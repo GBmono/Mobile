@@ -7,31 +7,54 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
 		} else {
 		    $scope.currentScanning = true;
 		    $cordovaBarcodeScanner.scan().then(function (imageData) {
-		        //alert(imageData.text);
-		        $scope.currentScanning = false;
-		        var isJson = isNaN(parseInt(imageData.text));
-		        if (isJson) {
-		            var json = JSON.parse(imageData.text);
-		            switch (json.type) {
-		                case 1:
-		                    $scope.navigateTo('noTabs.productSearchResult', imageData.text);
-		                    break;
-		                case 2:
-		                    break;
+		        try {
+		            $scope.currentScanning = false;
+		            var isJson = isNaN(parseInt(imageData.text));
+		            if (isJson) {
+		                var json = JSON.parse(imageData.text);
+		                if (!json.gbmono) {
+		                    throw "";
+		                }
+		                switch (json.way) {
+		                    case 1://shelf
+		                        var way = window.globalVariable.gbmono_product_search_way.shelf;
+		                        $state.go('noTabs.productSearchResult', {
+		                            way: way,
+		                            key: json.id
+		                        })
+		                        break;
+		                    case 2:
+		                        break;
+		                }
+		            } else {
+		                //$scope.navigateTo('app.productDetail', imageData);
+		                var way = window.globalVariable.gbmono_product_detail_way.barcode;
+		                $state.go('noTabs.productDetail', {
+		                    way: way,
+		                    key: imageData.text
+		                });
+		                return;
 		            }
-		        } else {
-		            //$scope.navigateTo('app.productDetail', imageData);
-		            var way = window.globalVariable.gbmono_product_detail_way.barcode;
-		            $state.go('noTabs.productDetail', {
-		                way: way,
-		                key: imageData.text
+		            //$scope.currentScanning = false;
+		            //alert(imageData.text);				
+		            console.log("Barcode Format -> " + imageData.format);
+		            console.log("Cancelled -> " + imageData.cancelled);
+		        } catch (e) {
+		            $scope.currentScanning = false;
+		            console.log("An error happened -> " + error);
+		            $mdToast.show({
+		                controller: 'toastController',
+		                templateUrl: 'toast.html',
+		                hideDelay: 1500,
+		                position: 'top',
+		                locals: {
+		                    displayOption: {
+		                        title: "没有搜寻结果"
+		                    }
+		                }
 		            });
-		            return;
 		        }
-				//$scope.currentScanning = false;
-				//alert(imageData.text);				
-				console.log("Barcode Format -> " + imageData.format);
-				console.log("Cancelled -> " + imageData.cancelled);
+		        
 			}, function(error) {
 				$scope.currentScanning = false;
 				console.log("An error happened -> " + error);
