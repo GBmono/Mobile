@@ -9742,3 +9742,6 @@ a.button {
 .tabs.tabs-assertive .tab-item .badge {
   background-color: #fff;
   color: #ef473a; }
+
+ion-nav-view {
+  background-color: transparent !important; }
