@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http) {
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicViewSwitcher) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.imgRoot = window.globalVariable.imagePath;
@@ -34,6 +34,7 @@
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
     $scope.navigateTo = function (targetPage, productId) {
+        $ionicViewSwitcher.nextDirection('forward');
         var way = window.globalVariable.gbmono_product_detail_way.id;
         $state.go(targetPage, {
             way: way,

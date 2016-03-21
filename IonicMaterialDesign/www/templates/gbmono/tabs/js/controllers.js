@@ -1,6 +1,6 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast,localStorage) {
+appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast, localStorage, $ionicViewSwitcher) {
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
@@ -83,13 +83,15 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
 	
 	$scope.checkLogin = function(){
 		var token=localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
-		var state='';
+		var state = '';
+		var direction = '';
 		if(!token||token===''){
-			state='noTabs.login';
+		    state = 'noTabs.login';
+		    direction = 'forward';
 		}else{
 			state='app.profile';
 		}
-		$scope.navigateTo(state);
+		$scope.navigateTo(state, direction);
 	};
 
     // navigateTo is for navigate to other page 
@@ -98,10 +100,11 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
-        $state.go(targetPage, {
-            noteDetail: objectData
-        });
+	$scope.navigateTo = function (targetPage, direction) {
+	    if (direction && direction != '') {
+	        $ionicViewSwitcher.nextDirection(direction);
+	    }
+        $state.go(targetPage);
     };// End navigateTo.
 
     $scope.initialForm();
