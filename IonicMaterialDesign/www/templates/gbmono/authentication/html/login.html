@@ -1,4 +1,9 @@
 ﻿<ion-view title="登录">
+    <ion-header-bar id="gbmono-product-list-head">
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-android-arrow-back" ng-click="$ionicGoBack()"></button>
+        </div>
+    </ion-header-bar>
     <ion-content id="gbmono-login" class="bg-white" ng-controller="gbmonoLoginCtrl">
         <!--fake login form section-->
         <form class="gbmonoLogin-form">
@@ -20,7 +25,7 @@
                 <a class="md-raised social-button md-button md-default-theme material-background" ng-click="login(user)">
                     登录
                 </a>
-                <a ng-click="navigateTo('app.signUp')" class="md-raised social-button md-button md-default-theme material-background">
+                <a ng-click="navigateTo('noTabs.signUp')" class="md-raised social-button md-button md-default-theme material-background">
                     注册
                 </a>
             </div>

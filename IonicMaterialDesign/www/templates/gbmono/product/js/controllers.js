@@ -225,7 +225,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             });
         }).error(function (XMLHttpRequest, textStatus, errorThrown) {
             if (textStatus == 401) {
-                $state.go('app.login');
+                $state.go('noTabs.login');
             }
         }).finally(function () {
 
@@ -255,7 +255,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             });
         }).error(function (XMLHttpRequest, textStatus, errorThrown) {
             if (textStatus == 401) {
-                $state.go('app.login');
+                $state.go('noTabs.login');
             }
         }).finally(function () {
 

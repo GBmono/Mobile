@@ -997,20 +997,20 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             })
 
             // gbmono login page
-            .state('app.login', {
+            .state('noTabs.login', {
                 url: "/login",
                 views: {
-                    'authentication': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/authentication/html/login.html",
                     }
                 }
             })
 
             // gbmono sign up page
-            .state('app.signUp', {
+            .state('noTabs.signUp', {
                 url: "/signup",
                 views: {
-                    'authentication': {
+                    'noTabsContent': {
                         templateUrl: "templates/gbmono/authentication/html/sign-up.html"
                     }
                 }

@@ -1,7 +1,7 @@
 ﻿appControllers.controller('gbmonoProfileCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage) {
     $scope.Logout = function () {
         localStorage.removeAll();
-        $scope.navigateTo('app.login');
+        $scope.navigateTo('noTabs.login');
     };
 
     $scope.token = localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
@@ -33,7 +33,7 @@
             }
         })
 		.error(function (data, status, headers, config) {
-			$scope.navigateTo('app.login');
+			$scope.navigateTo('noTabs.login');
             console.log('请求错误')
         });
     };
@@ -60,7 +60,7 @@
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
         if (!$scope.token || $scope.token === '') {
-            $scope.navigateTo('app.login');
+            $scope.navigateTo('noTabs.login');
         } else {
             $scope.getFavoriteProducts($scope.vm.paging.pageIndex, $scope.vm.paging.pageSize);
         }

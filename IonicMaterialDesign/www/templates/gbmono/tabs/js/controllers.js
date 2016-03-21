@@ -1,6 +1,6 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast) {
+appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast,localStorage) {
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
@@ -80,6 +80,17 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
     $scope.initialForm = function () {
 
     };//End initialForm.
+	
+	$scope.checkLogin = function(){
+		var token=localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
+		var state='';
+		if(!token||token===''){
+			state='noTabs.login';
+		}else{
+			state='app.profile';
+		}
+		$scope.navigateTo(state);
+	};
 
     // navigateTo is for navigate to other page 
     // by using targetPage to be the destination page 
@@ -89,8 +100,7 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
     // objectData = object that will sent to destination page.
     $scope.navigateTo = function (targetPage, objectData) {
         $state.go(targetPage, {
-            noteDetail: objectData,
-            actionDelete: (objectData == null ? false : true)
+            noteDetail: objectData
         });
     };// End navigateTo.
 
