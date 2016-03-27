@@ -2,7 +2,15 @@
 // It will call NoteDB Services to present data to html view.
 
 appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate, $mdUtil, $mdSidenav) {
-
+    $scope.$on('$ionicView.enter', function () { //This is fired twice in a row
+        //alert('ionic view enter');
+        $scope.nextSlide();
+    });
+    //$scope.slideOptions = {
+    //    loop: true,
+    //    effect: fade,
+    //    speed: 500,
+    //}
     $scope.toggleLeft = buildToggler('left');
 
     // buildToggler is for create menu toggle.
@@ -92,8 +100,7 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http,
     };// End loadMore.
 
     $scope.nextSlide = function () {
-        $ionicSlideBoxDelegate.next();
+        $ionicSlideBoxDelegate.next(2000);
     };
-    $scope.nextSlide();
     $scope.initialForm();
 });// End of Notes List Page  Controller.

@@ -1,4 +1,4 @@
-<ion-view title="Home" ng-controller="homeCtrl">
+<ion-view title="Home">
     <ion-header-bar>
         <div class="row item-input-inset">
             <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
@@ -10,7 +10,7 @@
     </ion-header-bar>
     <ion-content id="gbmono-home">
         <!-- slider section -->
-        <ion-slide-box id="home-slide-box" on-slide-changed="slideHasChanged($index)" show-pager="true" does-continue="true" auto-play="true" slide-interval="2000" active-slide="0">
+        <ion-slide-box id="home-slide-box" show-pager="true" does-continue="true" auto-play="true" slide-interval="2000">
             <ion-slide>     
                 <div>
                     <img src="img/demo/450_1.jpg" style="height:100%;width:100%"/>
@@ -41,7 +41,40 @@
                     <img src="img/demo/450_6.jpg" style="height:100%;width:100%" />
                 </div>
             </ion-slide>
-		</ion-slide-box>        
+		</ion-slide-box>
+        <!--new ion slides not complete-->
+        <!--<ion-slides id="home-slide-box" options="slideOptions" slider="data.slider">
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_1.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_2.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_3.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_4.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_5.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+            <ion-slide-page>
+                <div>
+                    <img src="img/demo/450_6.jpg" style="height:100%;width:100%" />
+                </div>
+            </ion-slide-page>
+        </ion-slides>-->
         <!-- slider section -->
         
         <!-- home content section -->

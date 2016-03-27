@@ -1002,6 +1002,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 views: {
                     'noTabsContent': {
                         templateUrl: "templates/gbmono/authentication/html/login.html",
+                        controller: 'gbmonoLoginCtrl'
                     }
                 }
             })
@@ -1011,7 +1012,8 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 url: "/signup",
                 views: {
                     'noTabsContent': {
-                        templateUrl: "templates/gbmono/authentication/html/sign-up.html"
+                        templateUrl: "templates/gbmono/authentication/html/sign-up.html",
+                        controller: 'gbmonoSignUpCtrl'
                     }
                 }
             })
