@@ -16,7 +16,7 @@
     <ion-content id="gbmono-product-search-Result">
 
         <div class="row productsArea" ng-repeat="product in productList"
-             ng-click="navigateTo('noTabs.productDetail',product.productId)">
+             ng-click="toProductDetail('noTabs.productDetail',product.productId)">
             <div class="col-25">
                 <img ng-src="{{imgRoot + product.imgUrl}}">
             </div>

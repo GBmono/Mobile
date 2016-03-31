@@ -1,4 +1,4 @@
-﻿appControllers.controller('gbmonoProfileCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage) {
+﻿appControllers.controller('gbmonoProfileCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, gbmonoProfileFactory, navigateService) {
     $scope.Logout = function () {
         localStorage.removeAll();
         $scope.navigateTo('noTabs.login');
@@ -19,22 +19,31 @@
     
 
     $scope.getFavoriteProducts = function (pageIndex, pageSize) {
-        $scope.attachToken();
-        $http.get(window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + '/Products/' + pageIndex + '/' + pageSize, {
-            headers: {
-                "Authorization": 'Bearer ' + $scope.token
-            }
-        })
-        .success(function (data) {
+        //$scope.attachToken();
+        //$http.get(window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + '/Products/' + pageIndex + '/' + pageSize, {
+        //    headers: {
+        //        "Authorization": 'Bearer ' + $scope.token
+        //    }
+        //})
+        //.success(function (data) {
+        //    $scope.vm.products = $scope.vm.products.concat(data);
+        //    $scope.vm.paging.pageIndex++;
+        //    if (data.length < $scope.vm.paging.pageSize) {
+        //        $scope.vm.isAllDataLoaded = true;
+        //    }
+        //})
+		//.error(function (data, status, headers, config) {
+		//	$scope.navigateTo('noTabs.login');
+        //    console.log('请求错误')
+        //});
+        gbmonoProfileFactory.getFavoriteProducts(pageIndex, pageSize, $scope.token).then(function (data) {
             $scope.vm.products = $scope.vm.products.concat(data);
             $scope.vm.paging.pageIndex++;
             if (data.length < $scope.vm.paging.pageSize) {
                 $scope.vm.isAllDataLoaded = true;
             }
-        })
-		.error(function (data, status, headers, config) {
-			$scope.navigateTo('noTabs.login');
-            console.log('请求错误')
+        }, function (reason) {
+
         });
     };
 
@@ -48,14 +57,15 @@
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, productId) {
-        var way = window.globalVariable.gbmono_product_detail_way.id;
-        $state.go(targetPage, {
-            way: way,
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params,direction);
+    };// End navigateTo.
+    $scope.toProductDetail = function (targetPage, productId) {
+        $scope.navigateTo(targetPage, {
+            way: window.globalVariable.gbmono_product_detail_way.id,
             key: productId
         });
-    };// End navigateTo.
-
+    };
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {

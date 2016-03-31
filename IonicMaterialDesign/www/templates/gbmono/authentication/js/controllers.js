@@ -1,6 +1,6 @@
 ﻿// Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast) {
+appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast, navigateService, gbmonoAuthFactory) {
     
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -15,30 +15,46 @@ appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $ti
 
     //gbmono login
     $scope.login = function (model) {
-        $http({
-            url: window.globalVariable.gbmono_api_token_url,
-            method: 'POST',
-            data: "userName=" + model.email + "&password=" + model.password + "&grant_type=password",
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded'
-            }
-        }).success(function (data, status, headers, config) {
+        //$http({
+        //    url: window.globalVariable.gbmono_api_token_url,
+        //    method: 'POST',
+        //    data: "userName=" + model.email + "&password=" + model.password + "&grant_type=password",
+        //    headers: {
+        //        'content-type': 'application/x-www-form-urlencoded'
+        //    }
+        //}).success(function (data, status, headers, config) {
+        //    localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
+        //    $scope.navigateTo('app.profile');
+        //}).error(function (data, status, headers, config) {
+        //    console.log('请求错误');
+		//	$mdToast.show({
+        //        controller: 'toastController',
+        //        templateUrl: 'toast.html',
+        //        hideDelay: 1500,
+        //        position: 'top',
+        //        locals: {
+        //            displayOption: {
+        //                title: data.error_description
+        //            }
+        //        }
+        //    });
+        //});
+        gbmonoAuthFactory.login(model).then(function (data) {
             localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
             $scope.navigateTo('app.profile');
-        }).error(function (data, status, headers, config) {
-            console.log('请求错误');
-			$mdToast.show({
+        }, function (reason) {
+            $mdToast.show({
                 controller: 'toastController',
                 templateUrl: 'toast.html',
                 hideDelay: 1500,
                 position: 'top',
                 locals: {
                     displayOption: {
-                        title: data.error_description
+                        title: reason.error_description
                     }
                 }
             });
-        });
+        })
     };
 
     // navigateTo is for navigate to other page 
@@ -47,19 +63,15 @@ appControllers.controller('gbmonoLoginCtrl', function ($scope, $stateParams, $ti
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
-        $state.go(targetPage, {
-            noteDetail: objectData,
-            actionDelete: (objectData == null ? false : true)
-        });
+    $scope.navigateTo = function (targetPage,params, direction) {
+        navigateService.go(targetPage, params, direction);
     };// End navigateTo.
-
     $scope.initialForm();
 });// End of Notes List Page  Controller.
 
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast) {
+appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $timeout, $state, $http, localStorage, $mdToast, navigateService, gbmonoAuthFactory) {
 
     // initialForm is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
@@ -74,37 +86,69 @@ appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $t
     };
 
     $scope.register = function (model) {
-        $http({
-            url: window.globalVariable.gbmono_api_site_prefix.account_api_url + '/Register',
-            method: "POST",
-            data: "userName=" + model.email + "&password=" + model.password + "&confirmPassword=" + model.confirmPassword,
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded'
-            }
-        }).success(function (data, status, headers, config) {
-            $http({
-                url: window.globalVariable.gbmono_api_token_url,
-                method: 'POST',
-                data: "userName=" + model.email + "&password=" + model.password + "&grant_type=password",
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                }
-            }).success(function (data, status, headers, config) {
+        //$http({
+        //    url: window.globalVariable.gbmono_api_site_prefix.account_api_url + '/Register',
+        //    method: "POST",
+        //    data: "userName=" + model.email + "&password=" + model.password + "&confirmPassword=" + model.confirmPassword,
+        //    headers: {
+        //        'content-type': 'application/x-www-form-urlencoded'
+        //    }
+        //}).success(function (data, status, headers, config) {
+        //    $http({
+        //        url: window.globalVariable.gbmono_api_token_url,
+        //        method: 'POST',
+        //        data: "userName=" + model.email + "&password=" + model.password + "&grant_type=password",
+        //        headers: {
+        //            'content-type': 'application/x-www-form-urlencoded'
+        //        }
+        //    }).success(function (data, status, headers, config) {
+        //        localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
+        //        //$scope.navigateTo('app.profile');
+        //        $scope.navigateTo('app.profile');
+        //    }).error(function (data, status, headers, config) {
+        //        console.log('请求错误')
+        //    });            
+        //}).error(function (data, status, headers, config) {
+        //    console.log('请求错误');
+		//	$mdToast.show({
+        //        controller: 'toastController',
+        //        templateUrl: 'toast.html',
+        //        hideDelay: 1500,
+        //        position: 'top',
+        //        locals: {
+        //            displayOption: {
+        //                title: data.modelState.message.toString()
+        //            }
+        //        }
+        //    });
+        //});
+        gbmonoAuthFactory.register(model).then(function (data) {
+            gbmonoAuthFactory.login(model).then(function (data) {
                 localStorage.set(window.globalVariable.BEARER_TOKEN_KEY, data.access_token);
+                //$scope.navigateTo('app.profile');
                 $scope.navigateTo('app.profile');
-            }).error(function (data, status, headers, config) {
-                console.log('请求错误')
-            });            
-        }).error(function (data, status, headers, config) {
-            console.log('请求错误');
-			$mdToast.show({
+            }, function (reason) {
+                $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 1500,
+                    position: 'top',
+                    locals: {
+                        displayOption: {
+                            title: reason.error_description
+                        }
+                    }
+                });
+            });
+        }, function (reason) {
+            $mdToast.show({
                 controller: 'toastController',
                 templateUrl: 'toast.html',
                 hideDelay: 1500,
                 position: 'top',
                 locals: {
                     displayOption: {
-                        title: data.modelState.message.toString()
+                        title: reason.modelState.message.toString()
                     }
                 }
             });
@@ -118,12 +162,14 @@ appControllers.controller('gbmonoSignUpCtrl', function ($scope, $stateParams, $t
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
-        $state.go(targetPage, {
-            noteDetail: objectData,
-            actionDelete: (objectData == null ? false : true)
-        });
-    };// End navigateTo.
-
+    //$scope.navigateTo = function (targetPage, objectData) {
+    //    $state.go(targetPage, {
+    //        noteDetail: objectData,
+    //        actionDelete: (objectData == null ? false : true)
+    //    });
+    //};// End navigateTo.
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
+    };
     $scope.initialForm();
 });// End of Notes List Page  Controller.
