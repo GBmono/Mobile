@@ -276,7 +276,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 StatusBar.styleDefault();
             }
 
-            initialSQLite();
+            //initialSQLite();
             initialRootScope();
 
             //Checking if view is changing it will go to this function.

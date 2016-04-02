@@ -116,7 +116,7 @@
 });// End of product list controller.
 
 // Controller of product Detail Page.
-appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage, $state, gbmonoProductFactory) {
+appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage, $state, gbmonoProductFactory, gbmonoFavoriteFactory) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
     $scope.token = localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
@@ -155,7 +155,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             //}).error(function (error) {
             //    // ignore the 401 error
             //});
-            gbmonoProductFactory.isFavorite($scope.product.productId,$scope.token).then(function (status) {
+            gbmonoFavoriteFactory.isFavorite($scope.product.productId, $scope.token).then(function (status) {
                 if (status) {
                     $scope.isFavourite = true;
                 }
@@ -273,7 +273,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     // addToCart 
     var addFavorite = function () {
-        var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url;
+        //var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url;
         var favorite = { productId: $scope.product.productId };
         //$http.post(url, favorite, {
         //    headers: {
@@ -300,7 +300,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
         //});
 
-        gbmonoProductFactory.addFavorite(favorite, $scope.token).then(function (data) {
+        gbmonoFavoriteFactory.addFavorite(favorite, $scope.token).then(function (data) {
             $scope.isFavourite = true;
             $scope.showMsgBox('成功加入收藏夹');
         }, function (reason) {
@@ -335,7 +335,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         //}).finally(function () {
 
         //});
-        gbmonoProductFactory.removeFavorite($scope.product.productId, $scope.token).then(function (data) {
+        gbmonoFavoriteFactory.removeFavorite($scope.product.productId, $scope.token).then(function (data) {
             $scope.isFavourite = false;
             $scope.showMsgBox('商品从收藏夹移除');
         }, function (reason) {

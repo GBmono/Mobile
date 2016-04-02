@@ -50,20 +50,6 @@
         return deferred.promise;
     };
 
-    factory.isFavorite = function (productId, token) {
-        var deferred = $q.defer();
-        $http({
-            method: 'GET',
-            url: url.favoriteController + url.actions.isFavorite + productId,
-            headers: setHeaderToken(token)
-        }).success(function (data) {
-            deferred.resolve(data);
-        }).error(function (reason) {
-            deferred.reject(reason);
-        });
-        return deferred.promise;
-    };
-
     factory.getProductById = function (productId) {
         var deferred = $q.defer();
         $http({
@@ -96,11 +82,32 @@
         return deferred.promise;
     };
 
-    factory.addFavorite = function (model,token) {
+    return factory;
+}]);
+
+
+
+appFactories.factory('gbmonoFavoriteFactory', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
+    var url = {
+        controller: window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url,
+        actions: {
+            isFavorite: '/IsFavorited/'
+        }
+    };
+
+    function setHeaderToken(token) {
+        return {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        };
+    };
+    var factory = {};
+
+    factory.addFavorite = function (model, token) {
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: url.favoriteController,
+            url: url.controller,
             data: model,
             headers: setHeaderToken(token)
         }).success(function (data) {
@@ -115,7 +122,21 @@
         var deferred = $q.defer();
         $http({
             method: 'DELETE',
-            url: url.favoriteController + '/' + productId,
+            url: url.controller + '/' + productId,
+            headers: setHeaderToken(token)
+        }).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (reason) {
+            deferred.reject(reason);
+        });
+        return deferred.promise;
+    };
+
+    factory.isFavorite = function (productId, token) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: url.controller + url.actions.isFavorite + productId,
             headers: setHeaderToken(token)
         }).success(function (data) {
             deferred.resolve(data);
