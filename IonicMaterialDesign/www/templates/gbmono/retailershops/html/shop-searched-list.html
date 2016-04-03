@@ -3,36 +3,49 @@
         <h1 class="title"><b>药妆店</b></h1>
     </ion-header-bar>
     <ion-content>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <tbody>
-                    <tr>
-                        <th style="width:30%">名称</th>
-                        <td class="ng-binding">薬 マツモトキヨシ 札幌南1条店</td>
-                    </tr>
-                    <tr>
-                        <th>地址</th>
-                        <td>
-                            <a href="" class="grey ng-binding">
-                                北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>营业时间</th>
-                        <td class="ng-binding">10:00-21:00</td>
-                    </tr>
-                    <tr>
-                        <th>休息日</th>
-                        <td class="ng-binding">元日</td>
-                    </tr>
-                    <tr>
-                        <th>联系电话</th>
-                        <td class="ng-binding">011-281-7511</td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-        </div>
+        <md-card>
+            <div class="row">
+                <div class="col col-25"><b>名称</b>:</div>
+                <div class="col">薬 マツモトキヨシ 札幌南1条店</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>地址</b>:</div>
+                <div class="col" ng-click="navigateTo('app.retailershopDetail')">北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i></div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>营业时间</b>:</div>
+                <div class="col">10:00-21:00</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>休息日</b>:</div>
+                <div class="col">元日</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>联系电话</b>:</div>
+                <div class="col">011-281-7511</div>
+            </div>
+        </md-card>
+        <md-card>
+            <div class="row">
+                <div class="col col-25"><b>名称</b>:</div>
+                <div class="col">薬 マツモトキヨシ 札幌南1条店</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>地址</b>:</div>
+                <div class="col">北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i></div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>营业时间</b>:</div>
+                <div class="col">10:00-21:00</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>休息日</b>:</div>
+                <div class="col">元日</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>联系电话</b>:</div>
+                <div class="col">011-281-7511</div>
+            </div>
+        </md-card>
     </ion-content>
  </ion-view>

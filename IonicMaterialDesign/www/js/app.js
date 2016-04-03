@@ -1036,7 +1036,30 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 cache:true,
                 views:{
                     'retailsContent': {
-                        templateUrl: 'templates/gbmono/retailershops/html/shops.html'
+                        templateUrl: 'templates/gbmono/retailershops/html/shops.html',
+                        controller:'gbmonoRetailerShopCtrl'
+                    }
+                }
+            })
+            // gbmono retailer shops searched list
+            .state('app.retailershopsSearchedList',{
+                url:"/retailershopsSearchedList",
+                cache:false,
+                views:{
+                    'retailsContent':{
+                        templateUrl: 'templates/gbmono/retailershops/html/shop-searched-list.html',
+                        controller: 'gbmonoShopSearchedList'
+                    }
+                }
+            })
+
+            // gbmono retailer shop detail
+            .state('app.retailershopDetail',{
+                url:"/retailershopDetail",
+                cache:false,
+                views:{
+                    'retailsContent':{
+                        templateUrl:'templates/gbmono/retailershops/html/shop-detail.html'
                     }
                 }
             })
