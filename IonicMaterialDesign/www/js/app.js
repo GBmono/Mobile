@@ -1030,6 +1030,17 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 }
             })
 
+            // gbmono retailer shops page
+            .state('app.retailershops',{
+                url: "/retailershops",
+                cache:true,
+                views:{
+                    'retailsContent': {
+                        templateUrl: 'templates/gbmono/retailershops/html/shops.html'
+                    }
+                }
+            })
+
 			// gbmono page end
 			;
         //Use $urlRouterProvider.otherwise(Url);
