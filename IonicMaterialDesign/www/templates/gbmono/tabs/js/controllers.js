@@ -1,6 +1,6 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
-appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast, localStorage, $ionicViewSwitcher) {
+appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $timeout, $state, $cordovaBarcodeScanner, $mdToast, localStorage, $ionicViewSwitcher, navigateService) {
 	$scope.scanBarcode = function(imageData){
 		if($scope.currentScanning===true){
 			return;
@@ -28,9 +28,13 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
 		                }
 		            } else {
 		                //$scope.navigateTo('app.productDetail', imageData);
-		                var way = window.globalVariable.gbmono_product_detail_way.barcode;
-		                $state.go('noTabs.productDetail', {
-		                    way: way,
+		                //var way = window.globalVariable.gbmono_product_detail_way.barcode;
+		                //$state.go('noTabs.productDetail', {
+		                //    way: way,
+		                //    key: imageData.text
+		                //});
+		                $scope.navigateTo('noTabs.productDetail', {
+		                    way: window.globalVariable.gbmono_product_detail_way.barcode,
 		                    key: imageData.text
 		                });
 		                return;
@@ -91,7 +95,8 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
 		}else{
 			state='app.profile';
 		}
-		$scope.navigateTo(state, direction);
+		$scope.navigateTo(state, undefined, direction);
+
 	};
 
     // navigateTo is for navigate to other page 
@@ -100,12 +105,9 @@ appControllers.controller('gbmonoTabsCtrl', function ($scope, $stateParams, $tim
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-	$scope.navigateTo = function (targetPage, direction) {
-	    if (direction && direction != '') {
-	        $ionicViewSwitcher.nextDirection(direction);
-	    }
-        $state.go(targetPage);
-    };// End navigateTo.
+	$scope.navigateTo = function (targetPage, params, direction) {
+	    navigateService.go(targetPage, params, direction);
+	};// End navigateTo.
 
     $scope.initialForm();
 });// End of Notes List Page  Controller.

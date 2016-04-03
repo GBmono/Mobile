@@ -1,7 +1,7 @@
 // Controller of Notes List Page.
 // It will call NoteDB Services to present data to html view.
 
-appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate, $mdUtil, $mdSidenav) {
+appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http, $ionicSlideBoxDelegate, $mdUtil, $mdSidenav, navigateService) {
     $scope.$on('$ionicView.enter', function () { //This is fired twice in a row
         //alert('ionic view enter');
         $scope.nextSlide();
@@ -67,11 +67,8 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http,
     // Parameter :  
     // targetPage = destination page.
     // objectData = object that will sent to destination page.
-    $scope.navigateTo = function (targetPage, objectData) {
-        $state.go(targetPage, {
-            noteDetail: objectData,
-            actionDelete: (objectData == null ? false : true)
-        });
+    $scope.navigateTo = function (targetPage,params, direction) {
+        navigateService.go(targetPage, params, direction);
     };// End navigateTo.
 
     // loadMore is for loadMore product list.

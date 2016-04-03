@@ -33,3 +33,14 @@ appServices.factory('localStorage', function ($filter, $window) {
 
     };
 });//End LocalStorage service.
+
+appServices.factory('navigateService', function ($state, $ionicViewSwitcher) {
+    return {
+        go: function (targetPage, params, nextDirection) {
+            if (nextDirection && nextDirection != '') {
+                $ionicViewSwitcher.nextDirection(nextDirection);
+            }
+            $state.go(targetPage, params);
+        }
+    };
+});

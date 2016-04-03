@@ -30,12 +30,12 @@
                             <div class="col">
                                 <div class="row c-parent">
                                     <div class="col">
-                                        <i class="ion-pricetags"></i><h4 ng-click="navigateTo('noTabs.productSearchResult',category.CategoryId)">{{category.Name}}</h4>
+                                        <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">{{category.Name}}</h4>
                                     </div>
                                 </div>
                                 <div class="row c-children">
                                     <div class="col-25" ng-repeat="subCategory in category.SubCategories">
-                                        <p ng-click="navigateTo('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                        <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
                                     </div>
                                 </div>
 

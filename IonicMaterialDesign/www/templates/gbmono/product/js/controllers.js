@@ -1,4 +1,4 @@
-﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicViewSwitcher) {
+﻿appControllers.controller('productListCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, navigateService, gbmonoProductFactory) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.imgRoot = window.globalVariable.imagePath;
@@ -33,14 +33,22 @@
     // Parameter :  
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
-    $scope.navigateTo = function (targetPage, productId) {
-        $ionicViewSwitcher.nextDirection('forward');
-        var way = window.globalVariable.gbmono_product_detail_way.id;
-        $state.go(targetPage, {
-            way: way,
+    $scope.toProductDetail = function (targetPage, productId) {
+        //$ionicViewSwitcher.nextDirection('forward');
+        //var way = window.globalVariable.gbmono_product_detail_way.id;
+        //$state.go(targetPage, {
+        //    way: way,
+        //    key: productId
+        //});
+        $scope.navigateTo(targetPage, {
+            way: window.globalVariable.gbmono_product_detail_way.id,
             key: productId
-        });
+        }, 'forward');
     };// End navigateTo.
+
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
+    };
 
     //// loadMore is for loadMore product list.
     //$scope.loadMore = function () {
@@ -65,14 +73,29 @@
     };
 
     //loadMore product list.
-    $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
-        $http({
-            url: window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize,
-            method: 'GET',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).success(function (data) {
+    $scope.loadProductBySearch = function (w, k, pageIndex, pageSize) {
+        //$http({
+        //    url: window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageSize,
+        //    method: 'GET',
+        //    headers: {
+        //        'Access-Control-Allow-Origin': '*'
+        //    }
+        //}).success(function (data) {
+        //    for (var product = 0; product < data.length; product++) {
+        //        $scope.productList.push(data[product]);
+        //    }
+        //    if (data.length < $scope.pageSize) {
+        //        $scope.enanbleScroll = false;
+        //    } else {
+        //        $scope.pageIndex = pageIndex + 1;
+        //    }
+        //}).error(function (data) {
+
+        //}).finally(function () {
+        //    $scope.$broadcast('scroll.infiniteScrollComplete');
+        //});
+
+        gbmonoProductFactory.loadProductBySearchCategories(k, pageIndex, pageSize).then(function (data) {
             for (var product = 0; product < data.length; product++) {
                 $scope.productList.push(data[product]);
             }
@@ -81,11 +104,10 @@
             } else {
                 $scope.pageIndex = pageIndex + 1;
             }
-        }).error(function (data) {
-
-        }).finally(function () {
             $scope.$broadcast('scroll.infiniteScrollComplete');
-        });;
+        }, function (reason) {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
     };
 
 
@@ -94,7 +116,7 @@
 });// End of product list controller.
 
 // Controller of product Detail Page.
-appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage, $state) {
+appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBottomSheet, $http, $timeout, $stateParams, localStorage, $state, gbmonoProductFactory, gbmonoFavoriteFactory) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.product = null;
     $scope.token = localStorage.get(window.globalVariable.BEARER_TOKEN_KEY);
@@ -119,72 +141,118 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         $scope.getProduct();
     };
 
-    var getIsFavorite = function () {
+    $scope.getIsFavorite = function () {
         if ($scope.token) {
-            var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + '/IsFavorited/' + $scope.product.productId;
-            $http.get(url, {
-                headers: {
-                    "Authorization": 'Bearer ' + $scope.token
-                }
-            }).success(function (status) {
+            //var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + '/IsFavorited/' + $scope.product.productId;
+            //$http.get(url, {
+            //    headers: {
+            //        "Authorization": 'Bearer ' + $scope.token
+            //    }
+            //}).success(function (status) {
+            //    if (status) {
+            //        $scope.isFavourite = true;
+            //    }
+            //}).error(function (error) {
+            //    // ignore the 401 error
+            //});
+            gbmonoFavoriteFactory.isFavorite($scope.product.productId, $scope.token).then(function (status) {
                 if (status) {
                     $scope.isFavourite = true;
                 }
-            }).error(function (error) {
-                // ignore the 401 error
-            });;
+            }, function (reason) {
+
+            });
         }
     }
 
     $scope.getProduct = function () {
         $scope.hidePage();
-        $http({
-            url: url,
-            method: 'GET',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).success(function (data) {
-            if (data == null) {
-                $mdToast.show({
-                    controller: 'toastController',
-                    templateUrl: 'toast.html',
-                    hideDelay: 1500,
-                    position: 'top',
-                    locals: {
-                        displayOption: {
-                            title: "没有搜索结果"
-                        }
-                    }
+        //$http({
+        //    url: url,
+        //    method: 'GET',
+        //    headers: {
+        //        'Access-Control-Allow-Origin': '*'
+        //    }
+        //}).success(function (data) {
+        //    if (data == null) {
+        //        $mdToast.show({
+        //            controller: 'toastController',
+        //            templateUrl: 'toast.html',
+        //            hideDelay: 1500,
+        //            position: 'top',
+        //            locals: {
+        //                displayOption: {
+        //                    title: "没有搜索结果"
+        //                }
+        //            }
+        //        });
+        //        jQuery('#product-detail-loading-progress').hide();
+        //    } else {
+        //        $scope.product = data;
+        //        getIsFavorite();
+        //        $scope.showPage();
+        //    }
+            
+        //})
+        //.error(function () {
+        //    $mdToast.show({
+        //        controller: 'toastController',
+        //        templateUrl: 'toast.html',
+        //        hideDelay: 1500,
+        //        position: 'top',
+        //        locals: {
+        //            displayOption: {
+        //                title: "没有搜索结果"
+        //            }
+        //        }
+        //    });
+        //    jQuery('#product-detail-loading-progress').hide();
+        //})
+        switch (w) {
+            case window.globalVariable.gbmono_product_detail_way.id:
+                gbmonoProductFactory.getProductById(k).then(function (data) {
+                    $scope.renderProduct(data);
+                }, function (reason) {
+                    $scope.showMsgBox('没有搜索结果');
+                    jQuery('#product-detail-loading-progress').hide();
                 });
-                jQuery('#product-detail-loading-progress').hide();
-            } else {
-                $scope.product = data;
-                getIsFavorite();
-                $scope.showPage();
-            }
-            
-        })
-        .error(function () {
-            $mdToast.show({
-                controller: 'toastController',
-                templateUrl: 'toast.html',
-                hideDelay: 1500,
-                position: 'top',
-                locals: {
-                    displayOption: {
-                        title: "没有搜索结果"
-                    }
-                }
-            });
-            jQuery('#product-detail-loading-progress').hide();
-        })
-        //.finally(function () {
-            
-        //});
+                break;
+            case window.globalVariable.gbmono_product_detail_way.barcode:
+                gbmonoProductFactory.getProductByBarcode(k).then(function (data) {
+                    $scope.renderProduct(data);
+                }, function (reason) {
+                    $scope.showMsgBox('没有搜索结果');
+                    jQuery('#product-detail-loading-progress').hide();
+                });
+                break;
+        }
     };
 
+    $scope.renderProduct = function (data) {
+        if (data == null) {
+            $scope.showMsgBox('没有搜索结果');
+            jQuery('#product-detail-loading-progress').hide();
+        } else {
+            $scope.product = data;
+            $scope.getIsFavorite();
+            $scope.showPage();
+        }
+    };
 
+    $scope.showMsgBox = function (Message) {
+        $mdToast.show({
+            controller: 'toastController',
+            templateUrl: 'toast.html',
+            hideDelay: 1500,
+            position: 'top',
+            locals: {
+                displayOption: {
+                    title: Message
+                }
+            }
+        });
+        
+    }
 
     $scope.hidePage = function () {
         if ($scope.isAndroid) {
@@ -205,63 +273,74 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 
     // addToCart 
     var addFavorite = function () {
-        var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url;
+        //var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url;
         var favorite = { productId: $scope.product.productId };
-        $http.post(url, favorite, {
-            headers: {
-                "Authorization": 'Bearer ' + $scope.token
-            }
-        }).success(function (data) {
+        //$http.post(url, favorite, {
+        //    headers: {
+        //        "Authorization": 'Bearer ' + $scope.token
+        //    }
+        //}).success(function (data) {
+        //    $scope.isFavourite = true;
+        //    $mdToast.show({
+        //        controller: 'toastController',
+        //        templateUrl: 'toast.html',
+        //        hideDelay: 800,
+        //        position: 'top',
+        //        locals: {
+        //            displayOption: {
+        //                title: "成功加入收藏夹"
+        //            }
+        //        }
+        //    });
+        //}).error(function (XMLHttpRequest, textStatus, errorThrown) {
+        //    if (textStatus == 401) {
+        //        $state.go('noTabs.login');
+        //    }
+        //}).finally(function () {
+
+        //});
+
+        gbmonoFavoriteFactory.addFavorite(favorite, $scope.token).then(function (data) {
             $scope.isFavourite = true;
-            $mdToast.show({
-                controller: 'toastController',
-                templateUrl: 'toast.html',
-                hideDelay: 800,
-                position: 'top',
-                locals: {
-                    displayOption: {
-                        title: "成功加入收藏夹"
-                    }
-                }
-            });
-        }).error(function (XMLHttpRequest, textStatus, errorThrown) {
-            if (textStatus == 401) {
-                $state.go('noTabs.login');
-            }
-        }).finally(function () {
-
+            $scope.showMsgBox('成功加入收藏夹');
+        }, function (reason) {
+            
         });
-
     };
 
     // removeToCart
     var removeFavorite = function () {
-        var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + "/" + $scope.product.productId;
-        $http.delete(url, {
-            headers: {
-                "Authorization": 'Bearer ' + $scope.token
-            }
-        }).success(function (data) {
+        //var url = window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url + "/" + $scope.product.productId;
+        //$http.delete(url, {
+        //    headers: {
+        //        "Authorization": 'Bearer ' + $scope.token
+        //    }
+        //}).success(function (data) {
+        //    $scope.isFavourite = false;
+        //    $mdToast.show({
+        //        controller: 'toastController',
+        //        templateUrl: 'toast.html',
+        //        hideDelay: 800,
+        //        position: 'top',
+        //        locals: {
+        //            displayOption: {
+        //                title: "商品从收藏夹移除"
+        //            }
+        //        }
+        //    });
+        //}).error(function (XMLHttpRequest, textStatus, errorThrown) {
+        //    if (textStatus == 401) {
+        //        $state.go('noTabs.login');
+        //    }
+        //}).finally(function () {
+
+        //});
+        gbmonoFavoriteFactory.removeFavorite($scope.product.productId, $scope.token).then(function (data) {
             $scope.isFavourite = false;
-            $mdToast.show({
-                controller: 'toastController',
-                templateUrl: 'toast.html',
-                hideDelay: 800,
-                position: 'top',
-                locals: {
-                    displayOption: {
-                        title: "商品从收藏夹移除"
-                    }
-                }
-            });
-        }).error(function (XMLHttpRequest, textStatus, errorThrown) {
-            if (textStatus == 401) {
-                $state.go('noTabs.login');
-            }
-        }).finally(function () {
+            $scope.showMsgBox('商品从收藏夹移除');
+        }, function (reason) {
 
         });
-
     };
 
     $scope.toggleFavorite = function () {
@@ -292,7 +371,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 });// End of product detail controller.
 
 
-appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory) {
+appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, navigateService) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
@@ -321,14 +400,16 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
     // Parameter :  
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
-    $scope.navigateTo = function (targetPage, key) {
-        var way = window.globalVariable.gbmono_product_search_way.category;
-        $state.go(targetPage, {
-            way: way,
+    $scope.toProductSearch = function (targetPage, key) {
+        //var way = window.globalVariable.gbmono_product_search_way.category;
+        $scope.navigateTo(targetPage, {
+            way: window.globalVariable.gbmono_product_search_way.category,
             key: key
         });
     };// End navigateTo.
-
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
+    };
     $scope.goBack = function () {
         $ionicHistory.goBack();
     };
@@ -346,7 +427,7 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
 });// End of product search controller.
 
 
-appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, $stateParams) {
+appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, $stateParams, navigateService, gbmonoProductFactory) {
     $scope.imgRoot = window.globalVariable.imagePath;
     $scope.searchWay = $stateParams.way;
     $scope.searchKey = $stateParams.key;
@@ -360,53 +441,79 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
     };// End initialForm.
 
 
-    $scope.navigateTo = function (targetPage, productId) {
-        var way = window.globalVariable.gbmono_product_detail_way.id;
-        $state.go(targetPage, {
-            way: way,
-            key: productId
-        });
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
     };// End navigateTo.
 
+    $scope.toProductDetail = function (targetPage, productId) {
+        $scope.navigateTo(targetPage, {
+            way: window.globalVariable.gbmono_product_detail_way.id,
+            key: productId
+        });
+    };
 
     $scope.loadMore = function () {
         $scope.loadProductBySearch($scope.searchWay, $scope.searchKey, $scope.pageIndex, $scope.pageSize);
     };
 
     //loadMore product list.
-    $scope.loadProductBySearch = function (w, k, pageIndex, pageZize) {
+    $scope.loadProductBySearch = function (w, k, pageIndex, pageSize) {
         var url;
         switch (w) {
             case window.globalVariable.gbmono_product_search_way.category:
-                url = window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize;
+                //url = window.globalVariable.gbmono_api_site_prefix.product_api_url + '/Categories/' + k + "/" + pageIndex + "/" + pageZize;
+                gbmonoProductFactory.loadProductBySearchCategories(k, pageIndex, pageSize).then(function (data) {
+                    $scope.renderProduct(data);
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                }, function (reason) {
+
+                });
                 break;
             case window.globalVariable.gbmono_product_search_way.shelf:
-                url = window.globalVariable.gbmono_api_site_prefix.temp_api_url + '/Shelf/' + k + "/" + pageIndex + "/" + pageZize;
+                //url = window.globalVariable.gbmono_api_site_prefix.temp_api_url + '/Shelf/' + k + "/" + pageIndex + "/" + pageZize;
+                gbmonoProductFactory.loadProductBySearchShelf(k, pageIndex, pageSize).then(function (data) {
+                    $scope.renderProduct(data);
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                }, function (reason) {
+
+                });
                 break;
         }
 
-        $http({
-            url: url,
-            method: 'GET',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).success(function (data) {
-            for (var product = 0; product < data.length; product++) {
-                $scope.productList.push(data[product]);
-            }
-            if (data.length < $scope.pageSize) {
-                $scope.enanbleScroll = false;
-            } else {
-                $scope.pageIndex = pageIndex + 1;
-            }
-        }).error(function (data) {
+        //$http({
+        //    url: url,
+        //    method: 'GET',
+        //    headers: {
+        //        'Access-Control-Allow-Origin': '*'
+        //    }
+        //}).success(function (data) {
+        //    for (var product = 0; product < data.length; product++) {
+        //        $scope.productList.push(data[product]);
+        //    }
+        //    if (data.length < $scope.pageSize) {
+        //        $scope.enanbleScroll = false;
+        //    } else {
+        //        $scope.pageIndex = pageIndex + 1;
+        //    }
+        //}).error(function (data) {
 
-        }).finally(function () {
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-        });;
+        //}).finally(function () {
+        //    $scope.$broadcast('scroll.infiniteScrollComplete');
+        //});
+
+        
     };
 
+    $scope.renderProduct = function (data) {
+        for (var product = 0; product < data.length; product++) {
+            $scope.productList.push(data[product]);
+        }
+        if (data.length < $scope.pageSize) {
+            $scope.enanbleScroll = false;
+        } else {
+            $scope.pageIndex = pageIndex + 1;
+        }
+    };
 
     $scope.goBack = function () {
         $ionicHistory.goBack();

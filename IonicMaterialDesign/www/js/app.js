@@ -53,7 +53,7 @@ window.globalVariable = {
         // product detail url
         product_api_url: gbmono_api_url + 'Products',
         // user favorite url
-        userfavorite_api_url: gbmono_api_url + '/UserFavorites',
+        userfavorite_api_url: gbmono_api_url + 'UserFavorites',
         // brand url
         brand_api_url: gbmono_api_url + 'Brands',
         // profile url
@@ -77,7 +77,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'ngMaterial', 'ngMessages', 'ngCordova'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'starter.factories', 'ngMaterial', 'ngMessages', 'ngCordova'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
         //Create database table of contracts by using sqlite database.
@@ -276,7 +276,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 StatusBar.styleDefault();
             }
 
-            initialSQLite();
+            //initialSQLite();
             initialRootScope();
 
             //Checking if view is changing it will go to this function.
