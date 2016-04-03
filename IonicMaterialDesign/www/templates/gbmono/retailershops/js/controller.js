@@ -1,3 +1,3 @@
-﻿appControllers.controller('gbmonoRetailerShopCtrl', function ($scope,) {
+﻿appControllers.controller('gbmonoRetailerShopCtrl', function ($scope) {
 
 });
