@@ -1059,7 +1059,8 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 cache:false,
                 views:{
                     'retailsContent':{
-                        templateUrl:'templates/gbmono/retailershops/html/shop-map.html'
+                        templateUrl:'templates/gbmono/retailershops/html/shop-map.html',
+                        controller: 'gbmonoShopMapCtrl'
                     }
                 }
             })

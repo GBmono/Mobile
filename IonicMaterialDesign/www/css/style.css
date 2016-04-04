@@ -2274,6 +2274,13 @@ md-sidenav {
   height: -webkit-calc(100vh - 110px);
   height: calc(100vh - 110px); }
 
+#gbmono-shop-map-content #map {
+  width: 100%;
+  height: 100%; }
+
+#gbmono-shop-map-content .scroll {
+  height: 100%; }
+
 #gbmono-retailers-home-content #retailers-list .retailersArea {
   padding-top: 5px;
   padding-bottom: 5px;
