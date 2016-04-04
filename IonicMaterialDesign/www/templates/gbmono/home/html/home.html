@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col promotions-header">
                     <h1>
-                        <i class="fa fa-bullhorn"></i> 推广
+                        <i class="fa fa-bullhorn"></i> 新品
                     </h1>
                 </div>
             </div>
@@ -134,7 +134,47 @@
                     </div>
                 </div>
             </ion-scroll>
-            <!-- product slide section -->         
+            <!-- product slide section -->     
+            
+            <md-card>
+                <div class="row">
+                    <img src="img/demo/季节商品.jpg" />
+                </div>
+                <div class="row">
+                    <div class="col col-33">
+                        <img style="max-width:80px;max-height:100px;display:block;margin-left:auto;margin-right:auto" src="http://119.9.104.196/adminapi/files/products/01/01/01/118_1.jpeg" />
+                    </div>
+                    <div class="col col-33">
+                        <img style="max-width:80px;max-height:100px;display:block;margin-left:auto;margin-right:auto" src="http://119.9.104.196/adminapi/Files/Products/03/01/01/3_1.jpeg" />
+                    </div>
+                    <div class="col col-33">
+                        <img style="max-width:80px;max-height:100px;display:block;margin-left:auto;margin-right:auto" src="http://119.9.104.196/adminapi/Files/Products/03/01/01/2_1.jpeg" />
+                    </div>
+                </div>
+            </md-card>
+
+            <md-card>
+                <div class="row">
+                    <img src="img/demo/品牌.png" />
+                </div>
+                <div class="row">
+                    <div class="col col-33">
+                        <img style="max-width:100%;display:block;margin-left:auto;margin-right:auto" src="img/demo/allie.png" />
+                    </div>
+                    <div class="col col-33">
+                        <img style="max-width:100%;display:block;margin-left:auto;margin-right:auto" src="img/demo/kate.png" />
+                    </div>
+                    <div class="col col-33">
+                        <img style="max-width:100%;display:block;margin-left:auto;margin-right:auto" src="img/demo/ururi.png" />
+                    </div>
+                </div>
+            </md-card>
+
+            <md-card>
+                <div class="row">
+                    <img src="img/demo/松本清优惠.jpg" />
+                </div>
+            </md-card>
             <div id="home-product-list" class="location-list" ng-repeat="product in productList">                
                 <div class="location-item">
                     <div class="location-img" style="background-image:url('{{product.img}}')">
@@ -145,20 +185,17 @@
                                 {{product.title}}
                             </h1>
                             <p>
-                                <!--<i class="fa fa-flag"></i>--><i class="ion-pricetag"></i> {{product.p}}
+                                <i class="ion-pricetag"></i> {{product.p}}
                             </p>
                         </div>
-                        <!--<div class="col-10">
-                            <span class="text-add">+Wishlist</span>
-                        </div>-->
                     </div>
                 </div>                
             </div>            
             
         </div>
         <!-- load more -->
-        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
-        </ion-infinite-scroll>
+        <!--<ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>-->
         <!-- load more -->
         <!-- home content section -->
     </ion-content>

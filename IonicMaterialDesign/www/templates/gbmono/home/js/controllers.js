@@ -39,10 +39,6 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http,
             img: 'img/demo/info4.jpg',
             title: '资深堂',
             p: '红研肌活精华露'
-        }, {
-            img: 'img/demo/info2.png',
-            title: '资深堂',
-            p: '红研肌活精华露'
         }];
 
         // Loading progress.
