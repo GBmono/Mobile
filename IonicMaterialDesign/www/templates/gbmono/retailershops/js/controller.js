@@ -4,13 +4,19 @@
     };
 });
 
-appControllers.controller('gbmonoShopDetailCtrl', function ($scope, navigateService, $stateParams) {
+appControllers.controller('gbmonoShopMapCtrl', function ($scope, navigateService, $stateParams) {
     $scope.navigateTo = function (targetPage, params, direction) {
         navigateService.go(targetPage, params, direction);
     };
 });
 
-appControllers.controller('gbmonoShopSearchedList', function ($scope, navigateService) {
+appControllers.controller('gbmonoShopSearchedListCtrl', function ($scope, navigateService) {
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
+    };
+});
+
+appControllers.controller('gbmonoStateShopsCtrl', function ($scope, navigateService) {
     $scope.navigateTo = function (targetPage, params, direction) {
         navigateService.go(targetPage, params, direction);
     };

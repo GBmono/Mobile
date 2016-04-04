@@ -1036,7 +1036,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 cache:true,
                 views:{
                     'retailsContent': {
-                        templateUrl: 'templates/gbmono/retailershops/html/shops.html',
+                        templateUrl: 'templates/gbmono/retailershops/html/retailers.html',
                         controller:'gbmonoRetailerShopCtrl'
                     }
                 }
@@ -1048,18 +1048,29 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 views:{
                     'retailsContent':{
                         templateUrl: 'templates/gbmono/retailershops/html/shop-searched-list.html',
-                        controller: 'gbmonoShopSearchedList'
+                        controller: 'gbmonoShopSearchedListCtrl'
                     }
                 }
             })
 
             // gbmono retailer shop detail
-            .state('app.retailershopDetail',{
-                url:"/retailershopDetail",
+            .state('app.retailershopMap',{
+                url:"/retailershopMap",
                 cache:false,
                 views:{
                     'retailsContent':{
-                        templateUrl:'templates/gbmono/retailershops/html/shop-detail.html'
+                        templateUrl:'templates/gbmono/retailershops/html/shop-map.html'
+                    }
+                }
+            })
+
+            .state('app.retailerStateShops', {
+                url:'/retailerStateShops',
+                cache: false,
+                views: {
+                    'retailsContent': {
+                        templateUrl:'templates/gbmono/retailershops/html/state-shops.html',
+                        controller: 'gbmonoStateShopsCtrl'
                     }
                 }
             })

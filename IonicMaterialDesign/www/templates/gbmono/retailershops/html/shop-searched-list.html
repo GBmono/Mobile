@@ -1,5 +1,8 @@
 ﻿<ion-view title="药妆店搜索结果">
     <ion-header-bar>
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-android-arrow-back" ng-click="$ionicGoBack()"></button>
+        </div>
         <h1 class="title"><b>药妆店</b></h1>
     </ion-header-bar>
     <ion-content>
@@ -10,7 +13,7 @@
             </div>
             <div class="row">
                 <div class="col col-25"><b>地址</b>:</div>
-                <div class="col" ng-click="navigateTo('app.retailershopDetail')">北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i></div>
+                <div class="col" ng-click="navigateTo('app.retailershopMap')">北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i></div>
             </div>
             <div class="row">
                 <div class="col col-25"><b>营业时间</b>:</div>
@@ -28,11 +31,33 @@
         <md-card>
             <div class="row">
                 <div class="col col-25"><b>名称</b>:</div>
-                <div class="col">薬 マツモトキヨシ 札幌南1条店</div>
+                <div class="col">ドラッグストア マツモトキヨシ ピアシティ柏中新宿店</div>
             </div>
             <div class="row">
                 <div class="col col-25"><b>地址</b>:</div>
-                <div class="col">北海道札幌市中央区南1条西3丁目8 <i class="fa fa-map-marker main-color"></i></div>
+                <div class="col">千葉県柏市中新宿3-11-1 <i class="fa fa-map-marker main-color"></i></div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>营业时间</b>:</div>
+                <div class="col">9:00-21:45</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>休息日</b>:</div>
+                <div class="col">無休</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>联系电话</b>:</div>
+                <div class="col">047-170-8105</div>
+            </div>
+        </md-card>
+        <md-card>
+            <div class="row">
+                <div class="col col-25"><b>名称</b>:</div>
+                <div class="col">薬 マツモトキヨシ 中井駅前店</div>
+            </div>
+            <div class="row">
+                <div class="col col-25"><b>地址</b>:</div>
+                <div class="col">東京都新宿区上落合2-17-13 <i class="fa fa-map-marker main-color"></i></div>
             </div>
             <div class="row">
                 <div class="col col-25"><b>营业时间</b>:</div>
@@ -40,11 +65,11 @@
             </div>
             <div class="row">
                 <div class="col col-25"><b>休息日</b>:</div>
-                <div class="col">元日</div>
+                <div class="col">無休</div>
             </div>
             <div class="row">
                 <div class="col col-25"><b>联系电话</b>:</div>
-                <div class="col">011-281-7511</div>
+                <div class="col">03-5338-2203</div>
             </div>
         </md-card>
     </ion-content>
