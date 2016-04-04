@@ -42,18 +42,18 @@ appControllers.controller('homeCtrl', function ($scope, $timeout, $state, $http,
         }];
 
         // Loading progress.
-        $timeout(function () {
-            if ($scope.isAndroid) {
-                jQuery('#home-loading-progress').show();
-            }
-            else {
-                jQuery('#home-loading-progress').fadeIn(700);
-            }
-        }, 400);
-        $timeout(function () {
-            jQuery('#home-loading-progress').hide();
-            jQuery('#home-product-list').fadeIn();
-        }, 4000);// End loading progress.
+        //$timeout(function () {
+        //    if ($scope.isAndroid) {
+        //        jQuery('#home-loading-progress').show();
+        //    }
+        //    else {
+        //        jQuery('#home-loading-progress').fadeIn(700);
+        //    }
+        //}, 400);
+        //$timeout(function () {
+        //    jQuery('#home-loading-progress').hide();
+        //    jQuery('#home-product-list').fadeIn();
+        //}, 4000);// End loading progress.
 
     };//End initialForm.
 
