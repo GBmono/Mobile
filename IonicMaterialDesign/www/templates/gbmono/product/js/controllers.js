@@ -192,7 +192,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
         //        getIsFavorite();
         //        $scope.showPage();
         //    }
-            
+
         //})
         //.error(function () {
         //    $mdToast.show({
@@ -251,7 +251,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
                 }
             }
         });
-        
+
     }
 
     $scope.hidePage = function () {
@@ -304,7 +304,7 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
             $scope.isFavourite = true;
             $scope.showMsgBox('成功加入收藏夹');
         }, function (reason) {
-            
+
         });
     };
 
@@ -371,14 +371,17 @@ appControllers.controller('productDetailCtrl', function ($scope, $mdToast, $mdBo
 });// End of product detail controller.
 
 
-appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, navigateService) {
+appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, navigateService, gbmonoBrandFactory) {
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
         // $scope.productList is the variable that store user product data.
         $scope.categories = [];
 
+        $scope.brands = [];
+
         $scope.loadCategories();
+        $scope.loadBrands();
 
         //// Loading progress.
         //$timeout(function () {
@@ -420,6 +423,13 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
                 $scope.categories = categories;
             });
     };// End loadMore.
+
+    $scope.loadBrands = function () {
+        gbmonoBrandFactory.getAll()
+            .success(function (data) {
+                $scope.brands = data;
+            });;
+    }
 
 
     $scope.initialForm();
@@ -501,7 +511,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
         //    $scope.$broadcast('scroll.infiniteScrollComplete');
         //});
 
-        
+
     };
 
     $scope.renderProduct = function (data) {

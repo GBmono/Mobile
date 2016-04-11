@@ -2139,6 +2139,12 @@ md-sidenav {
     text-align: center;
     margin: 5px; }
 
+#gbmono-product-search #product-search-tab-brand .brand-area {
+  border-bottom: 1px solid;
+  border-color: #ddd;
+  padding-top: 5px;
+  padding-bottom: 0px; }
+
 #gbmono-product-search-Result {
   background-color: #f6f6f6; }
   #gbmono-product-search-Result h5 {

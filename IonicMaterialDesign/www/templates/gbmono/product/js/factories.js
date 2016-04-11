@@ -1,7 +1,6 @@
 ﻿appFactories.factory('gbmonoProductFactory', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
     var url = {
         controller: window.globalVariable.gbmono_api_site_prefix.product_api_url,
-        favoriteController: window.globalVariable.gbmono_api_site_prefix.userfavorite_api_url,
         actions: {
             loadProductBySearchCategories: '/categories/',
             loadProductBySearchShelf: '/shelf/',
@@ -54,7 +53,7 @@
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: url.controller+'/'+productId,
+            url: url.controller + '/' + productId,
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -84,6 +83,21 @@
 
     return factory;
 }]);
+
+appFactories.factory('gbmonoBrandFactory', ['$http', '$q', '$rootScope', function ($http) {
+    var url = {
+        controller: window.globalVariable.gbmono_api_site_prefix.brand_api_url
+    };
+
+    var factory = {};
+    factory.getAll = function () {
+        return $http.get(url.controller);
+    }
+
+    return factory;
+
+}]);
+
 
 
 

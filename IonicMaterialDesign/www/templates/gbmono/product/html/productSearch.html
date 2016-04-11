@@ -15,44 +15,49 @@
                 <i class="icon ion-ios-search placeholder-icon"></i>
                 <input type="search" placeholder="搜索商品">
             </a>
-            </div>
+        </div>
     </ion-header-bar>
 
     <!--product list section-->
     <ion-content id="gbmono-product-search">
-        <md-content>
-            <!--product tabs section-->
-            <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height class="no-border">
-                <!--product tab detail section-->
-                <md-tab label="分类">
-                    <md-content id="product-search-tab-category">
-                        <div class="row" ng-repeat="category in categories">
-                            <div class="col">
-                                <div class="row c-parent">
-                                    <div class="col">
-                                        <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">{{category.Name}}</h4>
-                                    </div>
+        <!--product tabs section-->
+        <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height class="no-border">
+            <!--product tab detail section-->
+            <md-tab label="分类">
+                <md-content id="product-search-tab-category">
+                    <div class="row" ng-repeat="category in categories">
+                        <div class="col">
+                            <div class="row c-parent">
+                                <div class="col">
+                                    <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">{{category.Name}}</h4>
                                 </div>
-                                <div class="row c-children">
-                                    <div class="col-25" ng-repeat="subCategory in category.SubCategories">
-                                        <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
-                                    </div>
-                                </div>
-
                             </div>
+                            <div class="row c-children">
+                                <div class="col-25" ng-repeat="subCategory in category.SubCategories">
+                                    <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                </div>
+                            </div>
+
                         </div>
-                    </md-content>
-                </md-tab><!--end product tab detail section-->
-                <!--product tab product section-->
-                <md-tab label="热词">
-                    <md-content id="product-search-tab-key" class="md-padding">
+                    </div>
+                </md-content>
+            </md-tab><!--end product tab detail section-->
+            <!--product tab product section-->
+            <md-tab label="热词">
+                <md-content id="product-search-tab-key" class="md-padding">
 
-                    </md-content>
-                </md-tab> <!--product tab product section-->
-            </md-tabs><!--end product tabs section-->
-        </md-content>
+                </md-content>
+            </md-tab> <!--product tab product section-->
+            <md-tab label="品牌">
+                <md-content id="product-search-tab-brand" class="md-padding">
+                    <div class="row brand-area" ng-repeat="brand in brands">
+                        <div class="col">{{brand.name}}</div>
+                    </div>
+                </md-content>
 
+            </md-tab> <!--product tab product section-->
 
+        </md-tabs><!--end product tabs section-->
     </ion-content>
 
 

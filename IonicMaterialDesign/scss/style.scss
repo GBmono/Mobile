@@ -3371,7 +3371,6 @@ md-sidenav {
                     }
                 }
             }
-
             //ion-android-star-outline
             i.ion-android-star-outline {
                 color: $color_gray;
@@ -3583,6 +3582,16 @@ md-sidenav {
                 text-align: center;
                 margin: 5px;
             }
+        }
+    }
+
+
+    #product-search-tab-brand {
+        .brand-area {
+            border-bottom: 1px solid;
+            border-color: #ddd;
+            padding-top: 5px;
+            padding-bottom: 0px;
         }
     }
 }
@@ -3804,24 +3813,28 @@ md-sidenav {
     }
 }
 
-#gbmono-shop-map-content{
+#gbmono-shop-map-content {
     .fullHeight {
         height: -webkit-calc(100vh - 110px);
         height: calc(100vh - 110px);
     }
+
     #map {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     .scroll {
-      height: 100%;
+        height: 100%;
     }
 }
 
-#gbmono-retailers-home-content{
-    #retailers-list{
-        .retailersArea{
+
+
+
+#gbmono-retailers-home-content {
+    #retailers-list {
+        .retailersArea {
             padding-top: 5px;
             padding-bottom: 5px;
             border-top: 1px solid;
@@ -3832,15 +3845,15 @@ md-sidenav {
         }
 
         .retailersArea img {
-            width:100%;
+            width: 100%;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .retailersArea h5{
-            color:gray;
-            font-size:16px;
+        .retailersArea h5 {
+            color: gray;
+            font-size: 16px;
         }
     }
 }
