@@ -3084,6 +3084,16 @@ md-sidenav {
 //gbmono section
 #gbmono-home {
     background-color: $color_black_haze_approx;
+    .img-topics{
+        height:100px;
+    }
+    .content-topics{
+        text-align:center;
+        color:gray
+    }
+    .img-head{
+        height:188px;
+    }
     //slider section
     #home-slide-box {
         box-shadow: 0px 3px 1px -2px $color_black_14, 0px 2px 2px 0px $color_black_098, 0px 1px 5px 0px $color_black_084;
