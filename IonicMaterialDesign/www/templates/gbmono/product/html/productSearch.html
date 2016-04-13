@@ -16,6 +16,7 @@
                 <input type="search" placeholder="搜索商品">
             </a>
         </div>
+
     </ion-header-bar>
 
     <!--product list section-->
@@ -50,10 +51,18 @@
             </md-tab> <!--product tab product section-->
             <md-tab label="品牌">
                 <md-content id="product-search-tab-brand" class="md-padding">
-                    <div class="row brand-area" ng-repeat="brand in brands">
+                    <!--<div class="row brand-area" ng-repeat="brand in brands">
                         <div class="col">{{brand.name}}</div>
-                    </div>
+                    </div>-->
+                    <ion-list>
+                        <ion-item auto-list-divider auto-list-divider-value="{{brand.name}}" ng-repeat="brand in brands">
+                            <div class="col">{{brand.name}}</div>
+                        </ion-item>
+                    </ion-list>
                 </md-content>
+
+
+
 
             </md-tab> <!--product tab product section-->
 

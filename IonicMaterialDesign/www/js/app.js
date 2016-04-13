@@ -77,7 +77,7 @@ window.globalVariable = {
 };// End Global variable
 
 
-angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'starter.factories', 'ngMaterial', 'ngMessages', 'ngCordova'])
+angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers', 'starter.services', 'starter.factories', 'ngMaterial', 'ngMessages', 'ngCordova', 'ionic.ion.autoListDivider'])
     .run(function ($ionicPlatform, $cordovaSQLite, $rootScope, $ionicHistory, $state, $mdDialog, $mdBottomSheet) {
 
         //Create database table of contracts by using sqlite database.
@@ -353,12 +353,12 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             .state('app', {
                 url: "/app",
                 abstract: true,
-				//templateUrl: "templates/menu/html/menu.html",
+                //templateUrl: "templates/menu/html/menu.html",
                 //controller: 'menuCtrl'
-                
-				templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
+
+                templateUrl: "templates/gbmono/tabs/html/gbmono-tabs.html",
                 controller: 'gbmonoTabsCtrl'
-            })	
+            })
             .state('noTabs', {
                 url: '/noTabs',
                 abstract: true,
@@ -639,7 +639,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-           
+
             .state('app.productCheckout', {
                 url: "/productCheckout",
                 views: {
@@ -938,26 +938,26 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })// End $stateProvider
-			
+
 			// gbmono page start
 			.state('app.home', {
-				url: "/home",
+			    url: "/home",
 			    views: {
 			        'homeContent': {
-						templateUrl: "templates/gbmono/home/html/home.html",
-						controller: "homeCtrl"
-					}
-				}
+			            templateUrl: "templates/gbmono/home/html/home.html",
+			            controller: "homeCtrl"
+			        }
+			    }
 			})
              .state('app.productList', {
-                url: "/productList",
-                views: {
-                    'productContent': {
-                        templateUrl: "templates/gbmono/product/html/productList.html",
-                        controller: 'productListCtrl'
-                    }
-                }
-            })
+                 url: "/productList",
+                 views: {
+                     'productContent': {
+                         templateUrl: "templates/gbmono/product/html/productList.html",
+                         controller: 'productListCtrl'
+                     }
+                 }
+             })
             .state('noTabs.productDetail', {
                 url: "/productDetail",
                 params: {
@@ -987,7 +987,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     way: null,
                     key: null
                 },
-               
+
                 views: {
                     'noTabsContent': {
                         templateUrl: "templates/gbmono/product/html/productSearchResult.html",
@@ -1031,22 +1031,22 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             })
 
             // gbmono retailer shops page
-            .state('app.retailershops',{
+            .state('app.retailershops', {
                 url: "/retailershops",
-                cache:true,
-                views:{
+                cache: true,
+                views: {
                     'retailsContent': {
                         templateUrl: 'templates/gbmono/retailershops/html/retailers.html',
-                        controller:'gbmonoRetailerShopCtrl'
+                        controller: 'gbmonoRetailerShopCtrl'
                     }
                 }
             })
             // gbmono retailer shops searched list
-            .state('app.retailershopsSearchedList',{
-                url:"/retailershopsSearchedList",
-                cache:false,
-                views:{
-                    'retailsContent':{
+            .state('app.retailershopsSearchedList', {
+                url: "/retailershopsSearchedList",
+                cache: false,
+                views: {
+                    'retailsContent': {
                         templateUrl: 'templates/gbmono/retailershops/html/shop-searched-list.html',
                         controller: 'gbmonoShopSearchedListCtrl'
                     }
@@ -1054,50 +1054,53 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
             })
 
             // gbmono retailer shop detail
-            .state('app.retailershopMap',{
-                url:"/retailershopMap",
-                cache:false,
-                views:{
-                    'retailsContent':{
-                        templateUrl:'templates/gbmono/retailershops/html/shop-map.html',
+            .state('app.retailershopMap', {
+                url: "/retailershopMap",
+                cache: false,
+                views: {
+                    'retailsContent': {
+                        templateUrl: 'templates/gbmono/retailershops/html/shop-map.html',
                         controller: 'gbmonoShopMapCtrl'
                     }
                 }
             })
 
             .state('app.retailerStateShops', {
-                url:'/retailerStateShops',
+                url: '/retailerStateShops',
                 cache: false,
                 views: {
                     'retailsContent': {
-                        templateUrl:'templates/gbmono/retailershops/html/state-shops.html',
+                        templateUrl: 'templates/gbmono/retailershops/html/state-shops.html',
                         controller: 'gbmonoStateShopsCtrl'
                     }
                 }
             })
 
-			// gbmono page end
-			;
+        // gbmono page end
+        ;
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     })
-	
+
 	// 默认导航位置
 	.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-		$ionicConfigProvider.platform.ios.tabs.style('standard');
-		$ionicConfigProvider.platform.ios.tabs.position('bottom');
-		$ionicConfigProvider.platform.android.tabs.style('standard');
-		$ionicConfigProvider.platform.android.tabs.position('bottom');
-		$ionicConfigProvider.platform.ios.navBar.alignTitle('center');
-		$ionicConfigProvider.platform.android.navBar.alignTitle('center');
-		$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-		$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
-		$ionicConfigProvider.platform.ios.views.transition('ios');
-		$ionicConfigProvider.platform.android.views.transition('android');
+	    $ionicConfigProvider.platform.ios.tabs.style('standard');
+	    $ionicConfigProvider.platform.ios.tabs.position('bottom');
+	    $ionicConfigProvider.platform.android.tabs.style('standard');
+	    $ionicConfigProvider.platform.android.tabs.position('bottom');
+	    $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
+	    $ionicConfigProvider.platform.android.navBar.alignTitle('center');
+	    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
+	    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+	    $ionicConfigProvider.platform.ios.views.transition('ios');
+	    $ionicConfigProvider.platform.android.views.transition('android');
 	})
+
+    //A-z List
 	.config(function ($mdGestureProvider) {
 	    $mdGestureProvider.skipClickHijack();
 	})
-	
-	;
+   
+
+;
