@@ -22,12 +22,15 @@ angular.module('ion-alpha-scroll', [])
                     '</ion-list>'
                 ].join(''));
 
-                var headerHeight = $document[0].body.querySelector('.bar-header').offsetHeight;
-                var subHeaderHeight = tAttrs.subheader === "true" ? 44 : 0;
-                var tabHeight = $document[0].body.querySelector('.tab-nav') ? $document[0].body.querySelector('.tab-nav').offsetHeight : 0;
+                //Allen comment out,Always=0,fix the height rely on CSS height
+                //var headerHeight = $document[0].body.querySelector('.bar-header').offsetHeight;
+                //var subHeaderHeight = tAttrs.subheader === "true" ? 44 : 0;
+                //var tabHeight = $document[0].body.querySelector('.tab-nav') ? $document[0].body.querySelector('.tab-nav').offsetHeight : 0;
+
                 var windowHeight = window.innerHeight;
 
-                var contentHeight = windowHeight - headerHeight - subHeaderHeight - tabHeight;
+                //var contentHeight = windowHeight -headerHeight -subHeaderHeight -tabHeight;
+                var contentHeight = windowHeight;
 
                 angular.element(template.find('ion-item')[1]).append(children);
                 tElement.html('');

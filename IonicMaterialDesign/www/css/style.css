@@ -2339,3 +2339,6 @@ md-sidenav {
 
 .ion_alpha_list_outer .scroll-view.scroll-y {
   overflow-y: hidden; }
+
+.scroll-view.scroll-y {
+  overflow-y: hidden; }

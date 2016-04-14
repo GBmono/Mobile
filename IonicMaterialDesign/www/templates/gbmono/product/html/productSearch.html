@@ -19,20 +19,19 @@
 
     </ion-header-bar>
 
-    <ion-content id="gbmono-product-search" >
+    <ion-content id="gbmono-product-search" scroll="false">
         <!--product tabs section-->
         <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height
                  class="no-border">
             <!--product tab detail section-->
             <md-tab label="分类">
                 <md-content id="product-search-tab-category">
-                  
+                    <ion-scroll id="categoryScroll">
                         <div class="row" ng-repeat="category in categories">
                             <div class="col">
                                 <div class="row c-parent">
                                     <div class="col">
-                                        <i class="ion-pricetags"></i><h4 ng-
-                                                                         click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
+                                        <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
                                             {{category.Name}}
                                         </h4>
                                     </div>
@@ -45,6 +44,7 @@
 
                             </div>
                         </div>
+                    </ion-scroll>
                 </md-content>
             </md-tab><!--end product tab detail section-->
             <!--product tab product section-->
@@ -54,65 +54,11 @@
                 </md-content>
             </md-tab> <!--product tab product section-->
             <md-tab label="品牌">
-                <md-content id="product-search-tab-brand" class="md-padding" >
-                    <!--<div class="row brand-area" ng-repeat="brand in brands">
-                        <div class="col">{{brand.name}}</div>
-                    </div>-->
-                    <!--<ion-scroll style="height:500px"  delegate-handle="scrollHandle" on-scroll="checkPosition()" sticky>
-                        <div class="list">
-                            <div class="item-container">
-                                <div class="item item-divider">One</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                                <div class="item">D</div>
-                            </div>
-                            <div class="item-container">
-                                <div class="item item-divider">Two</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                                <div class="item">D</div>
-                                <div class="item">E</div>
-                            </div>
-                            <div class="item-container">
-                                <div class="item item-divider">Three</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                            </div>
-                            <div class="item-container">
-                                <div class="item item-divider">Four</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                            </div>
-                            <div class="item-container">
-                                <div class="item item-divider">Five</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                                <div class="item">D</div>
-                            </div>
-                            <div class="item-container">
-                                <div class="item item-divider">Six</div>
-                                <div class="item">A</div>
-                                <div class="item">B</div>
-                                <div class="item">C</div>
-                                <div class="item">D</div>
-                                <div class="item">E</div>
-                            </div>
-                        </div>
-                    </ion-scroll>-->
+                <md-content id="product-search-tab-brand" class="md-padding">
                     <ion-alpha-scroll ng-model="brands" key="name">
                         <div>{{item.name}}</div>
                     </ion-alpha-scroll>
-
                 </md-content>
-
-
-
-
 
             </md-tab> <!--product tab product section-->
 

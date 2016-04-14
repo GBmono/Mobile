@@ -375,6 +375,8 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
     // This function is the first activity in the controller. 
     // It will initial all variable data and let the function works when page load.
     $scope.initialForm = function () {
+
+        $scope.initScrollHeight();
         // $scope.productList is the variable that store user product data.
         $scope.categories = [];
 
@@ -417,6 +419,8 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
         $ionicHistory.goBack();
     };
 
+
+
     $scope.loadCategories = function () {
         $http.get('app-data/categories.json')
             .success(function (categories) {
@@ -431,6 +435,15 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
             });;
     }
 
+
+
+    $scope.initScrollHeight= function() {
+        angular.element(document).ready(function () {
+            var windowHeight = window.innerHeight;
+            var height = windowHeight - 48 - 44 - 5;
+            $("#categoryScroll").css('height', height);
+        });
+    }
 
     $scope.initialForm();
 
