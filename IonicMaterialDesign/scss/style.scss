@@ -3084,15 +3084,18 @@ md-sidenav {
 //gbmono section
 #gbmono-home {
     background-color: $color_black_haze_approx;
-    .img-topics{
-        height:100px;
+
+    .img-topics {
+        height: 100px;
     }
-    .content-topics{
-        text-align:center;
-        color:gray
+
+    .content-topics {
+        text-align: center;
+        color: gray;
     }
-    .img-head{
-        height:188px;
+
+    .img-head {
+        height: 188px;
     }
     //slider section
     #home-slide-box {
@@ -3597,6 +3600,8 @@ md-sidenav {
 
 
     #product-search-tab-brand {
+        padding:0px;
+
         .brand-area {
             border-bottom: 1px solid;
             border-color: #ddd;
@@ -3867,3 +3872,38 @@ md-sidenav {
         }
     }
 }
+
+
+//.ion_alpha_list
+.ion_alpha_list_outer .list {
+    padding-right: 15px;
+}
+
+.ion_alpha_list_outer .item {
+    border-right: none;
+}
+
+.ion_alpha_sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.ion_alpha_sidebar li {
+    line-height: 1.1;
+    font-size:70%;
+}
+
+.ion_alpha_list_outer .item-divider {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height:5px;
+    background-color:#ddd;
+}
+
+.ion_alpha_list_outer .scroll-view.scroll-y{
+    overflow-y:hidden;
+}
+
+//.ion_alpha_list

@@ -19,28 +19,32 @@
 
     </ion-header-bar>
 
-    <!--product list section-->
-    <ion-content id="gbmono-product-search">
+    <ion-content id="gbmono-product-search" scroll="false">
         <!--product tabs section-->
-        <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height class="no-border">
+        <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height
+                 class="no-border">
             <!--product tab detail section-->
             <md-tab label="分类">
                 <md-content id="product-search-tab-category">
-                    <div class="row" ng-repeat="category in categories">
-                        <div class="col">
-                            <div class="row c-parent">
-                                <div class="col">
-                                    <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">{{category.Name}}</h4>
+                  
+                        <div class="row" ng-repeat="category in categories">
+                            <div class="col">
+                                <div class="row c-parent">
+                                    <div class="col">
+                                        <i class="ion-pricetags"></i><h4 ng-
+                                                                         click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
+                                            {{category.Name}}
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row c-children">
-                                <div class="col-25" ng-repeat="subCategory in category.SubCategories">
-                                    <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                <div class="row c-children">
+                                    <div class="col-25" ng-repeat="subCategory in category.SubCategories">
+                                        <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
                 </md-content>
             </md-tab><!--end product tab detail section-->
             <!--product tab product section-->
@@ -50,16 +54,16 @@
                 </md-content>
             </md-tab> <!--product tab product section-->
             <md-tab label="品牌">
-                <md-content id="product-search-tab-brand" class="md-padding">
+                <md-content id="product-search-tab-brand" class="md-padding" ion-sticky>
                     <!--<div class="row brand-area" ng-repeat="brand in brands">
                         <div class="col">{{brand.name}}</div>
                     </div>-->
-                    <ion-list>
-                        <ion-item auto-list-divider auto-list-divider-value="{{brand.name}}" ng-repeat="brand in brands">
-                            <div class="col">{{brand.name}}</div>
-                        </ion-item>
-                    </ion-list>
+                    <ion-alpha-scroll ng-model="brands" key="name">
+                        <div>{{item.name}}</div>
+                    </ion-alpha-scroll>
+
                 </md-content>
+
 
 
 
@@ -69,12 +73,13 @@
         </md-tabs><!--end product tabs section-->
     </ion-content>
 
+    <!--product list section-->
+
+
 
 
     <div id="product-list-loading-progress" class="loading-progress fade-in">
         <ion-spinner ng-if="!isAndroid" class="progress-circular"></ion-spinner>
         <md-progress-circular ng-if="isAndroid" md-mode="indeterminate"></md-progress-circular>
     </div><!--end loading progress-->
-
-
 </ion-view>

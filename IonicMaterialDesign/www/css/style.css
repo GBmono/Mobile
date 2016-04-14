@@ -2146,11 +2146,13 @@ md-sidenav {
     text-align: center;
     margin: 5px; }
 
-#gbmono-product-search #product-search-tab-brand .brand-area {
-  border-bottom: 1px solid;
-  border-color: #ddd;
-  padding-top: 5px;
-  padding-bottom: 0px; }
+#gbmono-product-search #product-search-tab-brand {
+  padding: 0px; }
+  #gbmono-product-search #product-search-tab-brand .brand-area {
+    border-bottom: 1px solid;
+    border-color: #ddd;
+    padding-top: 5px;
+    padding-bottom: 0px; }
 
 #gbmono-product-search-Result {
   background-color: #f6f6f6; }
@@ -2312,3 +2314,28 @@ md-sidenav {
 #gbmono-retailers-home-content #retailers-list .retailersArea h5 {
   color: gray;
   font-size: 16px; }
+
+.ion_alpha_list_outer .list {
+  padding-right: 15px; }
+
+.ion_alpha_list_outer .item {
+  border-right: none; }
+
+.ion_alpha_sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%; }
+
+.ion_alpha_sidebar li {
+  line-height: 1.1;
+  font-size: 70%; }
+
+.ion_alpha_list_outer .item-divider {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  min-height: 5px;
+  background-color: #ddd; }
+
+.ion_alpha_list_outer .scroll-view.scroll-y {
+  overflow-y: hidden; }
