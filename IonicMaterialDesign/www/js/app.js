@@ -40,7 +40,7 @@ window.globalVariable = {
     },
     adMob: "your_api_key", //Use for AdMob API clientID.
 
-    imagePath: gbmono_host + "AdminApi/Files/Products/",
+    imagePath: gbmono_host + "images/Products/",
 
     gbmono_api_token_url: gbmono_domain + 'token',
     BEARER_TOKEN_KEY: 'gbmono_BEARER_TOKEN',
