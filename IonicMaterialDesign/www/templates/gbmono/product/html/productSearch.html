@@ -4,7 +4,6 @@
 <!--Controller path : www/templates/share-application-content/social-share/js/controllers.js-->
 <!--State name : app.productList-->
 <!--URL : #app/productList-->
-
 <ion-view view-title="Material Shop">
     <ion-header-bar id="gbmono-product-list-head">
         <div class="row item-input-inset">
@@ -19,51 +18,64 @@
 
     </ion-header-bar>
 
-    <ion-content id="gbmono-product-search" scroll="false">
-        <!--product tabs section-->
-        <md-tabs md-border-bottom md-selected="0" id="product-search-tabs" md-dynamic-height
-                 class="no-border">
-            <!--product tab detail section-->
-            <md-tab label="分类">
-                <md-content id="product-search-tab-category">
-                    <ion-scroll id="categoryScroll" scroll-height-ht>
-                        <div class="row" ng-repeat="category in categories">
-                            <div class="col">
-                                <div class="row c-parent">
-                                    <div class="col">
-                                        <i class="ion-pricetags"></i><h4 ng-click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
-                                            {{category.Name}}
-                                        </h4>
+    <ion-view title="Scrollable Tabbed Slide box">
+        <ion-content scroll="false">
+            <tab-slide-box>
+                <div class="tsb-icons">
+                    <div class="tsb-ic-wrp">
+                        <ion-scroll class="tsb-hscroll">
+                            <a href="javascript:;" class="ion-home1">
+                                分类
+                            </a>
+                            <!--<a href="javascript:;" class="ion-ios-game-controller-b1">Games</a>-->
+                            <a href="javascript:;" class="ion-email1">
+                                品牌
+                            </a>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" id="gbmono-product-search">
+                    <ion-slide id="product-search-tab-category">
+                        <ion-scroll id="categoryScroll" scroll-height-ht>
+                            <div class="row" ng-repeat="category in categories">
+                                <div class="col">
+                                    <div class="row c-parent">
+                                        <div class="col">
+                                            <i class="ion-pricetags"></i><h4 ng-
+                                                                             click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
+                                                {{category.Name}}
+                                            </h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row c-children">
-                                    <div class="col-25" ng-repeat="subCategory in category.SubCategories">
-                                        <p ng-click="toProductSearch('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
-                                    </div>
-                                </div>
+                                    <div class="row c-children">
+                                        <div class="col-25" ng-repeat="subCategory in
 
+category.SubCategories">
+                                            <p ng-click="toProductSearch
+
+('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                    </ion-scroll>
-                </md-content>
-            </md-tab><!--end product tab detail section-->
-            <!--product tab product section-->
-            <md-tab label="热词">
-                <md-content id="product-search-tab-key" class="md-padding">
+                        </ion-scroll>
+                    </ion-slide>
+                    <!--<ion-slide>
+                        <h3>Games content</h3>
+                    </ion-slide>-->
+                    <ion-slide>
+                        <ion-alpha-scroll ng-model="brands" key="name">
+                            <div>{{item.name}}</div>
+                        </ion-alpha-scroll>
+                    </ion-slide>
+                </ion-slide-box>
+            </tab-slide-box>
+        </ion-content>
+    </ion-view>
 
-                </md-content>
-            </md-tab> <!--product tab product section-->
-            <md-tab label="品牌">
-                <md-content id="product-search-tab-brand" class="md-padding">
-                    <ion-alpha-scroll ng-model="brands" key="name">
-                        <div>{{item.name}}</div>
-                    </ion-alpha-scroll>
-                </md-content>
 
-            </md-tab> <!--product tab product section-->
 
-        </md-tabs><!--end product tabs section-->
-    </ion-content>
 
     <!--product list section-->
 
