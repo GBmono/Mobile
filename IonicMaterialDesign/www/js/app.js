@@ -1097,5 +1097,16 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 	    $ionicConfigProvider.platform.android.views.transition('android');
 	})
 
+    //Custom Directive
+
+    .directive('scrollHeightHt', function ($window) {
+        return {
+            restrict: 'AE',
+            link: function (scope, element, attr) {
+                element[0].style.height = ($window.innerHeight - 44 - 49) + 'px';
+            }
+        }
+    })
+
 
 ;
