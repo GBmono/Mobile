@@ -1099,17 +1099,16 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
     //Custom Directive
     .config(function ($mdGestureProvider) {
-        $mdGestureProvider.skipClickHijack()
-
-
-    .directive('scrollHeightHt', function ($window) {
-        return {
-            restrict: 'AE',
-            link: function (scope, element, attr) {
-                element[0].style.height = ($window.innerHeight - 44 - 49) + 'px';
-            }
-        }
-    })
+            $mdGestureProvider.skipClickHijack();
+        })
+            .directive('scrollHeightHt', function ($window) {
+                return {
+                    restrict: 'AE',
+                    link: function (scope, element, attr) {
+                        element[0].style.height = ($window.innerHeight - 44 - 49) + 'px';
+                    }
+                }
+            })
 
 
 ;
