@@ -1098,6 +1098,9 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 	})
 
     //Custom Directive
+    .config(function ($mdGestureProvider) {
+        $mdGestureProvider.skipClickHijack()
+
 
     .directive('scrollHeightHt', function ($window) {
         return {
