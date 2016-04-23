@@ -375,13 +375,13 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
     $scope.initialForm = function () {
 
         //$scope.initScrollHeight();
-        
+
         $scope.categories = [];
 
         $scope.brands = [];
 
-        $scope.loadCategories();
-        $scope.loadBrands();
+        loadCategories();
+        loadBrands();
 
         //// Loading progress.
         //$timeout(function () {
@@ -419,14 +419,14 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
 
 
 
-    $scope.loadCategories = function () {
+    var loadCategories = function () {
         $http.get('app-data/categories.json')
             .success(function (categories) {
                 $scope.categories = categories;
             });
     };// End loadMore.
 
-    $scope.loadBrands = function () {
+    var loadBrands = function () {
         gbmonoBrandFactory.getAll()
             .success(function (data) {
                 $scope.brands = data;

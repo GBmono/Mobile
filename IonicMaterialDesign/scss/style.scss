@@ -37,11 +37,20 @@ $color_border_menu_dashboard: rgba(225, 225, 225, 0.69);
 $color_news_header: #2882D8;
 
 //fonts variable section
-$font_roboto_draft: RobotoDraft;
+//old
+/*$font_roboto_draft: RobotoDraft;
 $font_roboto: Roboto;
 $font_helvetica_neue: Helvetica Neue;
 $font_sans-serif: sans-serif;
+$font_arial: Arial;*/
+
+//new
+$font_roboto_draft: SimSun;
+$font_roboto: Times New Roman;
+$font_helvetica_neue: Times;
+$font_sans-serif: sans-serif;
 $font_arial: Arial;
+
 
 //urls variable section
 $url_background_cover_pixels: url(../img/background_cover_pixels.png);
@@ -66,7 +75,12 @@ $url_background_cover_home_03: url(../img/demo/slider-cover-4.jpg);
 
 //global class section
 body {
+    //Old
+    /*font-family: $font_roboto_draft, $font_roboto, $font_helvetica_neue, $font_sans-serif;*/
+
+    //New
     font-family: $font_roboto_draft, $font_roboto, $font_helvetica_neue, $font_sans-serif;
+
 }
 
 .ios-course-background {

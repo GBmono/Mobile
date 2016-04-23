@@ -1,5 +1,11 @@
+/*$font_roboto_draft: RobotoDraft;
+$font_roboto: Roboto;
+$font_helvetica_neue: Helvetica Neue;
+$font_sans-serif: sans-serif;
+$font_arial: Arial;*/
 body {
-  font-family: RobotoDraft, Roboto, Helvetica Neue, sans-serif; }
+  /*font-family: $font_roboto_draft, $font_roboto, $font_helvetica_neue, $font_sans-serif;*/
+  font-family: SimSun, Times New Roman, Times, sans-serif; }
 
 .ios-course-background {
   background-color: #45AFA8 !important; }
