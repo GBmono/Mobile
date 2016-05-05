@@ -1036,7 +1036,7 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                 cache: true,
                 views: {
                     'retailsContent': {
-                        templateUrl: 'templates/gbmono/retailershops/html/retailers.html',
+                        templateUrl: 'templates/gbmono/retailershops/html/retailerShops.html',
                         controller: 'gbmonoRetailerShopCtrl'
                     }
                 }
