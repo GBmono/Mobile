@@ -1,4 +1,7 @@
 ﻿appControllers.controller('gbmonoRetailerShopCtrl', function ($scope, navigateService) {
+
+
+
     $scope.navigateTo = function (targetPage, params, direction) {
         navigateService.go(targetPage, params, direction);
     };
@@ -48,4 +51,35 @@ appControllers.controller('gbmonoStateShopsCtrl', function ($scope, navigateServ
     $scope.navigateTo = function (targetPage, params, direction) {
         navigateService.go(targetPage, params, direction);
     };
+
+
+    var Latitude = undefined;
+    var Longitude = undefined;
+
+    var onMapSuccess = function (position) {
+        debugger;
+        Latitude = position.coords.latitude;
+        Longitude = position.coords.longitude;
+    }
+
+    function onMapError(error) {
+        debugger;
+        console.log('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+    }
+
+
+    function getMapLocation() {
+        debugger;
+        navigator.geolocation.getCurrentPosition
+        (onMapSuccess, onMapError, { timeout: 30000, enableHighAccuracy: true, maximumAge: 75000 });
+    }
+
+
+        $scope.initialForm = function () {
+            getMapLocation();
+        };// End initialForm.
+
+
+    $scope.initialForm();
 });
