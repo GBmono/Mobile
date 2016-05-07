@@ -3667,6 +3667,56 @@ md-sidenav {
     }
 }
 
+
+#gbmono-brand-detail {
+    background-color: $color_black_haze_approx;
+
+    h5 {
+        color: $color_gray;
+    }
+
+    .productName {
+        font-size: 8px;
+        color: $color_gray;
+    }
+
+    .brandArea{
+        .img-brand-logo{
+            height:180px;
+            width:180px;
+        }
+
+    }
+
+    .productsArea {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ddd;
+        margin: 5px;
+        margin-top: -6px;
+    }
+
+    .productsArea img {
+        max-width: 80px;
+        max-height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .productsArea h5 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .productsArea p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
 //login content section
 #gbmono-login {
     text-align: center;

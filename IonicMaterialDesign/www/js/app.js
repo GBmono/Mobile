@@ -995,7 +995,18 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
                     }
                 }
             })
-
+            .state('noTabs.brandDetail', {
+                url: "/brandDetail",
+                params: {
+                    key: null
+                },
+                views: {
+                    'noTabsContent': {
+                        templateUrl: "templates/gbmono/product/html/brandDetail.html",
+                        controller: 'brandDetailCtrl'
+                    }
+                }
+            })
             // gbmono login page
             .state('noTabs.login', {
                 url: "/login",
@@ -1099,8 +1110,8 @@ angular.module('starter', ['ionic', 'ngIOS9UIWebViewPatch', 'starter.controllers
 
     //Custom Directive
     .config(function ($mdGestureProvider) {
-            $mdGestureProvider.skipClickHijack();
-        })
+        $mdGestureProvider.skipClickHijack();
+    })
             .directive('scrollHeightHt', function ($window) {
                 return {
                     restrict: 'AE',

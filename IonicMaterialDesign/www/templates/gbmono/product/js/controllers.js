@@ -403,13 +403,22 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
     // Parameter :  
     // targetPage = destination page.
     // objectData = object data that sent to destination page.
-    $scope.toProductSearch = function (targetPage, key) {
+    $scope.SearchProductByCategory = function (key) {
         //var way = window.globalVariable.gbmono_product_search_way.category;
-        $scope.navigateTo(targetPage, {
+        $scope.navigateTo('noTabs.productSearchResult', {
             way: window.globalVariable.gbmono_product_search_way.category,
             key: key
         });
     };// End navigateTo.
+
+    $scope.SearchProductByBrand = function (key) {
+        //var way = window.globalVariable.gbmono_product_search_way.category;
+        $scope.navigateTo('noTabs.brandDetail', {
+            key: key
+        });
+    };// End navigateTo.
+
+
     $scope.navigateTo = function (targetPage, params, direction) {
         navigateService.go(targetPage, params, direction);
     };
@@ -430,7 +439,7 @@ appControllers.controller('productSearchCtrl', function ($scope, $ionicSlideBoxD
         gbmonoBrandFactory.getAll()
             .success(function (data) {
                 $scope.brands = data;
-            });;
+            });
     }
 
 
@@ -532,7 +541,7 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
         if (data.length < $scope.pageSize) {
             $scope.enanbleScroll = false;
         } else {
-            $scope.pageIndex = pageIndex + 1;
+            $scope.pageIndex = $scope.pageIndex + 1;
         }
     };
 
@@ -544,5 +553,68 @@ appControllers.controller('productSearchResultCtrl', function ($scope, $ionicSli
 
 });// End of product search result controller.
 
+appControllers.controller('brandDetailCtrl', function ($scope, $ionicSlideBoxDelegate, $timeout, $state, $http, $ionicHistory, $stateParams, navigateService, gbmonoProductFactory, gbmonoBrandFactory) {
+    $scope.imgRoot = window.globalVariable.imagePath;
+    $scope.searchKey = $stateParams.key;
+    $scope.pageSize = 10;
+    $scope.pageIndex = 1;
+    $scope.productList = [];
+    $scope.enanbleScroll = true;
+
+    var loadBrand = function (key) {
+        gbmonoBrandFactory.getById(key) .success(function (data) {
+             $scope.brand = data;
+        });
+    }
+
+    $scope.initialForm = function () {
+        loadBrand($scope.searchKey);
+    };// End initialForm.
+
+
+
+    $scope.navigateTo = function (targetPage, params, direction) {
+        navigateService.go(targetPage, params, direction);
+    };// End navigateTo.
+
+    $scope.toProductDetail = function (targetPage, productId) {
+        $scope.navigateTo(targetPage, {
+            way: window.globalVariable.gbmono_product_detail_way.id,
+            key: productId
+        });
+    };
+
+    $scope.loadMore = function () {
+        $scope.loadProductBySearch($scope.searchKey, $scope.pageIndex, $scope.pageSize);
+    };
+
+    //loadMore product list.
+    $scope.loadProductBySearch = function (k, pageIndex, pageSize) {
+        gbmonoProductFactory.loadProductByBrand(k, pageIndex, pageSize).then(function (data) {
+            $scope.renderProduct(data);
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        }, function (reason) {
+
+        });
+    };
+
+    $scope.renderProduct = function (data) {
+        for (var product = 0; product < data.length; product++) {
+            $scope.productList.push(data[product]);
+        }
+        if (data.length < $scope.pageSize) {
+            $scope.enanbleScroll = false;
+        } else {
+            $scope.pageIndex = $scope.pageIndex + 1;
+        }
+    };
+
+    $scope.goBack = function () {
+        $ionicHistory.goBack();
+    };
+
+    $scope.initialForm();
+
+});// End of product search result controller.
 
 

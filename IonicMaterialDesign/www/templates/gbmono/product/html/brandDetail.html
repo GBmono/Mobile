@@ -1,0 +1,43 @@
+﻿<!--View Information-->
+<!--View name : Product List-->
+<!--Controller name : productListCtrl-->
+<!--Controller path : www/templates/share-application-content/social-share/js/controllers.js-->
+<!--State name : app.productList-->
+<!--URL : #app/productList-->
+
+<ion-view view-title="Material Shop">
+    <ion-header-bar id="gbmono-product-list-head">
+        <div class="buttons">
+            <button class="button button-clear button-icon icon ion-arrow-left-c" ng-click="goBack()"></button>
+        </div>
+    </ion-header-bar>
+
+    <!--product list section-->
+    <ion-content id="gbmono-brand-detail">
+        <div class="row brandArea">
+            <div class="col-60">
+                <img class="img-brand-logo" src="img/demo/h26.jpg">
+            </div>
+            <div class="col">
+                <h4>{{brand.displayName}}</h4>
+                <h5>{{brand.description}}</h5>
+            </div>
+        </div>
+        <div class="row productsArea" ng-repeat="product in productList"
+             ng-click="toProductDetail('noTabs.productDetail',product.productId)">
+            <div class="col-25">
+                <img ng-src="{{imgRoot + product.imgUrl}}">
+            </div>
+            <div class="col">
+                <h5>{{product.brandName}}</h5>
+                <p>{{product.primaryName}} {{product.secondaryName}}</p>
+            </div>
+        </div>
+
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="enanbleScroll">
+        </ion-infinite-scroll>
+    </ion-content>
+
+
+
+</ion-view>

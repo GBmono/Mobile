@@ -41,22 +41,16 @@
                                 <div class="col">
                                     <div class="row c-parent">
                                         <div class="col">
-                                            <i class="ion-pricetags"></i><h4 ng-
-                                                                             click="toProductSearch('noTabs.productSearchResult',category.CategoryId)">
+                                            <i class="ion-pricetags"></i><h4 ng-click="SearchProductByCategory(category.CategoryId)">
                                                 {{category.Name}}
                                             </h4>
                                         </div>
                                     </div>
                                     <div class="row c-children">
-                                        <div class="col-25" ng-repeat="subCategory in
-
-category.SubCategories">
-                                            <p ng-click="toProductSearch
-
-('noTabs.productSearchResult',subCategory.CategoryId)">{{subCategory.Name}}</p>
+                                        <div class="col-25" ng-repeat="subCategory in category.SubCategories">
+                                            <p ng-click="SearchProductByCategory(subCategory.CategoryId)">{{subCategory.Name}}</p>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </ion-scroll>
@@ -66,7 +60,7 @@ category.SubCategories">
                     </ion-slide>-->
                     <ion-slide>
                         <ion-alpha-scroll ng-model="brands" key="name">
-                            <div>{{item.name}}</div>
+                            <div ng-click="SearchProductByBrand(item.brandId)">{{item.name}}</div>
                         </ion-alpha-scroll>
                     </ion-slide>
                 </ion-slide-box>

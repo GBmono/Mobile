@@ -6,6 +6,7 @@
             loadProductBySearchShelf: '/shelf/',
             isFavorite: '/IsFavorited/',
             getProductByBarcode: '/barcodes/',
+            loadProductByBrand: '/Brands/'
         }
     };
 
@@ -32,6 +33,22 @@
         });
         return deferred.promise;
     };
+
+    factory.loadProductByBrand = function (key, pageIndex, pageSize) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: url.controller + url.actions.loadProductByBrand + key + '/' + pageIndex + '/' + pageSize,
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (reason) {
+            deferred.reject(reason);
+        });
+        return deferred.promise;
+    }
 
     factory.loadProductBySearchShelf = function (key, pageIndex, pageSize) {
         var deferred = $q.defer();
@@ -84,15 +101,32 @@
     return factory;
 }]);
 
-appFactories.factory('gbmonoBrandFactory', ['$http', '$q', '$rootScope', function ($http) {
+appFactories.factory('gbmonoBrandFactory', ['$http', '$q', '$rootScope', function ($http, $q) {
     var url = {
-        controller: window.globalVariable.gbmono_api_site_prefix.brand_api_url
+        controller: window.globalVariable.gbmono_api_site_prefix.brand_api_url,
     };
 
     var factory = {};
     factory.getAll = function () {
-        return $http.get(url.controller);
+        var deferred = $q.defer();
+        return $http.get(url.controller).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (reason) {
+            deferred.reject(reason);
+        });
+        return deferred.promise;;
     }
+
+    factory.getById = function (id) {
+        var deferred = $q.defer();
+        return $http.get(url.controller + "/" + id).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (reason) {
+            deferred.reject(reason);
+        });
+        return deferred.promise;;
+    }
+
 
     return factory;
 
